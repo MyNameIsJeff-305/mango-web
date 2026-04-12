@@ -1,0 +1,160 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Discover",
+    description:
+      "We learn about your business, goals, audience, and current online presence so we can identify the right starting point.",
+    accent: "mango",
+  },
+  {
+    number: "02",
+    title: "Build",
+    description:
+      "We design and organize the pieces your business needs, from branding and profiles to websites and SEO foundations.",
+    accent: "leaf",
+  },
+  {
+    number: "03",
+    title: "Launch",
+    description:
+      "We refine, deliver, and make sure your digital presence is ready to support trust, visibility, and growth.",
+    accent: "mango",
+  },
+  {
+    number: "04",
+    title: "Grow",
+    description:
+      "As your business evolves, we help you expand with stronger visibility, better consistency, and future-focused improvements.",
+    accent: "leaf",
+  },
+];
+---
+
+<section class="relative py-20 sm:py-24 lg:py-28">
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div
+      class="absolute left-[5%] bottom-8 h-60 w-60 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.12),transparent_64%)] blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute right-[8%] top-8 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.10),transparent_62%)] blur-3xl"
+    >
+    </div>
+  </div>
+
+  <div class="container-shell">
+    <div class="mx-auto max-w-3xl text-center">
+      <div
+        class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
+      >
+        <span class="inline-flex h-2.5 w-2.5 rounded-full leaf-gradient"></span>
+        Simple process. Strong results.
+      </div>
+
+      <h2
+        class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+      >
+        A clear path from scattered to polished
+      </h2>
+
+      <p
+        class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+      >
+        We make it easy to go from “I know my business needs help online” to
+        “everything finally looks polished and works together.”
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 lg:grid-cols-4 lg:gap-5">
+      {
+        steps.map((step, index) => (
+          <article class="surface-panel radius-brand relative flex h-full flex-col overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1">
+            <div
+              class:list={[
+                "absolute inset-x-0 top-0 h-1.5",
+                step.accent === "mango" ? "mango-gradient" : "leaf-gradient",
+              ]}
+            />
+
+            <div class="flex items-start justify-between gap-4">
+              <span
+                class:list={[
+                  "inline-flex min-w-[64px] items-center justify-center rounded-full px-3 py-2 font-nunito text-sm font-black tracking-[0.16em]",
+                  step.accent === "mango"
+                    ? "bg-[linear-gradient(135deg,rgba(218,60,120,0.14),rgba(254,205,76,0.28))] text-[#8f2750] dark:text-white"
+                    : "bg-[linear-gradient(135deg,rgba(1,155,144,0.16),rgba(176,241,34,0.24))] text-[#0f5f58] dark:text-white",
+                ]}
+              >
+                {step.number}
+              </span>
+
+              {index < steps.length - 1 && (
+                <span class="hidden lg:block text-[rgb(var(--color-text-secondary))]">
+                  →
+                </span>
+              )}
+            </div>
+
+            <h3 class="mt-6 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+              {step.title}
+            </h3>
+
+            <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+              {step.description}
+            </p>
+
+            <div class="mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-text-secondary))]">
+              <span
+                class:list={[
+                  "inline-flex h-2.5 w-2.5 rounded-full",
+                  step.accent === "mango" ? "mango-gradient" : "leaf-gradient",
+                ]}
+              />
+              Step {step.number}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div
+      class="mt-12 overflow-hidden rounded-[2rem] border border-black/8 bg-[rgb(var(--color-surface))] p-6 shadow-card dark:border-white/10 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8"
+    >
+      <div class="max-w-2xl">
+        <p
+          class="text-xs font-bold uppercase tracking-[0.2em] text-[rgb(var(--color-text-secondary))]"
+        >
+          Built to feel simple
+        </p>
+        <h3
+          class="mt-3 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-3xl"
+        >
+          You do not need to figure everything out before getting started.
+        </h3>
+        <p
+          class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-base"
+        >
+          Whether you need a full website, a cleaner brand presence, or a
+          stronger local foundation, Mango Media helps you move forward with
+          clarity.
+        </p>
+      </div>
+
+      <div class="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:shrink-0">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+        >
+          Start with Mango Media
+        </a>
+        <a
+          href="/services"
+          class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+        >
+          Explore Services
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

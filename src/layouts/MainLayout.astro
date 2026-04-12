@@ -1,0 +1,156 @@
+---
+import "../styles/global.css";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = "Mango Media | Build Your Brand. Grow Your Presence.",
+  description = "Mango Media helps local businesses build a stronger online presence through branding, websites, social media setup, Google Business Profile optimization, and local SEO.",
+  ogImage = "/images/og-placeholder.jpg",
+  canonical,
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = "https://mangomedia305.com";
+const currentUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
+const robots = noindex ? "noindex, nofollow" : "index, follow";
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Mango Media",
+  url: siteUrl,
+  logo: `${siteUrl}/images/logo-placeholder.png`,
+  image: `${siteUrl}${ogImage}`,
+  description,
+  email: "mangomedia305@gmail.com",
+  telephone: "+1-561-583-7737",
+  sameAs: ["https://www.instagram.com/", "https://www.facebook.com/"],
+};
+---
+
+<!doctype html>
+<html lang="en" suppressHydrationWarning>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={currentUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:site_name" content="Mango Media" />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+    <meta name="theme-color" content="#f4f4f2" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script is:inline>
+      (() => {
+        const storageKey = "mango-theme";
+        const root = document.documentElement;
+        const metaTheme = document.querySelector('meta[name="theme-color"]');
+
+        const getSystemTheme = () =>
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+
+        const applyTheme = (theme) => {
+          root.classList.remove("light", "dark");
+          root.classList.add(theme);
+          root.dataset.theme = theme;
+
+          if (metaTheme) {
+            metaTheme.setAttribute(
+              "content",
+              theme === "dark" ? "#0f1115" : "#f4f4f2",
+            );
+          }
+        };
+
+        try {
+          const storedTheme = localStorage.getItem(storageKey);
+          const initialTheme = storedTheme || getSystemTheme();
+          applyTheme(initialTheme);
+
+          window.__setPreferredTheme = (theme) => {
+            localStorage.setItem(storageKey, theme);
+            applyTheme(theme);
+          };
+
+          window.__getPreferredTheme = () => root.dataset.theme || initialTheme;
+
+          window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", (event) => {
+              const stored = localStorage.getItem(storageKey);
+              if (!stored) {
+                applyTheme(event.matches ? "dark" : "light");
+              }
+            });
+        } catch {
+          applyTheme("light");
+        }
+      })();
+    </script>
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(organizationSchema)}
+    />
+  </head>
+
+  <body
+    class="bg-[rgb(var(--color-bg))] text-[rgb(var(--color-text))] font-montserrat antialiased transition-colors duration-300"
+  >
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-[rgb(var(--color-surface))] focus:px-4 focus:py-2 focus:text-[rgb(var(--color-text))]"
+    >
+      Skip to content
+    </a>
+
+    <div
+      class="relative min-h-screen overflow-x-clip bg-[rgb(var(--color-bg))]"
+    >
+      <div
+        class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_top_left,rgba(254,205,76,0.20),transparent_35%),radial-gradient(circle_at_top_right,rgba(176,241,34,0.14),transparent_30%),radial-gradient(circle_at_center,rgba(218,60,120,0.10),transparent_45%)]"
+      >
+      </div>
+
+      <Header />
+
+      <main id="main-content" class="relative">
+        <slot />
+      </main>
+
+      <Footer />
+    </div>
+  </body>
+</html>

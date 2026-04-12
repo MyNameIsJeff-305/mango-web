@@ -1,11 +1,28 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/sections/home/Hero.astro";
+import ServicesPreview from "../components/sections/home/ServicesPreview.astro";
+import WhyChooseUs from "../components/sections/home/WhyChooseUs.astro";
+import ProcessSection from "../components/sections/home/ProcessSection.astro";
+import ResultsSection from "../components/sections/home/ResultsSection.astro";
+import IndustriesSection from "../components/sections/home/IndustriesSection.astro";
+import TestimonialsSection from "../components/sections/home/TestimonialsSection.astro";
+import FAQSection from "../components/sections/home/FAQSection.astro";
+import FinalCTA from "../components/sections/home/FinalCTA.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout
+  title="Mango Media | Build Your Brand. Grow Your Presence."
+  description="Mango Media helps local businesses build a stronger online presence through branding, websites, social media setup, Google Business Profile optimization, and local SEO."
+  ogImage="/images/og-placeholder.jpg"
+>
+  <Hero />
+  <ServicesPreview />
+  <WhyChooseUs />
+  <ProcessSection />
+  <ResultsSection />
+  <IndustriesSection />
+  <TestimonialsSection />
+  <FAQSection />
+  <FinalCTA />
+</MainLayout>

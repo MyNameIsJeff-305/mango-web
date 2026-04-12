@@ -1,0 +1,166 @@
+---
+const valuePoints = [
+  {
+    title: "Clear communication",
+    description:
+      "We keep the process straightforward, collaborative, and easy to follow from the first conversation to final delivery.",
+    accent: "mango",
+  },
+  {
+    title: "Strategic design",
+    description:
+      "Everything we build is made to strengthen trust, improve visibility, and help your business turn attention into action.",
+    accent: "leaf",
+  },
+  {
+    title: "Local-business mindset",
+    description:
+      "We focus on what matters most for businesses that depend on real local customers, strong first impressions, and practical growth.",
+    accent: "mango",
+  },
+  {
+    title: "Brand consistency",
+    description:
+      "From your website to your business profiles, we help everything feel aligned, intentional, and professionally connected.",
+    accent: "leaf",
+  },
+];
+---
+
+<section class="relative py-20 sm:py-24 lg:py-28">
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div
+      class="absolute left-[8%] top-8 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.10),transparent_65%)] blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute right-[4%] bottom-10 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.10),transparent_62%)] blur-3xl"
+    >
+    </div>
+  </div>
+
+  <div class="container-shell">
+    <div class="grid items-start gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
+      <div class="max-w-xl">
+        <div
+          class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
+        >
+          <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"
+          ></span>
+          Why businesses choose Mango Media
+        </div>
+
+        <h2
+          class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+        >
+          A creative partner built for local businesses
+        </h2>
+
+        <p
+          class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+        >
+          We know that most local business owners do not need complexity. They
+          need clarity, consistency, and results. Our approach keeps things
+          simple, strategic, and visually strong so your business looks
+          professional and grows with less stress.
+        </p>
+
+        <div
+          class="mt-8 overflow-hidden rounded-[2rem] border border-black/8 bg-[rgb(var(--color-surface))] p-5 shadow-card dark:border-white/10 sm:p-6"
+        >
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div
+              class="rounded-[1.5rem] bg-[rgb(var(--color-surface-soft))] p-4"
+            >
+              <div
+                class="text-xs font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-text-secondary))]"
+              >
+                Built for
+              </div>
+              <p
+                class="mt-2 font-nunito text-xl font-extrabold text-[rgb(var(--color-text))]"
+              >
+                Local businesses
+              </p>
+            </div>
+
+            <div
+              class="rounded-[1.5rem] bg-[rgb(var(--color-surface-soft))] p-4"
+            >
+              <div
+                class="text-xs font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-text-secondary))]"
+              >
+                Focused on
+              </div>
+              <p
+                class="mt-2 font-nunito text-xl font-extrabold text-[rgb(var(--color-text))]"
+              >
+                Clarity + growth
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="mt-5 rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(218,60,120,0.10),rgba(254,205,76,0.14),rgba(1,155,144,0.10))] p-5"
+          >
+            <p
+              class="font-nunito text-lg font-extrabold text-[rgb(var(--color-text))]"
+            >
+              Your business should not feel scattered online.
+            </p>
+            <p
+              class="mt-2 text-sm leading-7 text-[rgb(var(--color-text-secondary))]"
+            >
+              Mango Media helps bring your branding, profiles, and digital
+              presence together so your business looks stronger and feels more
+              trustworthy from the first impression.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        {
+          valuePoints.map((item) => (
+            <article class="surface-panel radius-brand group relative overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1">
+              <div
+                class:list={[
+                  "absolute inset-x-0 top-0 h-1.5",
+                  item.accent === "mango" ? "mango-gradient" : "leaf-gradient",
+                ]}
+              />
+
+              <div
+                class:list={[
+                  "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-lg font-black shadow-soft",
+                  item.accent === "mango"
+                    ? "bg-[linear-gradient(135deg,rgba(218,60,120,0.18),rgba(254,205,76,0.30))] text-[#7f1843] dark:text-white"
+                    : "bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.28))] text-[#0f5f58] dark:text-white",
+                ]}
+              >
+                {item.title.charAt(0)}
+              </div>
+
+              <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+                {item.title}
+              </h3>
+
+              <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+                {item.description}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="mt-12 flex justify-center lg:justify-start">
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+      >
+        Book Your Free Consultation
+      </a>
+    </div>
+  </div>
+</section>

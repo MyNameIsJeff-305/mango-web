@@ -1,0 +1,163 @@
+---
+const services = [
+  {
+    title: "Website Design",
+    description:
+      "Beautiful, strategic websites that present your business clearly and turn visitors into leads.",
+    href: "/services/website-design",
+    accent: "mango",
+  },
+  {
+    title: "Local SEO",
+    description:
+      "Get discovered by people searching for the services you offer in your area.",
+    href: "/services/local-seo",
+    accent: "leaf",
+  },
+  {
+    title: "Branding & Social Media Setup",
+    description:
+      "Create a cleaner, more professional brand presence across your key channels.",
+    href: "/services/branding-social-media",
+    accent: "mango",
+  },
+  {
+    title: "Online Presence Setup",
+    description:
+      "We organize your business information, profiles, assets, and digital essentials so everything works together.",
+    href: "/services/online-presence-setup",
+    accent: "leaf",
+  },
+  {
+    title: "Google Business Profile Setup",
+    description:
+      "Claim, optimize, and strengthen one of the most important assets for local visibility.",
+    href: "/services/google-business-profile",
+    accent: "mango",
+  },
+  {
+    title: "Starter Packages",
+    description:
+      "A simplified launch solution for new or small businesses that need to look professional fast.",
+    href: "/services/starter-packages",
+    accent: "leaf",
+  },
+];
+---
+
+<section class="relative py-20 sm:py-24 lg:py-28">
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div
+      class="absolute left-0 top-10 h-52 w-52 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.10),transparent_65%)] blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute right-0 bottom-0 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(176,241,34,0.10),transparent_60%)] blur-3xl"
+    >
+    </div>
+  </div>
+
+  <div class="container-shell">
+    <div class="mx-auto max-w-3xl text-center">
+      <div
+        class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
+      >
+        <span class="inline-flex h-2.5 w-2.5 rounded-full leaf-gradient"></span>
+        Services built to strengthen your online presence
+      </div>
+
+      <h2
+        class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+      >
+        Everything you need to build a stronger online presence
+      </h2>
+
+      <p
+        class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+      >
+        Whether you are just starting or leveling up an existing business, we
+        create the digital foundation that helps your brand stand out, stay
+        consistent, and support real growth.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      {
+        services.map((service) => (
+          <article class="group surface-panel radius-brand relative overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1">
+            <div
+              class:list={[
+                "absolute inset-x-0 top-0 h-1.5",
+                service.accent === "mango" ? "mango-gradient" : "leaf-gradient",
+              ]}
+            />
+
+            <div
+              class:list={[
+                "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-sm font-black shadow-soft",
+                service.accent === "mango"
+                  ? "bg-[linear-gradient(135deg,rgba(218,60,120,0.18),rgba(254,205,76,0.30))] text-[#7f1843] dark:text-white"
+                  : "bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.28))] text-[#0f5f58] dark:text-white",
+              ]}
+            >
+              {service.title
+                .split(" ")
+                .map((word) => word[0])
+                .join("")
+                .slice(0, 2)}
+            </div>
+
+            <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+              {service.title}
+            </h3>
+
+            <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+              {service.description}
+            </p>
+
+            <div class="mt-6 flex items-center justify-between gap-3">
+              <a
+                href={service.href}
+                class="inline-flex items-center gap-2 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] transition-colors duration-200 hover:text-[rgb(var(--color-mango-pink))]"
+              >
+                Learn More
+                <span class="transition-transform duration-200 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+
+              <span
+                class:list={[
+                  "inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]",
+                  service.accent === "mango"
+                    ? "bg-[rgb(var(--color-mango-pink))/0.10] text-[rgb(var(--color-mango-pink))]"
+                    : "bg-[rgb(var(--color-leaf-teal))/0.12] text-[rgb(var(--color-leaf-teal))] dark:text-[rgb(var(--color-leaf-lime))]",
+                ]}
+              >
+                Service
+              </span>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div
+      class="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"
+    >
+      <a
+        href="/services"
+        class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+      >
+        View All Services
+      </a>
+
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+      >
+        Book a Free Consultation
+      </a>
+    </div>
+  </div>
+</section>

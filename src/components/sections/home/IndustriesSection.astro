@@ -1,0 +1,138 @@
+---
+const industries = [
+  {
+    title: "Home Services",
+    description:
+      "Great for contractors, installers, repair companies, and service businesses that need stronger local visibility and a more polished brand presence.",
+    accent: "mango",
+  },
+  {
+    title: "Beauty & Wellness",
+    description:
+      "Ideal for salons, estheticians, med spas, and wellness brands that want a clean, elevated online presence that builds trust quickly.",
+    accent: "leaf",
+  },
+  {
+    title: "Dental & Healthcare",
+    description:
+      "Perfect for practices that need a professional website, stronger credibility, and better visibility for local patients searching online.",
+    accent: "mango",
+  },
+  {
+    title: "Legal & Professional Services",
+    description:
+      "Built for businesses that depend on authority, clarity, and a polished first impression to turn visitors into leads.",
+    accent: "leaf",
+  },
+  {
+    title: "Restaurants & Hospitality",
+    description:
+      "Useful for brands that need better profile setup, clearer business information, and a stronger digital presence for local discovery.",
+    accent: "mango",
+  },
+  {
+    title: "Retail, Fitness & Growing Local Brands",
+    description:
+      "A strong fit for owner-led brands that want to look more established, stay consistent across channels, and grow with confidence.",
+    accent: "leaf",
+  },
+];
+---
+
+<section class="relative py-20 sm:py-24 lg:py-28">
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute left-[4%] top-10 h-60 w-60 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.10),transparent_64%)] blur-3xl"></div>
+    <div class="absolute right-[5%] bottom-6 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.10),transparent_62%)] blur-3xl"></div>
+  </div>
+
+  <div class="container-shell">
+    <div class="mx-auto max-w-3xl text-center">
+      <div class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
+        <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"></span>
+        Built for growing local businesses
+      </div>
+
+      <h2 class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl">
+        Who Mango Media is built to help
+      </h2>
+
+      <p class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg">
+        Mango Media works especially well for service businesses, owner-led brands, startups, and local companies that want to look more established online and create a stronger digital foundation.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {industries.map((industry) => (
+        <article class="surface-panel radius-brand group relative overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1">
+          <div
+            class:list={[
+              "absolute inset-x-0 top-0 h-1.5",
+              industry.accent === "mango" ? "mango-gradient" : "leaf-gradient",
+            ]}
+          ></div>
+
+          <div class="flex items-start justify-between gap-4">
+            <div
+              class:list={[
+                "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-lg font-black shadow-soft",
+                industry.accent === "mango"
+                  ? "bg-[linear-gradient(135deg,rgba(218,60,120,0.18),rgba(254,205,76,0.30))] text-[#7f1843] dark:text-white"
+                  : "bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.28))] text-[#0f5f58] dark:text-white",
+              ]}
+            >
+              {industry.title.charAt(0)}
+            </div>
+
+            <span
+              class:list={[
+                "inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]",
+                industry.accent === "mango"
+                  ? "bg-[rgb(var(--color-mango-pink))/0.10] text-[rgb(var(--color-mango-pink))]"
+                  : "bg-[rgb(var(--color-leaf-teal))/0.12] text-[rgb(var(--color-leaf-teal))] dark:text-[rgb(var(--color-leaf-lime))]",
+              ]}
+            >
+              Industry
+            </span>
+          </div>
+
+          <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+            {industry.title}
+          </h3>
+
+          <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+            {industry.description}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-12 overflow-hidden rounded-[2rem] border border-black/8 bg-[rgb(var(--color-surface))] p-6 shadow-card dark:border-white/10 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
+      <div class="max-w-2xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[rgb(var(--color-text-secondary))]">
+          Not sure if your business fits?
+        </p>
+        <h3 class="mt-3 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-3xl">
+          If you want your business to look stronger online, Mango Media can help.
+        </h3>
+        <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-base">
+          Even if your industry is not listed here, we can help you build a clearer brand presence, stronger website foundation, and better local visibility.
+        </p>
+      </div>
+
+      <div class="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:shrink-0">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+        >
+          Talk About Your Business
+        </a>
+        <a
+          href="/services"
+          class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+        >
+          Explore Services
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,120 @@
+---
+const faqs = [
+  {
+    question: "What types of businesses do you work with?",
+    answer:
+      "We primarily help local businesses, startups, owner-led brands, and small companies that want a stronger online presence and a more professional brand image.",
+  },
+  {
+    question: "Do I need a full website to get started?",
+    answer:
+      "Not always. Some businesses benefit from a foundational setup first, such as branding, Google Business Profile optimization, and social media setup, before investing in a full website.",
+  },
+  {
+    question: "Can you help if I already have a logo or website?",
+    answer:
+      "Yes. We can refine, redesign, organize, or improve what you already have instead of starting everything from scratch.",
+  },
+  {
+    question: "Do you offer one-time projects or ongoing support?",
+    answer:
+      "Mango Media can support both one-time launches and future growth needs, depending on the service and what your business needs most right now.",
+  },
+  {
+    question: "How long does a typical project take?",
+    answer:
+      "Timelines vary depending on the scope, but many foundational packages and setup projects can be completed in a relatively short turnaround.",
+  },
+  {
+    question: "What if I am not sure which service I need?",
+    answer:
+      "That is completely fine. We can start with a conversation about your business, your current online presence, and your goals to help you choose the right next step.",
+  },
+];
+---
+
+<section class="relative py-20 sm:py-24 lg:py-28">
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute left-[5%] top-8 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.10),transparent_64%)] blur-3xl"></div>
+    <div class="absolute right-[6%] bottom-8 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.12),transparent_62%)] blur-3xl"></div>
+  </div>
+
+  <div class="container-shell">
+    <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-12">
+      <div class="max-w-xl">
+        <div class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
+          <span class="inline-flex h-2.5 w-2.5 rounded-full leaf-gradient"></span>
+          Helpful answers before you get started
+        </div>
+
+        <h2 class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl">
+          Frequently asked questions
+        </h2>
+
+        <p class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg">
+          These are some of the most common questions businesses have before starting. The goal is to make the process feel simple, clear, and easy to move forward with.
+        </p>
+
+        <div class="mt-8 overflow-hidden rounded-[2rem] border border-black/8 bg-[rgb(var(--color-surface))] p-5 shadow-card dark:border-white/10 sm:p-6">
+          <div class="rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(218,60,120,0.10),rgba(254,205,76,0.14),rgba(1,155,144,0.10))] p-5">
+            <p class="font-nunito text-lg font-extrabold text-[rgb(var(--color-text))]">
+              Still unsure where to start?
+            </p>
+            <p class="mt-2 text-sm leading-7 text-[rgb(var(--color-text-secondary))]">
+              You do not need to arrive with everything figured out. Mango Media helps you identify the right next step based on your business, your goals, and your current online presence.
+            </p>
+          </div>
+
+          <div class="mt-5 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-[1.5rem] bg-[rgb(var(--color-surface-soft))] p-4">
+              <div class="text-xs font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-text-secondary))]">
+                Best for
+              </div>
+              <p class="mt-2 font-nunito text-xl font-extrabold text-[rgb(var(--color-text))]">
+                Clarity + confidence
+              </p>
+            </div>
+
+            <div class="rounded-[1.5rem] bg-[rgb(var(--color-surface-soft))] p-4">
+              <div class="text-xs font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-text-secondary))]">
+                Great for
+              </div>
+              <p class="mt-2 font-nunito text-xl font-extrabold text-[rgb(var(--color-text))]">
+                New and growing brands
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq, index) => (
+          <details class="surface-panel radius-brand group overflow-hidden p-0" open={index === 0}>
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-nunito text-lg font-extrabold text-[rgb(var(--color-text))] marker:content-none">
+              <span>{faq.question}</span>
+              <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[rgb(var(--color-surface-soft))] text-[rgb(var(--color-text-secondary))] transition-transform duration-200 group-open:rotate-45">
+                +
+              </span>
+            </summary>
+
+            <div class="px-6 pb-6 pt-0">
+              <div class="h-px w-full bg-black/6 dark:bg-white/10"></div>
+              <p class="pt-5 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+                {faq.answer}
+              </p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-12 flex justify-center lg:justify-start">
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+      >
+        Still Have Questions? Contact Us
+      </a>
+    </div>
+  </div>
+</section>
