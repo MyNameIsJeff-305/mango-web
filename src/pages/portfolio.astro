@@ -1,0 +1,259 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const featuredProjects = [
+  {
+    title: "Local Brand Presence Refresh",
+    category: "Branding & Social Setup",
+    summary:
+      "A polished visual direction and optimized social presence created to help a local service brand look more credible and consistent online.",
+    image: "/images/project-placeholder-01.webp",
+    accent: "mango",
+    href: "/contact",
+  },
+  {
+    title: "Service Business Website Launch",
+    category: "Website Design",
+    summary:
+      "A clean, conversion-focused website concept designed to communicate services clearly and create a stronger first impression.",
+    image: "/images/project-placeholder-02.webp",
+    accent: "leaf",
+    href: "/contact",
+  },
+  {
+    title: "Google Business Profile Optimization",
+    category: "Local SEO / GBP",
+    summary:
+      "A local visibility improvement project focused on profile structure, business information consistency, and better search readiness.",
+    image: "/images/project-placeholder-03.webp",
+    accent: "mango",
+    href: "/contact",
+  },
+  {
+    title: "Starter Package Launch Setup",
+    category: "Starter Package",
+    summary:
+      "A fast-launch setup for a small business that needed branding basics, profile setup, and a stronger online foundation.",
+    image: "/images/project-placeholder-04.webp",
+    accent: "leaf",
+    href: "/contact",
+  },
+  {
+    title: "Growth Package Brand System",
+    category: "Growth Setup",
+    summary:
+      "A more complete launch-ready package with content pieces, templates, clearer CTAs, and a stronger overall profile presentation.",
+    image: "/images/project-placeholder-05.webp",
+    accent: "mango",
+    href: "/contact",
+  },
+  {
+    title: "Launch Pro Landing Experience",
+    category: "Launch Pro",
+    summary:
+      "A premium launch concept combining landing page structure, brand direction, and launch-ready assets for a business starting strong.",
+    image: "/images/project-placeholder-06.webp",
+    accent: "leaf",
+    href: "/contact",
+  },
+];
+
+const filters = [
+  "All",
+  "Website Design",
+  "Branding & Social Setup",
+  "Local SEO / GBP",
+  "Starter Package",
+  "Growth Setup",
+  "Launch Pro",
+];
+---
+
+<MainLayout
+  title="Portfolio | Mango Media Projects and Creative Work"
+  description="Explore Mango Media portfolio examples for branding, website design, local SEO, starter packages, and online presence projects."
+  ogImage="/images/og-placeholder.jpg"
+>
+  <section
+    class="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28"
+  >
+    <div class="pointer-events-none absolute inset-0 -z-10">
+      <div
+        class="absolute left-[-8%] top-12 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.34),transparent_65%)] blur-2xl"
+      >
+      </div>
+      <div
+        class="absolute right-[-6%] top-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.22),transparent_60%)] blur-3xl"
+      >
+      </div>
+      <div
+        class="absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.14),transparent_62%)] blur-3xl"
+      >
+      </div>
+    </div>
+
+    <div class="container-shell">
+      <div class="mx-auto max-w-4xl text-center">
+        <div
+          class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
+        >
+          <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"
+          ></span>
+          Selected work and visual direction
+        </div>
+
+        <h1
+          class="mt-6 font-nunito text-4xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-5xl lg:text-6xl"
+        >
+          Portfolio
+        </h1>
+
+        <p
+          class="mx-auto mt-6 max-w-3xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+        >
+          Explore examples of branding, websites, local visibility work, and
+          launch-ready package concepts created to help businesses look more
+          polished and more professional online.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-12 sm:pb-14 lg:pb-16">
+    <div class="container-shell">
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        {
+          filters.map((filter, index) => (
+            <button
+              type="button"
+              class:list={[
+                "rounded-full border px-4 py-2 text-sm font-nunito font-extrabold transition-colors duration-200",
+                index === 0
+                  ? "border-transparent bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] text-white shadow-mango"
+                  : "border-black/8 bg-white/80 text-[rgb(var(--color-text))] backdrop-blur hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10",
+              ]}
+            >
+              {filter}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-20 sm:pb-24 lg:pb-28">
+    <div class="container-shell">
+      <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {
+          featuredProjects.map((project) => (
+            <article class="surface-panel radius-brand group relative overflow-hidden transition-transform duration-300 hover:-translate-y-1">
+              <div
+                class:list={[
+                  "absolute inset-x-0 top-0 h-1.5",
+                  project.accent === "mango"
+                    ? "mango-gradient"
+                    : "leaf-gradient",
+                ]}
+              />
+
+              <div class="overflow-hidden border-b border-black/6 bg-[rgb(var(--color-surface-soft))] dark:border-white/10">
+                <img
+                  src={project.image}
+                  alt={`Placeholder preview for ${project.title}`}
+                  class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="p-6">
+                <span
+                  class:list={[
+                    "inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]",
+                    project.accent === "mango"
+                      ? "bg-[rgb(var(--color-mango-pink))/0.10] text-[rgb(var(--color-mango-pink))]"
+                      : "bg-[rgb(var(--color-leaf-teal))/0.12] text-[rgb(var(--color-leaf-teal))] dark:text-[rgb(var(--color-leaf-lime))]",
+                  ]}
+                >
+                  {project.category}
+                </span>
+
+                <h2 class="mt-4 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+                  {project.title}
+                </h2>
+
+                <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+                  {project.summary}
+                </p>
+
+                <a
+                  href={project.href}
+                  class="mt-6 inline-flex items-center gap-2 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] transition-colors duration-200 hover:text-[rgb(var(--color-mango-pink))]"
+                >
+                  Ask About Similar Work
+                  <span class="transition-transform duration-200 group-hover:translate-x-1">
+                    →
+                  </span>
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-20 sm:pb-24 lg:pb-28">
+    <div class="container-shell">
+      <div
+        class="relative overflow-hidden rounded-[2.5rem] border border-black/8 bg-[rgb(var(--color-surface))] px-6 py-10 shadow-card dark:border-white/10 sm:px-8 sm:py-12 lg:px-12 lg:py-14"
+      >
+        <div
+          class="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(218,60,120,0.10),rgba(254,205,76,0.14),rgba(1,155,144,0.10))]"
+        >
+        </div>
+
+        <div class="mx-auto max-w-4xl text-center">
+          <div
+            class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
+          >
+            <span class="inline-flex h-2.5 w-2.5 rounded-full leaf-gradient"
+            ></span>
+            Want something like this for your business?
+          </div>
+
+          <h2
+            class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+          >
+            Let’s create a stronger digital presence built around your business
+            goals.
+          </h2>
+
+          <p
+            class="mx-auto mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+          >
+            Whether you need branding, a website, package support, or local
+            visibility improvements, Mango Media can help you build a polished
+            online presence that feels ready to grow.
+          </p>
+
+          <div
+            class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          >
+            <a
+              href="/contact"
+              class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              Start Your Project
+            </a>
+            <a
+              href="/services"
+              class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+            >
+              Explore Services
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

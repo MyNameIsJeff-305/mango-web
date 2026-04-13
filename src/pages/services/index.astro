@@ -1,0 +1,436 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const services = [
+  {
+    title: "Website Design",
+    href: "/services/website-design",
+    accent: "mango",
+    description:
+      "Beautiful, strategic websites that present your business clearly, strengthen trust, and help turn visitors into leads.",
+    bullets: [
+      "Custom page structure",
+      "Mobile-friendly design",
+      "Conversion-focused messaging",
+      "Basic on-page SEO setup",
+    ],
+  },
+  {
+    title: "Local SEO",
+    href: "/services/local-seo",
+    accent: "leaf",
+    description:
+      "Local visibility strategies that help your business appear where nearby customers are already searching.",
+    bullets: [
+      "Local SEO foundation",
+      "Profile and visibility support",
+      "Keyword-focused recommendations",
+      "Better local discoverability",
+    ],
+  },
+  {
+    title: "Branding & Social Media Setup",
+    href: "/services/branding-social-media",
+    accent: "mango",
+    description:
+      "A cleaner, more consistent brand presence across your key social channels and customer touchpoints.",
+    bullets: [
+      "Basic branding direction",
+      "Logo refinement or simple logo",
+      "Profile and cover setup",
+      "Bio and brand consistency",
+    ],
+  },
+  {
+    title: "Online Presence Setup",
+    href: "/services/online-presence-setup",
+    accent: "leaf",
+    description:
+      "We organize your digital essentials so your business information, branding, and profiles work together.",
+    bullets: [
+      "Business info standardization",
+      "Channel setup support",
+      "Asset and access organization",
+      "Clear next-step recommendations",
+    ],
+  },
+  {
+    title: "Google Business Profile Setup",
+    href: "/services/google-business-profile",
+    accent: "mango",
+    description:
+      "Claim, set up, and strengthen one of the most important assets for local search visibility.",
+    bullets: [
+      "Claim or setup guidance",
+      "Profile completion",
+      "Description optimization",
+      "Foundational local visibility support",
+    ],
+  },
+  {
+    title: "Starter Packages",
+    href: "/services/starter-packages",
+    accent: "leaf",
+    description:
+      "A simple launch solution for new or small businesses that need to look professional and organized fast.",
+    bullets: [
+      "Fast foundational setup",
+      "Brand and profile alignment",
+      "Launch-focused deliverables",
+      "Great for early-stage businesses",
+    ],
+  },
+];
+
+const process = [
+  {
+    step: "01",
+    title: "Discover",
+    description: "We learn about your business, your current online presence, and what needs the most attention first.",
+  },
+  {
+    step: "02",
+    title: "Recommend",
+    description: "We help define the right service, package, or starting point based on your goals and stage of growth.",
+  },
+  {
+    step: "03",
+    title: "Build",
+    description: "We create, refine, and organize the digital pieces your business needs to look stronger online.",
+  },
+  {
+    step: "04",
+    title: "Launch",
+    description: "We deliver a polished foundation that helps your business look more credible, consistent, and ready to grow.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Do I need all of these services at once?",
+    answer:
+      "Not at all. Many businesses start with one area, such as branding, website design, or Google Business Profile setup, and expand from there.",
+  },
+  {
+    question: "What service is best for a brand-new business?",
+    answer:
+      "Starter Packages and Online Presence Setup are often great first steps because they help businesses look more professional quickly and create a strong base for future growth.",
+  },
+  {
+    question: "Can Mango Media help improve what I already have?",
+    answer:
+      "Yes. We can refine your existing website, branding, social setup, or online presence instead of rebuilding everything from scratch.",
+  },
+  {
+    question: "What if I am not sure which service fits my business?",
+    answer:
+      "That is part of the process. We can help you identify the most useful starting point based on where your business is today and where you want it to go.",
+  },
+];
+---
+
+<MainLayout
+  title="Services | Mango Media Branding, Websites, Online Presence Setup & Local SEO"
+  description="Explore Mango Media services for branding, website design, online presence setup, Google Business Profile optimization, and local SEO for local businesses."
+  ogImage="/images/og-placeholder.jpg"
+>
+  <section class="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28">
+    <div class="pointer-events-none absolute inset-0 -z-10">
+      <div class="absolute left-[-8%] top-12 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.34),transparent_65%)] blur-2xl"></div>
+      <div class="absolute right-[-6%] top-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.22),transparent_60%)] blur-3xl"></div>
+      <div class="absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.14),transparent_62%)] blur-3xl"></div>
+    </div>
+
+    <div class="container-shell">
+      <div class="mx-auto max-w-4xl text-center">
+        <div class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
+          <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"></span>
+          Services designed for local business growth
+        </div>
+
+        <h1 class="mt-6 font-nunito text-4xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-5xl lg:text-6xl">
+          Services that help your business look stronger online
+        </h1>
+
+        <p class="mx-auto mt-6 max-w-3xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg">
+          From branding and setup to websites and local SEO, Mango Media helps local businesses build an online presence that looks polished, feels consistent, and supports real growth.
+        </p>
+
+        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+          >
+            Book a Free Consultation
+          </a>
+          <a
+            href="#service-list"
+            class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+          >
+            Explore Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="service-list" class="relative pb-20 sm:pb-24 lg:pb-28">
+    <div class="container-shell">
+      <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {services.map((service) => (
+          <article class="surface-panel radius-brand group relative overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1">
+            <div
+              class:list={[
+                "absolute inset-x-0 top-0 h-1.5",
+                service.accent === "mango" ? "mango-gradient" : "leaf-gradient",
+              ]}
+            ></div>
+
+            <div class="flex items-start justify-between gap-4">
+              <div
+                class:list={[
+                  "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-sm font-black shadow-soft",
+                  service.accent === "mango"
+                    ? "bg-[linear-gradient(135deg,rgba(218,60,120,0.18),rgba(254,205,76,0.30))] text-[#7f1843] dark:text-white"
+                    : "bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.28))] text-[#0f5f58] dark:text-white",
+                ]}
+              >
+                {service.title
+                  .split(" ")
+                  .map((word) => word[0])
+                  .join("")
+                  .slice(0, 2)}
+              </div>
+
+              <span
+                class:list={[
+                  "inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]",
+                  service.accent === "mango"
+                    ? "bg-[rgb(var(--color-mango-pink))/0.10] text-[rgb(var(--color-mango-pink))]"
+                    : "bg-[rgb(var(--color-leaf-teal))/0.12] text-[rgb(var(--color-leaf-teal))] dark:text-[rgb(var(--color-leaf-lime))]",
+                ]}
+              >
+                Service
+              </span>
+            </div>
+
+            <h2 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+              {service.title}
+            </h2>
+
+            <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+              {service.description}
+            </p>
+
+            <ul class="mt-5 space-y-3">
+              {service.bullets.map((bullet) => (
+                <li class="flex items-start gap-3 text-sm font-medium text-[rgb(var(--color-text))]">
+                  <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full leaf-gradient text-[10px] font-black text-[#0f1115]">
+                    ✓
+                  </span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={service.href}
+              class="mt-6 inline-flex items-center gap-2 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] transition-colors duration-200 hover:text-[rgb(var(--color-mango-pink))]"
+            >
+              Learn More
+              <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative pb-20 sm:pb-24 lg:pb-28">
+    <div class="container-shell">
+      <div class="grid items-start gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
+        <div class="max-w-xl">
+          <div class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
+            <span class="inline-flex h-2.5 w-2.5 rounded-full leaf-gradient"></span>
+            Not sure where to start?
+          </div>
+
+          <h2 class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl">
+            We help you choose the right next step
+          </h2>
+
+          <p class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg">
+            Not every business needs everything at once. Some need a website first. Others need better setup, stronger branding, or help getting found locally. We help you focus on what matters most now.
+          </p>
+
+          <div class="mt-8 rounded-[2rem] border border-black/8 bg-[rgb(var(--color-surface))] p-6 shadow-card dark:border-white/10">
+            <p class="font-nunito text-xl font-extrabold text-[rgb(var(--color-text))]">
+              The goal is simple:
+            </p>
+            <p class="mt-3 text-sm leading-7 text-[rgb(var(--color-text-secondary))]">
+              help your business look more credible, stay more consistent, and create a stronger digital foundation for growth.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          {process.map((item, index) => (
+            <article class="surface-panel radius-brand relative overflow-hidden p-6">
+              <div class="absolute inset-x-0 top-0 h-1.5 mango-gradient"></div>
+              <div class="flex items-center justify-between gap-4">
+                <span class="inline-flex min-w-[64px] items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(218,60,120,0.14),rgba(254,205,76,0.28))] px-3 py-2 font-nunito text-sm font-black tracking-[0.16em] text-[#8f2750] dark:text-white">
+                  {item.step}
+                </span>
+                <span class="text-xs font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-text-secondary))]">
+                  Step {index + 1}
+                </span>
+              </div>
+
+              <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+                {item.title}
+              </h3>
+              <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))]">
+                {item.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative pb-20 sm:pb-24 lg:pb-28">
+    <div class="container-shell">
+      <div class="overflow-hidden rounded-[2.5rem] border border-black/8 bg-[rgb(var(--color-surface))] px-6 py-10 shadow-card dark:border-white/10 sm:px-8 sm:py-12 lg:px-12 lg:py-14">
+        <div class="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
+          <div>
+            <div class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
+              <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"></span>
+              Featured starter option
+            </div>
+
+            <h2 class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl">
+              Start strong with Mango Start
+            </h2>
+
+            <p class="mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg">
+              Mango Start is ideal for new or very small businesses that need a professional online presence without the stress of figuring everything out alone.
+            </p>
+
+            <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+              <li class="flex items-start gap-3 text-sm font-medium text-[rgb(var(--color-text))]">
+                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full leaf-gradient text-[10px] font-black text-[#0f1115]">✓</span>
+                <span>Google Business Profile setup or claim</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm font-medium text-[rgb(var(--color-text))]">
+                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full leaf-gradient text-[10px] font-black text-[#0f1115]">✓</span>
+                <span>Facebook and Instagram setup</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm font-medium text-[rgb(var(--color-text))]">
+                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full leaf-gradient text-[10px] font-black text-[#0f1115]">✓</span>
+                <span>Basic logo or refinement of existing logo</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm font-medium text-[rgb(var(--color-text))]">
+                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full leaf-gradient text-[10px] font-black text-[#0f1115]">✓</span>
+                <span>Organized access and next-step recommendations</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="rounded-[2rem] bg-[linear-gradient(135deg,rgba(218,60,120,0.12),rgba(254,205,76,0.18),rgba(1,155,144,0.12))] p-6 sm:p-8">
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-[rgb(var(--color-text-secondary))]">
+              Suggested price range
+            </p>
+            <p class="mt-3 font-nunito text-4xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+              $650 – $950
+            </p>
+            <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))]">
+              Estimated delivery time: 5 to 7 business days. Great for businesses that need a strong launch foundation fast.
+            </p>
+
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="/services/starter-packages"
+                class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                See Package Details
+              </a>
+              <a
+                href="/contact"
+                class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+              >
+                Get Started
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative pb-20 sm:pb-24 lg:pb-28">
+    <div class="container-shell">
+      <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-12">
+        <div class="max-w-xl">
+          <h2 class="font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl">
+            Frequently asked questions about our services
+          </h2>
+          <p class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg">
+            These answers help clarify how Mango Media works and how to think about the right service for your business.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          {faqs.map((faq, index) => (
+            <details class="surface-panel radius-brand group overflow-hidden p-0" open={index === 0}>
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-nunito text-lg font-extrabold text-[rgb(var(--color-text))] marker:content-none">
+                <span>{faq.question}</span>
+                <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[rgb(var(--color-surface-soft))] text-[rgb(var(--color-text-secondary))] transition-transform duration-200 group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <div class="px-6 pb-6 pt-0">
+                <div class="h-px w-full bg-black/6 dark:bg-white/10"></div>
+                <p class="pt-5 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+                  {faq.answer}
+                </p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-20 sm:pb-24 lg:pb-28">
+    <div class="container-shell">
+      <div class="relative overflow-hidden rounded-[2.5rem] border border-black/8 bg-[rgb(var(--color-surface))] px-6 py-10 shadow-card dark:border-white/10 sm:px-8 sm:py-12 lg:px-12 lg:py-14">
+        <div class="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(218,60,120,0.10),rgba(254,205,76,0.14),rgba(1,155,144,0.10))]"></div>
+
+        <div class="mx-auto max-w-4xl text-center">
+          <h2 class="font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl">
+            Not sure where to start? Let’s talk.
+          </h2>
+          <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg">
+            Mango Media can help you identify the most useful service, package, or first step based on your business goals and current online presence.
+          </p>
+
+          <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href="/contact"
+              class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              Get a Free Consultation
+            </a>
+            <a
+              href="/portfolio"
+              class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+            >
+              See Our Work
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

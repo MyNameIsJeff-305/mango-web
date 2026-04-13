@@ -1,0 +1,208 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { blogPosts } from "../../data/blogPosts";
+
+const categories = [
+  "All",
+  "Branding",
+  "Websites",
+  "Local SEO",
+  "Google Business Profile",
+  "Social Media Setup",
+  "Small Business Growth",
+];
+
+const featuredPosts = blogPosts;
+---
+
+<MainLayout
+  title="Blog | Mango Media Tips for Branding, Websites, Local SEO and Online Presence"
+  description="Read Mango Media insights on branding, website design, Google Business Profile, local SEO, and online presence growth for small and local businesses."
+  ogImage="/images/og-placeholder.jpg"
+>
+  <section
+    class="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28"
+  >
+    <div class="pointer-events-none absolute inset-0 -z-10">
+      <div
+        class="absolute left-[-8%] top-12 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.34),transparent_65%)] blur-2xl"
+      >
+      </div>
+      <div
+        class="absolute right-[-6%] top-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.22),transparent_60%)] blur-3xl"
+      >
+      </div>
+      <div
+        class="absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.14),transparent_62%)] blur-3xl"
+      >
+      </div>
+    </div>
+
+    <div class="container-shell">
+      <div class="mx-auto max-w-4xl text-center">
+        <div
+          class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
+        >
+          <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"
+          ></span>
+          Insights to help your business grow online
+        </div>
+
+        <h1
+          class="mt-6 font-nunito text-4xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-5xl lg:text-6xl"
+        >
+          Mango Media Blog
+        </h1>
+
+        <p
+          class="mx-auto mt-6 max-w-3xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+        >
+          Explore practical content on branding, websites, local SEO, Google
+          Business Profile optimization, social media setup, and digital growth
+          for local businesses.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-12 sm:pb-14 lg:pb-16">
+    <div class="container-shell">
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        {
+          categories.map((category, index) => (
+            <button
+              type="button"
+              class:list={[
+                "rounded-full border px-4 py-2 text-sm font-nunito font-extrabold transition-colors duration-200",
+                index === 0
+                  ? "border-transparent bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] text-white shadow-mango"
+                  : "border-black/8 bg-white/80 text-[rgb(var(--color-text))] backdrop-blur hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10",
+              ]}
+            >
+              {category}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-20 sm:pb-24 lg:pb-28">
+    <div class="container-shell">
+      <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {
+          featuredPosts.map((post) => (
+            <article class="surface-panel radius-brand group relative overflow-hidden transition-transform duration-300 hover:-translate-y-1">
+              <div
+                class:list={[
+                  "absolute inset-x-0 top-0 h-1.5",
+                  post.accent === "mango" ? "mango-gradient" : "leaf-gradient",
+                ]}
+              />
+
+              <div class="overflow-hidden border-b border-black/6 bg-[rgb(var(--color-surface-soft))] dark:border-white/10">
+                <img
+                  src={post.image}
+                  alt={`Placeholder image for ${post.title}`}
+                  class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="p-6">
+                <div class="flex flex-wrap items-center gap-3">
+                  <span
+                    class:list={[
+                      "inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]",
+                      post.accent === "mango"
+                        ? "bg-[rgb(var(--color-mango-pink))/0.10] text-[rgb(var(--color-mango-pink))]"
+                        : "bg-[rgb(var(--color-leaf-teal))/0.12] text-[rgb(var(--color-leaf-teal))] dark:text-[rgb(var(--color-leaf-lime))]",
+                    ]}
+                  >
+                    {post.category}
+                  </span>
+
+                  <span class="text-xs font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-text-secondary))]">
+                    {post.date}
+                  </span>
+                </div>
+
+                <h2 class="mt-4 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+                  {post.title}
+                </h2>
+
+                <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+                  {post.excerpt}
+                </p>
+
+                <a
+                  href={`/blog/${post.slug}`}
+                  class="mt-6 inline-flex items-center gap-2 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] transition-colors duration-200 hover:text-[rgb(var(--color-mango-pink))]"
+                >
+                  Read Article
+                  <span class="transition-transform duration-200 group-hover:translate-x-1">
+                    →
+                  </span>
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-20 sm:pb-24 lg:pb-28">
+    <div class="container-shell">
+      <div
+        class="relative overflow-hidden rounded-[2.5rem] border border-black/8 bg-[rgb(var(--color-surface))] px-6 py-10 shadow-card dark:border-white/10 sm:px-8 sm:py-12 lg:px-12 lg:py-14"
+      >
+        <div
+          class="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(218,60,120,0.10),rgba(254,205,76,0.14),rgba(1,155,144,0.10))]"
+        >
+        </div>
+
+        <div class="mx-auto max-w-4xl text-center">
+          <div
+            class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
+          >
+            <span class="inline-flex h-2.5 w-2.5 rounded-full leaf-gradient"
+            ></span>
+            Need help applying this to your business?
+          </div>
+
+          <h2
+            class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+          >
+            Let’s turn insights into action for your brand.
+          </h2>
+
+          <p
+            class="mx-auto mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+          >
+            If you want help with branding, websites, package setup, or local
+            visibility, Mango Media can help you build a stronger online
+            presence with a clearer strategy.
+          </p>
+
+          <div
+            class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          >
+            <a
+              href="/contact"
+              class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              Get a Free Consultation
+            </a>
+            <a
+              href="/services"
+              class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+            >
+              Explore Services
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

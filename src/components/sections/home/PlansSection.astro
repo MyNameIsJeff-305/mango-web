@@ -1,0 +1,215 @@
+---
+const plans = [
+  {
+    id: "mango-start",
+    name: "Mango Start",
+    badge: "Starter",
+    idealFor:
+      "New or very small businesses that need to launch with a professional online presence and a strong basic foundation.",
+    price: "$650 – $950",
+    timeline: "5 to 7 business days",
+    accent: "mango",
+    featured: false,
+    items: [
+      "Initial discovery meeting",
+      "Google Business Profile setup or claim",
+      "Facebook and Instagram setup",
+      "Standardized business information",
+      "Bio and description optimization",
+      "Profile and cover image setup using base branding",
+      "Basic logo or refinement of existing logo",
+      "Base color and typography selection",
+      "Organized access and credential delivery",
+      "Simple next-steps recommendation document",
+    ],
+    ctaLabel: "Start with Mango Start",
+    href: "/services/starter-packages#mango-start",
+  },
+  {
+    id: "mango-growth",
+    name: "Mango Growth Setup",
+    badge: "Most Recommended",
+    idealFor:
+      "Businesses that want to look serious from the beginning and be ready to grow with stronger content, profile optimization, and brand direction.",
+    price: "$1,200 – $1,800",
+    timeline: "7 to 10 business days",
+    accent: "leaf",
+    featured: true,
+    items: [
+      "Everything in Mango Start",
+      "3 to 5 initial social media pieces",
+      "Base templates for posts or stories",
+      "Instagram highlight covers",
+      "Base service copywriting",
+      "Visual profile optimization",
+      "Clear CTAs for calls, WhatsApp, or forms",
+      "Simple link-in-bio or landing page",
+      "Basic brand usage guide",
+      "Review request setup or simple review strategy",
+    ],
+    ctaLabel: "Choose Mango Growth",
+    href: "/services/starter-packages#mango-growth",
+  },
+  {
+    id: "mango-launch-pro",
+    name: "Mango Launch Pro",
+    badge: "Premium",
+    idealFor:
+      "New businesses that want to launch strong from day one, or businesses going through a rebrand and needing a more complete digital setup.",
+    price: "$2,500 – $4,000",
+    timeline: "10 to 15 business days",
+    accent: "mango",
+    featured: false,
+    items: [
+      "Everything in Mango Growth Setup",
+      "Professional one-page website or landing page",
+      "Contact form or WhatsApp connection",
+      "Basic local SEO site structure",
+      "Initial copy for key sections",
+      "More complete visual branding",
+      "6 to 9 initial social media pieces",
+      "Launch kit",
+      "30-day online presence guide",
+    ],
+    ctaLabel: "Go Launch Pro",
+    href: "/services/starter-packages#mango-launch-pro",
+  },
+];
+---
+
+<section class="relative py-20 sm:py-24 lg:py-28">
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div
+      class="absolute left-[4%] top-10 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.10),transparent_64%)] blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute right-[5%] bottom-8 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(176,241,34,0.12),transparent_62%)] blur-3xl"
+    >
+    </div>
+  </div>
+
+  <div class="container-shell">
+    <div class="mx-auto max-w-3xl text-center">
+      <div
+        class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
+      >
+        <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"
+        ></span>
+        Choose the package that matches your stage of growth
+      </div>
+
+      <h2
+        class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+      >
+        Three ways to launch and grow with Mango Media
+      </h2>
+
+      <p
+        class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+      >
+        Whether you need a simple professional start, a stronger setup for
+        growth, or a premium launch package, Mango Media gives you a clear path
+        forward.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 xl:grid-cols-3">
+      {
+        plans.map((plan) => (
+          <article
+            id={plan.id}
+            class:list={[
+              "surface-panel radius-brand relative flex h-full flex-col overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1",
+              plan.featured
+                ? "xl:-translate-y-3 border-transparent shadow-[0_28px_80px_rgba(1,155,144,0.18)]"
+                : "",
+            ]}
+          >
+            <div
+              class:list={[
+                "absolute inset-x-0 top-0 h-1.5",
+                plan.accent === "mango" ? "mango-gradient" : "leaf-gradient",
+              ]}
+            />
+
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <span
+                  class:list={[
+                    "inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]",
+                    plan.accent === "mango"
+                      ? "bg-[rgb(var(--color-mango-pink))/0.10] text-[rgb(var(--color-mango-pink))]"
+                      : "bg-[rgb(var(--color-leaf-teal))/0.12] text-[rgb(var(--color-leaf-teal))] dark:text-[rgb(var(--color-leaf-lime))]",
+                  ]}
+                >
+                  {plan.badge}
+                </span>
+
+                <h3 class="mt-4 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+                  {plan.name}
+                </h3>
+              </div>
+
+              {plan.featured && (
+                <span class="rounded-full bg-[linear-gradient(135deg,#019b90_0%,#b0f122_100%)] px-3 py-1 text-[11px] font-black uppercase tracking-[0.18em] text-[#0f1115]">
+                  Main Package
+                </span>
+              )}
+            </div>
+
+            <div class="mt-5 flex items-end gap-3">
+              <p class="font-nunito text-4xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+                {plan.price}
+              </p>
+            </div>
+
+            <p class="mt-3 text-sm font-semibold uppercase tracking-[0.16em] text-[rgb(var(--color-text-secondary))]">
+              Estimated delivery: {plan.timeline}
+            </p>
+
+            <div class="mt-6 rounded-[1.5rem] bg-[rgb(var(--color-surface-soft))] p-4">
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-text-secondary))]">
+                Ideal for
+              </p>
+              <p class="mt-2 text-sm leading-7 text-[rgb(var(--color-text))]">
+                {plan.idealFor}
+              </p>
+            </div>
+
+            <ul class="mt-6 flex-1 space-y-3">
+              {plan.items.map((item) => (
+                <li class="flex items-start gap-3 text-sm font-medium text-[rgb(var(--color-text))]">
+                  <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full leaf-gradient text-[10px] font-black text-[#0f1115]">
+                    ✓
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row xl:flex-col">
+              <a
+                href={plan.href}
+                class:list={[
+                  "inline-flex items-center justify-center rounded-full px-6 py-3.5 font-nunito text-sm font-extrabold transition-transform duration-200 hover:-translate-y-0.5",
+                  plan.accent === "mango"
+                    ? "bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] text-white shadow-mango"
+                    : "bg-[linear-gradient(135deg,#019b90_0%,#b0f122_100%)] text-[#0f1115] shadow-[0_16px_40px_rgba(1,155,144,0.22)]",
+                ]}
+              >
+                {plan.ctaLabel}
+              </a>
+              <a
+                href="/contact"
+                class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+              >
+                Ask About This Plan
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

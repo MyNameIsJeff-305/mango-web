@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
+import { siteConfig } from "../config/site";
 
 export interface Props {
   title?: string;
@@ -9,36 +10,114 @@ export interface Props {
   ogImage?: string;
   canonical?: string;
   noindex?: boolean;
+  schemaType?:
+    | "Organization"
+    | "LocalBusiness"
+    | "Service"
+    | "Article"
+    | "WebPage";
+  schemaData?: Record<string, unknown>;
 }
 
 const {
-  title = "Mango Media | Build Your Brand. Grow Your Presence.",
-  description = "Mango Media helps local businesses build a stronger online presence through branding, websites, social media setup, Google Business Profile optimization, and local SEO.",
-  ogImage = "/images/og-placeholder.jpg",
+  title = siteConfig.title,
+  description = siteConfig.description,
+  ogImage = siteConfig.ogImage,
   canonical,
   noindex = false,
+  schemaType = "WebPage",
+  schemaData = {},
 } = Astro.props;
 
-const siteUrl = "https://mangomedia305.com";
-const currentUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
+const currentUrl =
+  canonical ?? new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
+const absoluteOgImage = ogImage.startsWith("http")
+  ? ogImage
+  : new URL(ogImage, siteConfig.siteUrl).toString();
+
 const robots = noindex ? "noindex, nofollow" : "index, follow";
 
-const organizationSchema = {
+const baseOrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Mango Media",
-  url: siteUrl,
-  logo: `${siteUrl}/images/logo-placeholder.png`,
-  image: `${siteUrl}${ogImage}`,
-  description,
-  email: "mangomedia305@gmail.com",
-  telephone: "+1-561-583-7737",
-  sameAs: ["https://www.instagram.com/", "https://www.facebook.com/"],
+  name: siteConfig.name,
+  legalName: siteConfig.legalName,
+  url: siteConfig.siteUrl,
+  logo: new URL("/images/logo-placeholder.png", siteConfig.siteUrl).toString(),
+  image: absoluteOgImage,
+  description: siteConfig.description,
+  email: siteConfig.email,
+  telephone: siteConfig.phone,
+  sameAs: siteConfig.socialLinks,
 };
+
+const baseLocalBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: siteConfig.name,
+  url: siteConfig.siteUrl,
+  image: absoluteOgImage,
+  email: siteConfig.email,
+  telephone: siteConfig.phone,
+  areaServed: siteConfig.areaServed,
+  description: siteConfig.description,
+  sameAs: siteConfig.socialLinks,
+};
+
+const pageSchema =
+  schemaType === "Organization"
+    ? { ...baseOrganizationSchema, ...schemaData }
+    : schemaType === "LocalBusiness"
+      ? { ...baseLocalBusinessSchema, ...schemaData }
+      : schemaType === "Service"
+        ? {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            provider: {
+              "@type": "Organization",
+              name: siteConfig.name,
+              url: siteConfig.siteUrl,
+            },
+            areaServed: siteConfig.areaServed,
+            ...schemaData,
+          }
+        : schemaType === "Article"
+          ? {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: title,
+              description,
+              image: absoluteOgImage,
+              mainEntityOfPage: currentUrl,
+              author: {
+                "@type": "Organization",
+                name: siteConfig.name,
+              },
+              publisher: {
+                "@type": "Organization",
+                name: siteConfig.name,
+                logo: {
+                  "@type": "ImageObject",
+                  url: new URL(
+                    "/images/logo-placeholder.png",
+                    siteConfig.siteUrl,
+                  ).toString(),
+                },
+              },
+              ...schemaData,
+            }
+          : {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              name: title,
+              description,
+              url: currentUrl,
+              ...schemaData,
+            };
 ---
 
 <!doctype html>
-<html lang="en" suppressHydrationWarning>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,13 +132,13 @@ const organizationSchema = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={currentUrl} />
-    <meta property="og:site_name" content="Mango Media" />
-    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta property="og:site_name" content={siteConfig.siteName} />
+    <meta property="og:image" content={absoluteOgImage} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+    <meta name="twitter:image" content={absoluteOgImage} />
 
     <meta name="theme-color" content="#f4f4f2" />
 
@@ -120,10 +199,7 @@ const organizationSchema = {
       })();
     </script>
 
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(organizationSchema)}
-    />
+    <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
   </head>
 
   <body
