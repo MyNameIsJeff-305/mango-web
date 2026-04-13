@@ -1,28 +1,28 @@
 ---
 const steps = [
   {
-    number: "01",
+    number: "1",
     title: "Discover",
     description:
       "We learn about your business, goals, audience, and current online presence so we can identify the right starting point.",
     accent: "mango",
   },
   {
-    number: "02",
+    number: "2",
     title: "Build",
     description:
-      "We design and organize the pieces your business needs, from branding and profiles to websites and SEO foundations.",
+      "We design, align, and organize the pieces your business needs, from branding and profiles to websites and SEO foundations.",
     accent: "leaf",
   },
   {
-    number: "03",
+    number: "3",
     title: "Launch",
     description:
-      "We refine, deliver, and make sure your digital presence is ready to support trust, visibility, and growth.",
+      "We refine, deliver, and make sure your digital presence is ready to support trust, visibility, and skyrocket growth among your competitors.",
     accent: "mango",
   },
   {
-    number: "04",
+    number: "4",
     title: "Grow",
     description:
       "As your business evolves, we help you expand with stronger visibility, better consistency, and future-focused improvements.",
@@ -78,27 +78,10 @@ const steps = [
             />
 
             <div class="flex items-start justify-between gap-4">
-              <span
-                class:list={[
-                  "inline-flex min-w-[64px] items-center justify-center rounded-full px-3 py-2 font-nunito text-sm font-black tracking-[0.16em]",
-                  step.accent === "mango"
-                    ? "bg-[linear-gradient(135deg,rgba(218,60,120,0.14),rgba(254,205,76,0.28))] text-[#8f2750] dark:text-white"
-                    : "bg-[linear-gradient(135deg,rgba(1,155,144,0.16),rgba(176,241,34,0.24))] text-[#0f5f58] dark:text-white",
-                ]}
-              >
-                {step.number}
-              </span>
-
-              {index < steps.length - 1 && (
-                <span class="hidden lg:block text-[rgb(var(--color-text-secondary))]">
-                  →
-                </span>
-              )}
+              <h3 class="mt-6 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+                {step.title}
+              </h3>
             </div>
-
-            <h3 class="mt-6 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
-              {step.title}
-            </h3>
 
             <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
               {step.description}
@@ -119,13 +102,27 @@ const steps = [
     </div>
 
     <div
-      class="mt-12 overflow-hidden rounded-[2rem] border border-black/8 bg-[rgb(var(--color-surface))] p-6 shadow-card dark:border-white/10 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8"
+      class="relative mt-12 overflow-hidden rounded-[2rem] border border-black/8 bg-[rgb(var(--color-surface))] p-6 shadow-card dark:border-white/10 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8"
     >
-      <div class="max-w-2xl">
+      <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div
+          class="absolute right-[-2rem] top-1/2 h-40 w-40 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.20),rgba(218,60,120,0.10),transparent_72%)] blur-3xl"
+        >
+        </div>
+
+        <img
+          src="/images/branding/mango-ideas.webp"
+          alt="Mango Ideas Illustration"
+          aria-hidden="true"
+          class="absolute right-[-0.5rem] top-1/2 h-90 w-90 -translate-y-1/2 rotate-[8deg] opacity-[0.25] animate-pulse"
+        />
+      </div>
+
+      <div class="relative z-10">
         <p
           class="text-xs font-bold uppercase tracking-[0.2em] text-[rgb(var(--color-text-secondary))]"
         >
-          Built to feel simple
+          Mango Ideas Ready to Boost Your Business
         </p>
         <h3
           class="mt-3 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-3xl"
@@ -133,28 +130,30 @@ const steps = [
           You do not need to figure everything out before getting started.
         </h3>
         <p
-          class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-base"
+          class="mt-4 mb-6 text-sm leading-7 max-w-3xl text-[rgb(var(--color-text-secondary))] sm:text-base"
         >
           Whether you need a full website, a cleaner brand presence, or a
           stronger local foundation, Mango Media helps you move forward with
           clarity.
         </p>
+        <div
+          class="relative z-10 mt-10 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:shrink-0"
+        >
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+          >
+            Start with Mango Media
+          </a>
+          <a
+            href="/services"
+            class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+          >
+            Explore Services
+          </a>
+        </div>
       </div>
 
-      <div class="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:shrink-0">
-        <a
-          href="/contact"
-          class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
-        >
-          Start with Mango Media
-        </a>
-        <a
-          href="/services"
-          class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
-        >
-          Explore Services
-        </a>
-      </div>
     </div>
   </div>
 </section>

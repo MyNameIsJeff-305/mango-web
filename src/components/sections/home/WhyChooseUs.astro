@@ -1,4 +1,9 @@
 ---
+import ClearCommunicationIcon from "../../icons/ClearCommunicationIcon.astro";
+import StrategicDesignIcon from "../../icons/StrategicDesignIcon.astro";
+import LocalBusinessIcon from "../../icons/LocalBusinessIcon.astro";
+import BrandConsistencyIcon from "../../icons/BrandConsistencyIcon.astro";
+
 const valuePoints = [
   {
     title: "Clear communication",
@@ -57,7 +62,7 @@ const valuePoints = [
         </h2>
 
         <p
-          class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+          class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-sm"
         >
           We know that most local business owners do not need complexity. They
           need clarity, consistency, and results. Our approach keeps things
@@ -101,7 +106,7 @@ const valuePoints = [
           </div>
 
           <div
-            class="mt-5 rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(218,60,120,0.10),rgba(254,205,76,0.14),rgba(1,155,144,0.10))] p-5"
+            class="mt-5 rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(218,60,120,0.30),rgba(254,205,76,0.34),rgba(1,155,144,0.30))] p-5"
           >
             <p
               class="font-nunito text-lg font-extrabold text-[rgb(var(--color-text))]"
@@ -134,11 +139,14 @@ const valuePoints = [
                 class:list={[
                   "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-lg font-black shadow-soft",
                   item.accent === "mango"
-                    ? "bg-[linear-gradient(135deg,rgba(218,60,120,0.18),rgba(254,205,76,0.30))] text-[#7f1843] dark:text-white"
-                    : "bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.28))] text-[#0f5f58] dark:text-white",
+                    ? "bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-[#7f1843] dark:text-white"
+                    : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f5f58] dark:text-white",
                 ]}
               >
-                {item.title.charAt(0)}
+                {item.title === "Clear communication" && <ClearCommunicationIcon class="h-8 w-8" />}
+                {item.title === "Strategic design" && <StrategicDesignIcon class="h-8 w-8" />}
+                {item.title === "Local-business mindset" && <LocalBusinessIcon class="h-8 w-8" />}
+                {item.title === "Brand consistency" && <BrandConsistencyIcon class="h-8 w-8" />}
               </div>
 
               <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
@@ -152,15 +160,6 @@ const valuePoints = [
           ))
         }
       </div>
-    </div>
-
-    <div class="mt-12 flex justify-center lg:justify-start">
-      <a
-        href="/contact"
-        class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
-      >
-        Book Your Free Consultation
-      </a>
     </div>
   </div>
 </section>

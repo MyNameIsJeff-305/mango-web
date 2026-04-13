@@ -1,48 +1,12 @@
 ---
-const services = [
-  {
-    title: "Website Design",
-    description:
-      "Beautiful, strategic websites that present your business clearly and turn visitors into leads.",
-    href: "/services/website-design",
-    accent: "mango",
-  },
-  {
-    title: "Local SEO",
-    description:
-      "Get discovered by people searching for the services you offer in your area.",
-    href: "/services/local-seo",
-    accent: "leaf",
-  },
-  {
-    title: "Branding & Social Media Setup",
-    description:
-      "Create a cleaner, more professional brand presence across your key channels.",
-    href: "/services/branding-social-media",
-    accent: "mango",
-  },
-  {
-    title: "Online Presence Setup",
-    description:
-      "We organize your business information, profiles, assets, and digital essentials so everything works together.",
-    href: "/services/online-presence-setup",
-    accent: "leaf",
-  },
-  {
-    title: "Google Business Profile Setup",
-    description:
-      "Claim, optimize, and strengthen one of the most important assets for local visibility.",
-    href: "/services/google-business-profile",
-    accent: "mango",
-  },
-  {
-    title: "Starter Packages",
-    description:
-      "A simplified launch solution for new or small businesses that need to look professional fast.",
-    href: "/services/starter-packages",
-    accent: "leaf",
-  },
-];
+import WebsiteDesignIcon from "../../icons/WebsiteDesignIcon.astro";
+import LocalSEOIcon from "../../icons/LocalSEOIcon.astro";
+import BrandingIcon from "../../icons/BrandingIcon.astro";
+import GBusinessServiceIcon from "../../icons/GBusinessService.astro";
+import OnlinePresenceIcon from "../../icons/OnlinePresence.astro";
+import StarterPackageIcon from "../../icons/StarterPackage.astro";
+
+import { services } from "../../../data/services";
 ---
 
 <section class="relative py-20 sm:py-24 lg:py-28">
@@ -96,15 +60,16 @@ const services = [
               class:list={[
                 "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-sm font-black shadow-soft",
                 service.accent === "mango"
-                  ? "bg-[linear-gradient(135deg,rgba(218,60,120,0.18),rgba(254,205,76,0.30))] text-[#7f1843] dark:text-white"
-                  : "bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.28))] text-[#0f5f58] dark:text-white",
+                  ? "bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-[#7f1843] dark:text-white"
+                  : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f5f58] dark:text-white",
               ]}
             >
-              {service.title
-                .split(" ")
-                .map((word) => word[0])
-                .join("")
-                .slice(0, 2)}
+              {service.title === "Website Design" && <WebsiteDesignIcon class="h-8 w-8" />}
+              {service.title === "Local SEO" && <LocalSEOIcon class="h-8 w-8" />}
+              {service.title === "Branding & Social Media Setup" && <BrandingIcon class="h-8 w-8" />}
+              {service.title === "Online Presence Setup" && <OnlinePresenceIcon class="h-8 w-8" />}
+              {service.title === "Google Business Profile Setup" && <GBusinessServiceIcon class="h-8 w-8" />}
+              {service.title === "Starter Packages" && <StarterPackageIcon class="h-8 w-8" />}
             </div>
 
             <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
@@ -125,17 +90,6 @@ const services = [
                   →
                 </span>
               </a>
-
-              <span
-                class:list={[
-                  "inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]",
-                  service.accent === "mango"
-                    ? "bg-[rgb(var(--color-mango-pink))/0.10] text-[rgb(var(--color-mango-pink))]"
-                    : "bg-[rgb(var(--color-leaf-teal))/0.12] text-[rgb(var(--color-leaf-teal))] dark:text-[rgb(var(--color-leaf-lime))]",
-                ]}
-              >
-                Service
-              </span>
             </div>
           </article>
         ))

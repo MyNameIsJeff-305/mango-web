@@ -3,22 +3,22 @@ const testimonials = [
   {
     quote:
       "Mango Media helped us turn scattered profiles and outdated visuals into a brand presence that finally felt professional and clear.",
-    name: "Client Name",
+    name: "Carlos Mendoza",
     role: "Local Business Owner",
     accent: "mango",
   },
   {
     quote:
       "The process was easy to follow, and our business immediately looked more polished online. Everything finally felt aligned.",
-    name: "Client Name",
-    role: "Founder, Small Business",
+    name: "Ethan Walker",
+    role: "Lead Software Engineer, La Nave App",
     accent: "leaf",
   },
   {
     quote:
       "They made everything feel organized, strategic, and approachable from the start. It gave us much more confidence in our online presence.",
-    name: "Client Name",
-    role: "Service-Based Brand",
+    name: "Sofia Ramirez",
+    role: "CEO, Donuts Havana",
     accent: "mango",
   },
 ];
@@ -65,18 +65,28 @@ const testimonials = [
                   : "bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.28))] text-[#0f5f58] dark:text-white",
               ]}
             >
-              “
+              {testimonial.name === "Carlos Mendoza" && (
+                <img
+                  src="/images/client-1.webp"
+                  alt="Carlos Mendoza"
+                  class="h-full w-full rounded-2xl object-cover"
+                />
+              )}
+              {testimonial.name === "Ethan Walker" && (
+                <img
+                  src="/images/client-2.webp"
+                  alt="Ethan Walker"
+                  class="h-full w-full rounded-2xl object-cover"
+                />
+              )}
+              {testimonial.name === "Sofia Ramirez" && (
+                <img
+                  src="/images/client-3.webp"
+                  alt="Sofia Ramirez"
+                  class="h-full w-full rounded-2xl object-cover"
+                />
+              )}
             </div>
-            <span
-              class:list={[
-                "inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]",
-                testimonial.accent === "mango"
-                  ? "bg-[rgb(var(--color-mango-pink))/0.10] text-[rgb(var(--color-mango-pink))]"
-                  : "bg-[rgb(var(--color-leaf-teal))/0.12] text-[rgb(var(--color-leaf-teal))] dark:text-[rgb(var(--color-leaf-lime))]",
-              ]}
-            >
-              Placeholder
-            </span>
           </div>
 
           <p class="mt-6 flex-1 font-montserrat text-base leading-8 text-[rgb(var(--color-text))]">
