@@ -1,4 +1,6 @@
 ---
+import Badge from "../../ui/Badge.astro";
+
 const testimonials = [
   {
     quote:
@@ -32,9 +34,8 @@ const testimonials = [
 
   <div class="container-shell">
     <div class="mx-auto max-w-3xl text-center">
-      <div class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
-        <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"></span>
-        Social proof and client confidence
+      <div class="inline-flex items-center gap-2">
+        <Badge>True clients. True stories. True Results.</Badge>
       </div>
 
       <h2 class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl">

@@ -4,6 +4,8 @@ import ShowUpIcon from "../../icons/ShowUpIcon.astro";
 import ConvertMoreIcon from "../../icons/ConvertMoreIcon.astro";
 import SaveTimeIcon from "../../icons/SaveTimeIcon.astro";
 
+import Badge from "../../ui/Badge.astro";
+
 const results = [
   {
     title: "Look more credible",
@@ -50,11 +52,9 @@ const results = [
     >
       <div class="max-w-xl">
         <div
-          class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
+          class="inline-flex items-center"
         >
-          <span class="inline-flex h-2.5 w-2.5 rounded-full leaf-gradient"
-          ></span>
-          Real benefits for growing businesses
+          <Badge>Real benefits for growing businesses</Badge>
         </div>
 
         <h2

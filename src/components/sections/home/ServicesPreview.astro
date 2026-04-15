@@ -6,6 +6,8 @@ import GBusinessServiceIcon from "../../icons/GBusinessService.astro";
 import OnlinePresenceIcon from "../../icons/OnlinePresence.astro";
 import StarterPackageIcon from "../../icons/StarterPackage.astro";
 
+import Badge from "../../ui/Badge.astro";
+
 import { services } from "../../../data/services";
 ---
 
@@ -24,12 +26,10 @@ import { services } from "../../../data/services";
   <div class="container-shell">
     <div class="mx-auto max-w-3xl text-center">
       <div
-        class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
+        class="inline-flex items-center"
       >
-        <span class="inline-flex h-2.5 w-2.5 rounded-full leaf-gradient"></span>
-        Services built to strengthen your online presence
+        <Badge>Services built to strengthen your online presence</Badge>
       </div>
-
       <h2
         class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
       >
@@ -64,12 +64,24 @@ import { services } from "../../../data/services";
                   : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f5f58] dark:text-white",
               ]}
             >
-              {service.title === "Website Design" && <WebsiteDesignIcon class="h-8 w-8" />}
-              {service.title === "Local SEO" && <LocalSEOIcon class="h-8 w-8" />}
-              {service.title === "Branding & Social Media Setup" && <BrandingIcon class="h-8 w-8" />}
-              {service.title === "Online Presence Setup" && <OnlinePresenceIcon class="h-8 w-8" />}
-              {service.title === "Google Business Profile Setup" && <GBusinessServiceIcon class="h-8 w-8" />}
-              {service.title === "Starter Packages" && <StarterPackageIcon class="h-8 w-8" />}
+              {service.title === "Website Design" && (
+                <WebsiteDesignIcon class="h-8 w-8" />
+              )}
+              {service.title === "Local SEO" && (
+                <LocalSEOIcon class="h-8 w-8" />
+              )}
+              {service.title === "Branding & Social Media Setup" && (
+                <BrandingIcon class="h-8 w-8" />
+              )}
+              {service.title === "Online Presence Setup" && (
+                <OnlinePresenceIcon class="h-8 w-8" />
+              )}
+              {service.title === "Google Business Profile Setup" && (
+                <GBusinessServiceIcon class="h-8 w-8" />
+              )}
+              {service.title === "Starter Packages" && (
+                <StarterPackageIcon class="h-8 w-8" />
+              )}
             </div>
 
             <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">

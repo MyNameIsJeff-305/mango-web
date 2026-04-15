@@ -4,6 +4,8 @@ import StrategicDesignIcon from "../../icons/StrategicDesignIcon.astro";
 import LocalBusinessIcon from "../../icons/LocalBusinessIcon.astro";
 import BrandConsistencyIcon from "../../icons/BrandConsistencyIcon.astro";
 
+import Badge from "../../ui/Badge.astro";
+
 const valuePoints = [
   {
     title: "Clear communication",
@@ -48,11 +50,9 @@ const valuePoints = [
     <div class="grid items-start gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
       <div class="max-w-xl">
         <div
-          class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
+          class="inline-flex items-center"
         >
-          <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"
-          ></span>
-          Why businesses choose Mango Media
+          <Badge>Why businesses choose Mango Media</Badge>
         </div>
 
         <h2

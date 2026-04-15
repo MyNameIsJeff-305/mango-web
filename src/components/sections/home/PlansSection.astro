@@ -1,82 +1,7 @@
 ---
-const plans = [
-  {
-    id: "mango-start",
-    name: "Mango Start Setup",
-    imagePath: "/images/branding/mango-start.webp",
-    badge: "Starter",
-    idealFor:
-      "New or very small businesses that need to launch with a professional online presence and a strong basic foundation.",
-    price: "$650 – $950",
-    timeline: "5 to 7 business days",
-    accent: "mango",
-    featured: false,
-    items: [
-      "Initial discovery meeting",
-      "Google Business Profile setup or claim",
-      "Facebook and Instagram setup",
-      "Standardized business information",
-      "Bio and description optimization",
-      "Profile and cover image setup using base branding",
-      "Basic logo or refinement of existing logo",
-      "Base color and typography selection",
-      "Organized access and credential delivery",
-      "Simple next-steps recommendation document",
-    ],
-    ctaLabel: "Start with Mango Start",
-    href: "/services/starter-packages#mango-start",
-  },
-  {
-    id: "mango-growth",
-    name: "Mango Growth Setup",
-    imagePath: "/images/branding/mango-growth.webp",
-    badge: "Most Recommended",
-    idealFor:
-      "Businesses that want to look serious from the beginning and be ready to grow with stronger content, profile optimization, and brand direction.",
-    price: "$1,200 – $1,800",
-    timeline: "7 to 10 business days",
-    accent: "leaf",
-    items: [
-      "Everything in Mango Start",
-      "3 to 5 initial social media pieces",
-      "Base templates for posts or stories",
-      "Instagram highlight covers",
-      "Base service copywriting",
-      "Visual profile optimization",
-      "Clear CTAs for calls, WhatsApp, or forms",
-      "Simple link-in-bio or landing page",
-      "Basic brand usage guide",
-      "Review request setup or simple review strategy",
-    ],
-    ctaLabel: "Choose Mango Growth",
-    href: "/services/starter-packages#mango-growth",
-  },
-  {
-    id: "mango-launch-pro",
-    name: "Mango Launch Pro",
-    imagePath: "/images/branding/mango-launch.webp",
-    badge: "Premium",
-    idealFor:
-      "New businesses that want to launch strong from day one, or businesses going through a rebrand and needing a more complete digital setup.",
-    price: "$2,500 – $4,000",
-    timeline: "10 to 15 business days",
-    accent: "mango",
-    featured: false,
-    items: [
-      "Everything in Mango Growth Setup",
-      "Professional one-page website or landing page",
-      "Contact form or WhatsApp connection",
-      "Basic local SEO site structure",
-      "Initial copy for key sections",
-      "More complete visual branding",
-      "6 to 9 initial social media pieces",
-      "Launch kit",
-      "30-day online presence guide",
-    ],
-    ctaLabel: "Go Launch Pro",
-    href: "/services/starter-packages#mango-launch-pro",
-  },
-];
+import Badge from "../../ui/Badge.astro";
+
+import { plans } from "../../../data/plansSection";
 ---
 
 <section class="relative py-20 sm:py-24 lg:py-28">
@@ -93,12 +18,8 @@ const plans = [
 
   <div class="container-shell">
     <div class="mx-auto max-w-3xl text-center">
-      <div
-        class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
-      >
-        <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"
-        ></span>
-        Choose the package that matches your stage of growth
+      <div class="inline-flex items-center">
+        <Badge>Choose the package that matches your stage of growth</Badge>
       </div>
 
       <h2
@@ -153,8 +74,7 @@ const plans = [
                   "absolute right-[-1.0rem] top-2 select-none object-contain transition-transform duration-500 group-hover:scale-105",
                   plan.id === "mango-start" && "h-40 w-40 rotate-[30deg]",
                   plan.id === "mango-growth" && "h-40 w-40 rotate-[8deg]",
-                  plan.id === "mango-launch-pro" &&
-                    "h-40 w-40 rotate-[30deg]",
+                  plan.id === "mango-launch-pro" && "h-40 w-40 rotate-[30deg]",
                 ]}
               />
             </div>

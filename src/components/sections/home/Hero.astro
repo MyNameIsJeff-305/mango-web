@@ -1,4 +1,6 @@
 ---
+import Badge from "../../ui/Badge.astro";
+
 const trustPoints = [
   "Branding that feels professional and approachable",
   "Websites made to skyrocket your business",
@@ -29,14 +31,7 @@ const trustPoints = [
       class="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10"
     >
       <div class="max-w-2xl">
-        <div
-          class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
-        >
-          <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"
-          ></span>
-          Creative growth partner for local businesses
-        </div>
-
+        <Badge>Built for local businesses</Badge>
         <h1
           class="mt-6 max-w-xl font-nunito text-4xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-5xl sm:leading-[1.05] lg:text-6xl"
         >
