@@ -333,11 +333,11 @@ import Badge from "../../components/ui/Badge.astro";
   <section class="relative pb-20 sm:pb-24 lg:pb-28">
     <div class="container-shell">
       <div
-        class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-12"
+        class="flex flex-col gap-y-12"
       >
-        <div class="max-w-xl">
+        <div>
           <h2
-            class="font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl"
+            class="font-nunito text-3xl font-extrabold text-[rgb(var(--color-text))] sm:text-4xl"
           >
             Frequently asked questions about our services
           </h2>
@@ -347,6 +347,12 @@ import Badge from "../../components/ui/Badge.astro";
             These answers help clarify how Mango Media works and how to think
             about the right service for your business.
           </p>
+          <img
+            src="/images/branding/mango-question.webp"
+            alt=""
+            aria-hidden="true"
+            class="pointer-events-none absolute left-1/2 top-[42%] z-0 w-120 -translate-x-1/2 -translate-y-1/2 animate-float-soft opacity-20 sm:block md:w-150 lg:w-150"
+          />
         </div>
 
         <div class="space-y-4">
