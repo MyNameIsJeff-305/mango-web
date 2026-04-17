@@ -54,6 +54,22 @@ html[data-theme="dark"] {
     --font-montserrat: "Montserrat", sans-serif;
 }
 
+@theme {
+    --animate-float-soft: float-soft 5s ease-in-out infinite;
+
+    @keyframes float-soft {
+
+        0%,
+        100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-10px) rotate(2deg);
+        }
+    }
+}
+
 @layer base {
     * {
         border-color: rgb(var(--color-border) / 0.18);
@@ -195,10 +211,12 @@ html[data-theme="dark"] {
     }
 
     @keyframes float-scale {
+
         0%,
         100% {
             transform: scale(1);
         }
+
         50% {
             transform: scale(1.035);
         }
