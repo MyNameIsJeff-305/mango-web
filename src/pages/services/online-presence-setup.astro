@@ -1,5 +1,11 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import Badge from "../../components/ui/Badge.astro";
+
+import StrongFoundationIcon from "../../components/icons/StrongFoundationIcon.astro";
+import InconsistencyIcon from "../../components/icons/InconsistencyIcon.astro";
+import TimeSavingIcon from "../../components/icons/TimeSavingIcon.astro";
+import FutureGrowth from "../../components/icons/FutureGrowth.astro";
 
 const includedItems = [
   "Profile setup support across key platforms",
@@ -93,22 +99,22 @@ const faqs = [
 <MainLayout
   title="Online Presence Setup for Local Businesses | Mango Media"
   description="Online presence setup for businesses that need a stronger digital foundation, better consistency, and a more polished online presence."
-  ogImage="/images/og-placeholder.jpg"
+  ogImage="/images/branding/mango-online-presence.webp"
 >
   <section
     class="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28"
   >
     <div class="pointer-events-none absolute inset-0 -z-10">
       <div
-        class="absolute left-[-8%] top-12 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(176,241,34,0.30),transparent_65%)] blur-2xl"
+        class="absolute left-[-8%] top-12 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.34),transparent_65%)] blur-2xl"
       >
       </div>
       <div
-        class="absolute right-[-6%] top-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.18),transparent_60%)] blur-3xl"
+        class="absolute right-[-6%] top-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.22),transparent_60%)] blur-3xl"
       >
       </div>
       <div
-        class="absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.12),transparent_62%)] blur-3xl"
+        class="absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.14),transparent_62%)] blur-3xl"
       >
       </div>
     </div>
@@ -118,12 +124,8 @@ const faqs = [
         class="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10"
       >
         <div class="max-w-2xl">
-          <div
-            class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
-          >
-            <span class="inline-flex h-2.5 w-2.5 rounded-full leaf-gradient"
-            ></span>
-            Online Presence Setup
+          <div>
+            <Badge>Online Presence Setup</Badge>
           </div>
 
           <h1
@@ -156,31 +158,25 @@ const faqs = [
           </div>
         </div>
 
-        <div class="relative mx-auto max-w-xl">
+        <div class="relative hidden lg:block">
           <div
-            class="absolute inset-x-10 -top-6 h-20 rounded-full bg-[linear-gradient(135deg,rgba(1,155,144,0.20),rgba(176,241,34,0.24),rgba(218,60,120,0.12))] blur-2xl"
+            class="absolute -left-3 top-10 hidden h-24 w-24 rounded-[2rem] bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.22))] blur-xl sm:block"
           >
           </div>
           <div
-            class="relative overflow-hidden rounded-[2rem] border border-black/8 bg-[rgb(var(--color-surface))] p-4 shadow-card dark:border-white/10 sm:p-5"
+            class="absolute -right-4 bottom-10 hidden h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.24),transparent_65%)] blur-2xl sm:block"
           >
-            <div
-              class="overflow-hidden rounded-[1.75rem] border border-black/6 bg-[rgb(var(--color-surface-soft))] dark:border-white/8"
-            >
-              <img
-                src="/images/service-online-presence-placeholder.webp"
-                alt="Placeholder preview representing Mango Media online presence setup services"
-                class="h-full w-full object-cover"
-                loading="eager"
-              />
-            </div>
-            <div
-              class="pointer-events-none absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur"
-            >
-              <span class="inline-flex h-2 w-2 rounded-full bg-[#b0f122]"
-              ></span>
-              Digital Foundation Setup
-            </div>
+          </div>
+
+          <div
+            class="relative overflow-hidden rounded-[2rem] animate-float-scale"
+          >
+            <img
+              src="/images/branding/mango-online-presence.webp"
+              alt="Placeholder preview representing Mango Media online presence setup services"
+              class="h-[90%] w-[90%] object-cover"
+              loading="eager"
+            />
           </div>
         </div>
       </div>
@@ -190,15 +186,11 @@ const faqs = [
   <section class="pb-20 sm:pb-24 lg:pb-28">
     <div class="container-shell">
       <div
-        class="grid items-start gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12"
+        class="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12"
       >
         <div class="max-w-xl">
-          <div
-            class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
-          >
-            <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"
-            ></span>
-            Why this matters
+          <div>
+            <Badge>Why online presence matters</Badge>
           </div>
 
           <h2
@@ -261,12 +253,8 @@ const faqs = [
   <section class="pb-20 sm:pb-24 lg:pb-28">
     <div class="container-shell">
       <div class="mx-auto max-w-3xl text-center">
-        <div
-          class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
-        >
-          <span class="inline-flex h-2.5 w-2.5 rounded-full leaf-gradient"
-          ></span>
-          Outcomes that matter
+        <div class="inline-flex items-center gap-2">
+          <Badge>Outcomes that matter</Badge>
         </div>
 
         <h2
@@ -293,11 +281,22 @@ const faqs = [
                 class:list={[
                   "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-lg font-black shadow-soft",
                   benefit.accent === "mango"
-                    ? "bg-[linear-gradient(135deg,rgba(218,60,120,0.18),rgba(254,205,76,0.30))] text-[#7f1843] dark:text-white"
-                    : "bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.28))] text-[#0f5f58] dark:text-white",
+                    ? "bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-[#7f1843] dark:text-white"
+                    : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f5f58] dark:text-white",
                 ]}
               >
-                {benefit.title.charAt(0)}
+                {benefit.title === "Create a stronger foundation" && (
+                  <StrongFoundationIcon class="h-6 w-6" />
+                )}
+                {benefit.title === "Reduce inconsistency" && (
+                  <InconsistencyIcon class="h-7 w-7" />
+                )}
+                {benefit.title === "Save time and confusion" && (
+                  <TimeSavingIcon class="h-6 w-6" />
+                )}
+                {benefit.title === "Prepare for future growth" && (
+                  <FutureGrowth class="h-6 w-6" />
+                )}
               </div>
 
               <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
@@ -316,12 +315,8 @@ const faqs = [
   <section class="pb-20 sm:pb-24 lg:pb-28">
     <div class="container-shell">
       <div class="mx-auto max-w-3xl text-center">
-        <div
-          class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
-        >
-          <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"
-          ></span>
-          How the process works
+        <div class="inline-flex items-center gap-2">
+          <Badge>How the process works</Badge>
         </div>
 
         <h2
@@ -341,9 +336,6 @@ const faqs = [
                   index % 2 === 0 ? "leaf-gradient" : "mango-gradient",
                 ]}
               />
-              <span class="inline-flex min-w-[64px] items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(1,155,144,0.16),rgba(176,241,34,0.24))] px-3 py-2 font-nunito text-sm font-black tracking-[0.16em] text-[#0f5f58] dark:text-white">
-                {item.step}
-              </span>
               <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
                 {item.title}
               </h3>
@@ -357,14 +349,12 @@ const faqs = [
     </div>
   </section>
 
-  <section class="pb-20 sm:pb-24 lg:pb-28">
+  <section class="relative pb-20 sm:pb-24 lg:pb-28">
     <div class="container-shell">
-      <div
-        class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-12"
-      >
-        <div class="max-w-xl">
+      <div class="flex flex-col gap-y-12">
+        <div>
           <h2
-            class="font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl"
+            class="font-nunito text-3xl font-extrabold text-[rgb(var(--color-text))] sm:text-4xl"
           >
             Frequently asked questions about online presence setup
           </h2>
@@ -374,6 +364,12 @@ const faqs = [
             These answers help clarify how Mango Media approaches setup and
             digital organization for growing businesses.
           </p>
+          <img
+            src="/images/branding/mango-question.webp"
+            alt=""
+            aria-hidden="true"
+            class="pointer-events-none absolute left-1/2 top-[42%] z-0 w-120 -translate-x-1/2 -translate-y-1/2 animate-float-soft opacity-20 sm:block md:w-150 lg:w-150"
+          />
         </div>
 
         <div class="space-y-4">
