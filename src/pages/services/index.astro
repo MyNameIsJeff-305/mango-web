@@ -88,74 +88,94 @@ import Badge from "../../components/ui/Badge.astro";
         {
           services.map((service) => (
             <article class="surface-panel radius-brand group relative overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1">
-              <div
-                class:list={[
-                  "absolute inset-x-0 top-0 h-1.5",
-                  service.accent === "mango"
-                    ? "mango-gradient"
-                    : "leaf-gradient",
-                ]}
-              />
+  <div
+    class:list={[
+      "absolute inset-x-0 top-0 h-1.5 z-20",
+      service.accent === "mango"
+        ? "mango-gradient"
+        : "leaf-gradient",
+    ]}
+  />
 
-              <div class="flex items-start justify-between gap-4">
-                <div
-                  class:list={[
-                    "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-sm font-black shadow-soft",
-                    service.accent === "mango"
-                      ? "bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-[#7f1843] dark:text-white"
-                      : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f5f58] dark:text-white",
-                  ]}
-                >
-                  {service.title === "Website Design" && (
-                    <WebsiteDesignIcon class="h-8 w-8" />
-                  )}
-                  {service.title === "Local SEO" && (
-                    <LocalSEOIcon class="h-8 w-8" />
-                  )}
-                  {service.title === "Branding & Social Media Setup" && (
-                    <BrandingIcon class="h-8 w-8" />
-                  )}
-                  {service.title === "Online Presence Setup" && (
-                    <OnlinePresenceIcon class="h-8 w-8" />
-                  )}
-                  {service.title === "Google Business Profile Setup" && (
-                    <GBusinessServiceIcon class="h-8 w-8" />
-                  )}
-                  {service.title === "Starter Packages" && (
-                    <StarterPackageIcon class="h-8 w-8" />
-                  )}
-                </div>
-              </div>
+  <!-- Floating background image -->
+  <img
+  src={service.image}
+  alt=""
+  aria-hidden="true"
+  class="pointer-events-none absolute right-[-28px] top-1/2 z-0 hidden w-32 -translate-y-1/2 opacity-10 blur-[20px] transition-all duration-500 group-hover:scale-105 group-hover:opacity-20 group-hover:blur-none md:block lg:w-72"
+/>
 
-              <h2 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
-                {service.title}
-              </h2>
+  <!-- Optional soft glow -->
+  <div
+    class:list={[
+      "pointer-events-none absolute right-[-48px] top-1/2 z-0 hidden h-44 w-44 -translate-y-1/2 rounded-full blur-3xl md:block",
+      service.accent === "mango"
+        ? "bg-[rgba(218,60,120,0.10)]"
+        : "bg-[rgba(1,155,144,0.10)]",
+    ]}
+  />
 
-              <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
-                {service.description}
-              </p>
+  <div class="relative z-10">
+    <div class="flex items-start justify-between gap-4">
+      <div
+        class:list={[
+          "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-sm font-black shadow-soft",
+          service.accent === "mango"
+            ? "bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-[#7f1843] dark:text-white"
+            : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f5f58] dark:text-white",
+        ]}
+      >
+        {service.title === "Website Design" && (
+          <WebsiteDesignIcon class="h-8 w-8" />
+        )}
+        {service.title === "Local SEO" && (
+          <LocalSEOIcon class="h-8 w-8" />
+        )}
+        {service.title === "Branding & Social Media Setup" && (
+          <BrandingIcon class="h-8 w-8" />
+        )}
+        {service.title === "Online Presence Setup" && (
+          <OnlinePresenceIcon class="h-8 w-8" />
+        )}
+        {service.title === "Google Business Profile Setup" && (
+          <GBusinessServiceIcon class="h-8 w-8" />
+        )}
+        {service.title === "Starter Packages" && (
+          <StarterPackageIcon class="h-8 w-8" />
+        )}
+      </div>
+    </div>
 
-              <ul class="mt-5 space-y-3">
-                {service.bullets.map((bullet) => (
-                  <li class="flex items-start gap-3 text-sm font-medium text-[rgb(var(--color-text))]">
-                    <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full leaf-gradient text-[10px] font-black text-[#0f1115]">
-                      ✓
-                    </span>
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
+    <h2 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+      {service.title}
+    </h2>
 
-              <a
-                href={service.href}
-                class="mt-6 inline-flex items-center gap-2 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] transition-colors duration-200 hover:text-[rgb(var(--color-mango-pink))]"
-              >
-                Learn More
-                <span class="transition-transform duration-200 group-hover:translate-x-1">
-                  →
-                </span>
-              </a>
-            </article>
+    <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+      {service.description}
+    </p>
+
+    <ul class="mt-5 space-y-3">
+      {service.bullets.map((bullet) => (
+        <li class="flex items-start gap-3 text-sm font-medium text-[rgb(var(--color-text))]">
+          <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full leaf-gradient text-[10px] font-black text-[#0f1115]">
+            ✓
+          </span>
+          <span>{bullet}</span>
+        </li>
+      ))}
+    </ul>
+
+    <a
+      href={service.href}
+      class="mt-6 inline-flex items-center gap-2 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] transition-colors duration-200 hover:text-[rgb(var(--color-mango-pink))]"
+    >
+      Learn More
+      <span class="transition-transform duration-200 group-hover:translate-x-1">
+        →
+      </span>
+    </a>
+  </div>
+</article>
           ))
         }
       </div>

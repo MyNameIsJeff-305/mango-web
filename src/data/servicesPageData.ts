@@ -3,6 +3,7 @@ export const services = [
         title: "Website Design",
         href: "/services/website-design",
         accent: "mango",
+        image: "/images/branding/websites-hero-image.webp",
         description:
             "Beautiful, strategic websites that present your business clearly, strengthen trust, and help turn visitors into leads.",
         bullets: [
@@ -16,6 +17,7 @@ export const services = [
         title: "Local SEO",
         href: "/services/local-seo",
         accent: "leaf",
+        image: "/images/branding/mango-seo.webp",
         description:
             "Local visibility strategies that help your business appear where nearby customers are already searching.",
         bullets: [
@@ -29,6 +31,7 @@ export const services = [
         title: "Branding & Social Media Setup",
         href: "/services/branding-social-media",
         accent: "mango",
+        image: "/images/branding/mango-branding.webp",
         description:
             "A cleaner, more consistent brand presence across your key social channels and customer touchpoints.",
         bullets: [
@@ -42,6 +45,7 @@ export const services = [
         title: "Online Presence Setup",
         href: "/services/online-presence-setup",
         accent: "leaf",
+        image: "/images/branding/mango-online-presence.webp",
         description:
             "We organize your digital essentials so your business information, branding, and profiles work together.",
         bullets: [
@@ -55,6 +59,7 @@ export const services = [
         title: "Google Business Profile Setup",
         href: "/services/google-business-profile",
         accent: "mango",
+        image: "/images/branding/mango-gmb.webp",
         description:
             "Claim, set up, and strengthen one of the most important assets for local search visibility.",
         bullets: [
@@ -68,6 +73,7 @@ export const services = [
         title: "Starter Packages",
         href: "/services/starter-packages",
         accent: "leaf",
+        image: "/images/branding/mango-packages.webp",
         description:
             "A simple launch solution for new or small businesses that need to look professional and organized fast.",
         bullets: [
