@@ -1,5 +1,11 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Badge from "../components/ui/Badge.astro";
+
+import LocalBusinessIcon from "../components/icons/LocalBusinessIcon.astro"
+import StrongFoundationIcon from "../components/icons/StrongFoundationIcon.astro"
+import StrategicDesignIcon from "../components/icons/StrategicDesignIcon.astro"
+import EasierContentCreationIcon from "../components/icons/EasierContentCreationIcon.astro"
 
 const differentiators = [
   {
@@ -50,7 +56,7 @@ const audiences = [
 <MainLayout
   title="About Mango Media | Creative Online Presence Solutions for Local Businesses"
   description="Learn about Mango Media and how we help local businesses build stronger online foundations through branding, websites, setup, and local visibility."
-  ogImage="/images/og-placeholder.jpg"
+  ogImage="/images/branding/mango-about.webp"
 >
   <section class="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28">
     <div class="pointer-events-none absolute inset-0 -z-10">
@@ -62,9 +68,8 @@ const audiences = [
     <div class="container-shell">
       <div class="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10">
         <div class="max-w-2xl">
-          <div class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
-            <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"></span>
-            About Mango Media
+          <div>
+            <Badge>About Mango Media</Badge>
           </div>
 
           <h1 class="mt-6 font-nunito text-4xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-5xl lg:text-6xl">
@@ -92,19 +97,15 @@ const audiences = [
         </div>
 
         <div class="relative mx-auto max-w-xl">
-          <div class="absolute inset-x-10 -top-6 h-20 rounded-full bg-[linear-gradient(135deg,rgba(218,60,120,0.18),rgba(254,205,76,0.22),rgba(1,155,144,0.16))] blur-2xl"></div>
-          <div class="relative overflow-hidden rounded-[2rem] border border-black/8 bg-[rgb(var(--color-surface))] p-4 shadow-card dark:border-white/10 sm:p-5">
-            <div class="overflow-hidden rounded-[1.75rem] border border-black/6 bg-[rgb(var(--color-surface-soft))] dark:border-white/8">
+          <div class="absolute inset-x-10 top-20 h-60 rounded-full bg-[linear-gradient(135deg,rgba(218,60,120,0.18),rgba(254,205,76,0.22),rgba(1,155,144,0.16))] blur-2xl"></div>
+          <div class="relative hidden lg:block">
+            <div class="relative overflow-hidden rounded-[2rem] animate-float-scale">
               <img
-                src="/images/about-placeholder.webp"
+                src="/images/branding/mango-about.webp"
                 alt="Placeholder image representing Mango Media creative direction and online presence services"
-                class="h-full w-full object-cover"
+                class="h-[100%] w-[100%] object-cover"
                 loading="eager"
               />
-            </div>
-            <div class="pointer-events-none absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur">
-              <span class="inline-flex h-2 w-2 rounded-full bg-[#b0f122]"></span>
-              Creative Growth Partner
             </div>
           </div>
         </div>
@@ -116,9 +117,8 @@ const audiences = [
     <div class="container-shell">
       <div class="grid items-start gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
         <div class="max-w-xl">
-          <div class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
-            <span class="inline-flex h-2.5 w-2.5 rounded-full leaf-gradient"></span>
-            Our mission
+          <div>
+            <Badge>Our Mission</Badge>
           </div>
 
           <h2 class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl">
@@ -153,11 +153,14 @@ const audiences = [
                 class:list={[
                   "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-lg font-black shadow-soft",
                   item.accent === "mango"
-                    ? "bg-[linear-gradient(135deg,rgba(218,60,120,0.18),rgba(254,205,76,0.30))] text-[#7f1843] dark:text-white"
-                    : "bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.28))] text-[#0f5f58] dark:text-white",
+                    ? "bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-[#7f1843] dark:text-white"
+                    : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f5f58] dark:text-white",
                 ]}
               >
-                {item.title.charAt(0)}
+                {item.title === "Built for local businesses" && <LocalBusinessIcon class="h-7 w-7"/>}
+                {item.title === "Strong digital foundations" && <StrongFoundationIcon class="h-7 w-7"/>}
+                {item.title === "Creative but strategic" && <StrategicDesignIcon class="h-7 w-7"/>}
+                {item.title === "Simple, supportive process" && <EasierContentCreationIcon class="h-7 w-7"/>}
               </div>
 
               <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
@@ -177,9 +180,8 @@ const audiences = [
     <div class="container-shell">
       <div class="grid gap-12 lg:grid-cols-2 lg:gap-12">
         <div class="surface-panel radius-brand p-6 sm:p-8">
-          <div class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
-            <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"></span>
-            What we do
+          <div>
+            <Badge>What we do?</Badge>
           </div>
 
           <h2 class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl">
@@ -199,9 +201,8 @@ const audiences = [
         </div>
 
         <div class="surface-panel radius-brand p-6 sm:p-8">
-          <div class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
-            <span class="inline-flex h-2.5 w-2.5 rounded-full leaf-gradient"></span>
-            Who we work with
+          <div>
+            <Badge>Who we work with?</Badge>
           </div>
 
           <h2 class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl">
@@ -229,9 +230,8 @@ const audiences = [
         <div class="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(218,60,120,0.10),rgba(254,205,76,0.14),rgba(1,155,144,0.10))]"></div>
 
         <div class="mx-auto max-w-4xl text-center">
-          <div class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
-            <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"></span>
-            Let’s grow your brand with clarity and confidence
+          <div class="inline-flex items-center gap-2">
+            <Badge>Let's grow your brand with quality and confidence</Badge>
           </div>
 
           <h2 class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl">
