@@ -1,22 +1,23 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Badge from "../components/ui/Badge.astro";
 
 const featuredProjects = [
   {
     title: "Local Brand Presence Refresh",
-    category: "Branding & Social Setup",
+    category: "Branding & Social Media Setup",
     summary:
       "A polished visual direction and optimized social presence created to help a local service brand look more credible and consistent online.",
-    image: "/images/project-placeholder-01.webp",
+    image: "/images/portfolio/donuts-havana.webp",
     accent: "mango",
     href: "/contact",
   },
   {
-    title: "Service Business Website Launch",
-    category: "Website Design",
+    title: "New Business Launch",
+    category: "Branding/Rebranding",
     summary:
-      "A clean, conversion-focused website concept designed to communicate services clearly and create a stronger first impression.",
-    image: "/images/project-placeholder-02.webp",
+      "A full visual identity and online presence setup for a new business launch, including logo design, profile creation, and a polished website concept.",
+    image: "/images/portfolio/timba-tambo.webp",
     accent: "leaf",
     href: "/contact",
   },
@@ -25,25 +26,25 @@ const featuredProjects = [
     category: "Local SEO / GBP",
     summary:
       "A local visibility improvement project focused on profile structure, business information consistency, and better search readiness.",
-    image: "/images/project-placeholder-03.webp",
+    image: "/images/portfolio/google-business-stats.webp",
     accent: "mango",
     href: "/contact",
   },
   {
-    title: "Starter Package Launch Setup",
-    category: "Starter Package",
+    title: "Rebrand & Online Presence Setup",
+    category: "Online Presence",
     summary:
-      "A fast-launch setup for a small business that needed branding basics, profile setup, and a stronger online foundation.",
-    image: "/images/project-placeholder-04.webp",
+      "A fast relaunch setup for a small business that needed branding basics, profile setup, and a stronger online foundation.",
+    image: "/images/portfolio/carboat-rental.webp",
     accent: "leaf",
     href: "/contact",
   },
   {
-    title: "Growth Package Brand System",
-    category: "Growth Setup",
+    title: "Website Design & Starter Package",
+    category: "Starter Package",
     summary:
-      "A more complete launch-ready package with content pieces, templates, clearer CTAs, and a stronger overall profile presentation.",
-    image: "/images/project-placeholder-05.webp",
+      "A polished website design concept and starter package built to help a local business launch with a stronger online presence and more confidence.",
+    image: "/images/portfolio/carlos-rodriguez.webp",
     accent: "mango",
     href: "/contact",
   },
@@ -52,7 +53,7 @@ const featuredProjects = [
     category: "Launch Pro",
     summary:
       "A premium launch concept combining landing page structure, brand direction, and launch-ready assets for a business starting strong.",
-    image: "/images/project-placeholder-06.webp",
+    image: "/images/portfolio/sunnylife-boattours.webp",
     accent: "leaf",
     href: "/contact",
   },
@@ -94,12 +95,8 @@ const filters = [
 
     <div class="container-shell">
       <div class="mx-auto max-w-4xl text-center">
-        <div
-          class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
-        >
-          <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"
-          ></span>
-          Selected work and visual direction
+        <div class="inline-flex items-center gap-2">
+          <Badge>Check out our work</Badge>
         </div>
 
         <h1
@@ -115,28 +112,6 @@ const filters = [
           launch-ready package concepts created to help businesses look more
           polished and more professional online.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="pb-12 sm:pb-14 lg:pb-16">
-    <div class="container-shell">
-      <div class="flex flex-wrap items-center justify-center gap-3">
-        {
-          filters.map((filter, index) => (
-            <button
-              type="button"
-              class:list={[
-                "rounded-full border px-4 py-2 text-sm font-nunito font-extrabold transition-colors duration-200",
-                index === 0
-                  ? "border-transparent bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] text-white shadow-mango"
-                  : "border-black/8 bg-white/80 text-[rgb(var(--color-text))] backdrop-blur hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10",
-              ]}
-            >
-              {filter}
-            </button>
-          ))
-        }
       </div>
     </div>
   </section>
@@ -213,12 +188,8 @@ const filters = [
         </div>
 
         <div class="mx-auto max-w-4xl text-center">
-          <div
-            class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
-          >
-            <span class="inline-flex h-2.5 w-2.5 rounded-full leaf-gradient"
-            ></span>
-            Want something like this for your business?
+          <div class="inline-flex items-center gap-2">
+            <Badge>Want something like this for your business?</Badge>
           </div>
 
           <h2
