@@ -5,8 +5,8 @@ export const blogPosts = [
         category: "Small Business Growth",
         excerpt:
             "A clear, professional online presence helps local businesses build trust, get found more easily, and create better first impressions before a customer ever reaches out.",
-        date: "Coming Soon",
-        image: "/images/blog-placeholder-01.webp",
+        date: "04/20/2026",
+        image: "/images/blogs/why-every-local-business-needs-a-strong-online-presence.webp",
         accent: "mango",
         readTime: "5 min read",
         content: [
@@ -39,8 +39,8 @@ export const blogPosts = [
         category: "Websites",
         excerpt:
             "A good-looking website is not enough. Learn what helps a small business website communicate clearly, convert better, and support real growth.",
-        date: "Coming Soon",
-        image: "/images/blog-placeholder-02.webp",
+        date: "04/14/2026",
+        image: "/images/blogs/what-makes-a-small-business-website-actually-effective.webp",
         accent: "leaf",
         readTime: "6 min read",
         content: [
@@ -73,8 +73,8 @@ export const blogPosts = [
         category: "Google Business Profile",
         excerpt:
             "Your Google Business Profile is one of the most important tools for local visibility. Here is what every business owner should understand first.",
-        date: "Coming Soon",
-        image: "/images/blog-placeholder-03.webp",
+        date: "04/08/2026",
+        image: "/images/blogs/google-business-profile-basics-for-beginners.webp",
         accent: "mango",
         readTime: "5 min read",
         content: [
@@ -107,8 +107,8 @@ export const blogPosts = [
         category: "Branding",
         excerpt:
             "Many small businesses lose credibility through inconsistent visuals and messaging. These are some of the most common branding mistakes to avoid.",
-        date: "Coming Soon",
-        image: "/images/blog-placeholder-04.webp",
+        date: "04/02/2026",
+        image: "/images/blogs/common-branding-mistakes-small-businesses-make.webp",
         accent: "leaf",
         readTime: "5 min read",
         content: [
@@ -141,8 +141,8 @@ export const blogPosts = [
         category: "Local SEO",
         excerpt:
             "Local SEO is one of the strongest ways to improve visibility in your area and create more chances for nearby customers to discover your business.",
-        date: "Coming Soon",
-        image: "/images/blog-placeholder-05.webp",
+        date: "03/29/2026",
+        image: "/images/blogs/how-local-seo-helps-businesses-attract-nearby-customers.webp",
         accent: "mango",
         readTime: "6 min read",
         content: [
@@ -175,8 +175,8 @@ export const blogPosts = [
         category: "Social Media Setup",
         excerpt:
             "Before posting regularly, your business needs a stronger setup. Here is what to organize first so your social presence feels more professional.",
-        date: "Coming Soon",
-        image: "/images/blog-placeholder-06.webp",
+        date: "03/23/2026",
+        image: "/images/blogs/what-to-set-up-before-posting-on-social-media-for-your-business.webp",
         accent: "leaf",
         readTime: "5 min read",
         content: [

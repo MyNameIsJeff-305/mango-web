@@ -10,7 +10,9 @@ export function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const relatedPosts = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
+const relatedPosts = blogPosts
+  .filter((item) => item.slug !== post.slug)
+  .slice(0, 3);
 ---
 
 <MainLayout

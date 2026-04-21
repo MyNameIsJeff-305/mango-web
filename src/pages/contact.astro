@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Badge from "../components/ui/Badge.astro";
 
 const contactMethods = [
   {
@@ -52,12 +53,8 @@ const serviceOptions = [
 
     <div class="container-shell">
       <div class="mx-auto max-w-4xl text-center">
-        <div
-          class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
-        >
-          <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"
-          ></span>
-          Let’s talk about your business
+        <div class="inline-flex items-center gap-2">
+          <Badge>Let's talk about your Business</Badge>
         </div>
 
         <h1
@@ -84,12 +81,8 @@ const serviceOptions = [
       >
         <div class="space-y-6">
           <div class="surface-panel radius-brand p-6 sm:p-8">
-            <div
-              class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
-            >
-              <span class="inline-flex h-2.5 w-2.5 rounded-full leaf-gradient"
-              ></span>
-              Direct contact
+            <div>
+              <Badge>Direct Contact</Badge>
             </div>
 
             <h2
@@ -143,12 +136,8 @@ const serviceOptions = [
         </div>
 
         <div class="surface-panel radius-brand p-6 sm:p-8">
-          <div
-            class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
-          >
-            <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"
-            ></span>
-            Send us a message
+          <div>
+            <Badge>Send us a Message</Badge>
           </div>
 
           <form

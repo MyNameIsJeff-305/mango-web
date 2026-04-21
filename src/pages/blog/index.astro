@@ -4,16 +4,6 @@ import Badge from "../../components/ui/Badge.astro";
 
 import { blogPosts } from "../../data/blogPosts";
 
-const categories = [
-  "All",
-  "Branding",
-  "Websites",
-  "Local SEO",
-  "Google Business Profile",
-  "Social Media Setup",
-  "Small Business Growth",
-];
-
 const featuredPosts = blogPosts;
 ---
 
@@ -42,12 +32,8 @@ const featuredPosts = blogPosts;
 
     <div class="container-shell">
       <div class="mx-auto max-w-4xl text-center">
-        <div
-          class="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-[rgb(var(--color-text-secondary))] shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5"
-        >
-          <span class="inline-flex h-2.5 w-2.5 rounded-full mango-gradient"
-          ></span>
-          Insights to help your business grow online
+        <div class="inline-flex items-center gap-2">
+          <Badge>Insights to help your business grow online</Badge>
         </div>
 
         <h1
@@ -63,28 +49,6 @@ const featuredPosts = blogPosts;
           Business Profile optimization, social media setup, and digital growth
           for local businesses.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="pb-12 sm:pb-14 lg:pb-16">
-    <div class="container-shell">
-      <div class="flex flex-wrap items-center justify-center gap-3">
-        {
-          categories.map((category, index) => (
-            <button
-              type="button"
-              class:list={[
-                "rounded-full border px-4 py-2 text-sm font-nunito font-extrabold transition-colors duration-200",
-                index === 0
-                  ? "border-transparent bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] text-white shadow-mango"
-                  : "border-black/8 bg-white/80 text-[rgb(var(--color-text))] backdrop-blur hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10",
-              ]}
-            >
-              {category}
-            </button>
-          ))
-        }
       </div>
     </div>
   </section>
@@ -115,7 +79,7 @@ const featuredPosts = blogPosts;
                 <div class="flex flex-wrap items-center gap-3">
                   <span
                     class:list={[
-                      "inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]",
+                      "inline-flex flex-row justify-between rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]",
                       post.accent === "mango"
                         ? "bg-[rgb(var(--color-mango-pink))/0.10] text-[rgb(var(--color-mango-pink))]"
                         : "bg-[rgb(var(--color-leaf-teal))/0.12] text-[rgb(var(--color-leaf-teal))] dark:text-[rgb(var(--color-leaf-lime))]",
