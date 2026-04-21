@@ -1,5 +1,7 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import Badge from "../../components/ui/Badge.astro";
+
 import { blogPosts } from "../../data/blogPosts";
 
 const categories = [
@@ -18,7 +20,7 @@ const featuredPosts = blogPosts;
 <MainLayout
   title="Blog | Mango Media Tips for Branding, Websites, Local SEO and Online Presence"
   description="Read Mango Media insights on branding, website design, Google Business Profile, local SEO, and online presence growth for small and local businesses."
-  ogImage="/images/og-placeholder.jpg"
+  ogImage="/images/branding/mango-og.webp"
 >
   <section
     class="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28"
