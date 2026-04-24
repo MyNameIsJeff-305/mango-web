@@ -1,25 +1,101 @@
 ---
 import Badge from "../../ui/Badge.astro";
 
-const trustPoints = [
-  "Branding that feels professional and approachable",
-  "Websites made to skyrocket your business",
-  "Local SEO that helps you beat your competitors",
+const slides = [
+  {
+    eyebrow: "Built for local businesses",
+    title: "Build Your Brand.",
+    highlight: "Grow Your Presence.",
+    description:
+      "Mango Media helps local businesses create a polished online presence through branding, websites, social media setup, Google Business Profile optimization, and local SEO strategies that help you get found.",
+    primaryCta: {
+      label: "Get a Free Consultation",
+      href: "/contact",
+    },
+    secondaryCta: {
+      label: "Explore Services",
+      href: "/services",
+    },
+    note:
+      "Built for local businesses that want to look professional, get discovered, and grow with confidence.",
+    image: "/images/hero-image.webp",
+    imageAlt:
+      "Mango Media hero image representing website design, branding, and online presence services",
+    trustPoints: [
+      "Branding that feels professional and approachable",
+      "Websites made to skyrocket your business",
+      "Local SEO that helps you beat your competitors",
+    ],
+  },
+  {
+    eyebrow: "Mango Quick Page",
+    title: "Your Digital",
+    highlight: "Business Card",
+    description:
+      "Mango Quick Page gives small businesses a beautiful mobile-first business page with contact info, map, social links, QR code, and optional custom domain setup.",
+    primaryCta: {
+      label: "Get Started",
+      href: "/contact",
+    },
+    secondaryCta: {
+      label: "Learn More",
+      href: "/services/mango-quick-page",
+    },
+    note:
+      "Not ready for a full website? Mango Quick Page is a mobile-first business page with contact info, map, social links, QR code, and optional custom domain setup.",
+    image: "/images/hero-website.webp",
+    imageAlt:
+      "Not ready for a full website? Mango Quick Page is a mobile-first business page with contact info, map, social links, QR code, and optional custom domain setup.",
+    trustPoints: [
+      "Mobile-first design",
+      "Clear calls to action",
+      "Built to generate leads",
+    ],
+  },
+  {
+    eyebrow: "Local SEO + Google visibility",
+    title: "Get Found By",
+    highlight: "More Local Customers.",
+    description:
+      "From Google Business Profile optimization to local SEO structure, Mango Media helps your business show up stronger when nearby customers are searching.",
+    primaryCta: {
+      label: "Improve My Visibility",
+      href: "/contact",
+    },
+    secondaryCta: {
+      label: "Explore Local SEO",
+      href: "/services/local-seo",
+    },
+    note:
+      "Ideal for local businesses that want more calls, more visits, and a stronger presence in their service area.",
+    image: "/images/hero-local-seo.webp",
+    imageAlt:
+      "Local SEO and Google Business Profile optimization visual for Mango Media",
+    trustPoints: [
+      "Google Business Profile support",
+      "Local keyword strategy",
+      "Stronger search presence",
+    ],
+  },
 ];
 ---
 
 <section
   class="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28"
+  data-hero-slider
 >
+  <!-- Background Glow -->
   <div class="pointer-events-none absolute inset-0 -z-10">
     <div
       class="absolute left-[-8%] top-10 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.38),transparent_65%)] blur-2xl"
     >
     </div>
+
     <div
       class="absolute right-[-6%] top-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.24),transparent_60%)] blur-3xl"
     >
     </div>
+
     <div
       class="absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.16),transparent_62%)] blur-3xl"
     >
@@ -27,91 +103,206 @@ const trustPoints = [
   </div>
 
   <div class="container-shell">
-    <div
-      class="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10"
-    >
-      <div class="max-w-2xl">
-        <Badge>Built for local businesses</Badge>
-        <h1
-          class="mt-6 max-w-xl font-nunito text-4xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-5xl sm:leading-[1.05] lg:text-6xl"
+    <div class="relative">
+      <div class="overflow-hidden">
+        <div
+          class="flex transition-transform duration-700 ease-out"
+          data-slider-track
         >
-          Build Your Brand.
-          <span
-            class="block bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_60%,#019b90_100%)] bg-clip-text text-transparent"
-          >
-            Grow Your Presence.
-          </span>
-        </h1>
-
-        <p
-          class="mt-6 max-w-xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
-        >
-          Mango Media helps local businesses create a polished online presence
-          through branding, websites, social media setup, Google Business
-          Profile optimization, and local SEO strategies that help you get
-          found.
-        </p>
-
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <a
-            href="/contact"
-            class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
-          >
-            Get a Free Consultation
-          </a>
-
-          <a
-            href="/services"
-            class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
-          >
-            Explore Services
-          </a>
-        </div>
-
-        <p
-          class="mt-6 text-sm font-medium text-[rgb(var(--color-text-secondary))]"
-        >
-          Built for local businesses that want to look professional, get
-          discovered, and grow with confidence.
-        </p>
-
-        <ul class="mt-6 grid gap-3 sm:grid-cols-3 sm:gap-4">
           {
-            trustPoints.map((point) => (
-              <li class="surface-panel radius-brand flex items-start gap-3 p-4">
-                <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full leaf-gradient text-[10px] font-black text-[#0f1115]">
-                  ✓
-                </span>
-                <span class="text-sm font-semibold leading-6 text-[rgb(var(--color-text))]">
-                  {point}
-                </span>
-              </li>
+            slides.map((slide) => (
+              <article class="min-w-full">
+                <div class="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10">
+                  <!-- Content -->
+                  <div class="max-w-2xl">
+                    <Badge>{slide.eyebrow}</Badge>
+
+                    <h1 class="mt-6 max-w-xl font-nunito text-4xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-5xl sm:leading-[1.05] lg:text-6xl">
+                      {slide.title}
+                      <span class="block bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_60%,#019b90_100%)] bg-clip-text text-transparent">
+                        {slide.highlight}
+                      </span>
+                    </h1>
+
+                    <p class="mt-6 max-w-xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg">
+                      {slide.description}
+                    </p>
+
+                    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                      <a
+                        href={slide.primaryCta.href}
+                        class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-glow-mango transition-transform duration-200 hover:-translate-y-0.5"
+                      >
+                        {slide.primaryCta.label}
+                      </a>
+
+                      <a
+                        href={slide.secondaryCta.href}
+                        class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                      >
+                        {slide.secondaryCta.label}
+                      </a>
+                    </div>
+
+                    <p class="mt-6 text-sm font-medium text-[rgb(var(--color-text-secondary))]">
+                      {slide.note}
+                    </p>
+
+                    <ul class="mt-6 grid gap-3 sm:grid-cols-3 sm:gap-4">
+                      {slide.trustPoints.map((point) => (
+                        <li class="surface-panel radius-brand flex items-start gap-3 p-4">
+                          <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full leaf-gradient text-[10px] font-black text-[#0f1115]">
+                            ✓
+                          </span>
+
+                          <span class="text-sm font-semibold leading-6 text-[rgb(var(--color-text))]">
+                            {point}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <!-- Image -->
+                  <div class="relative hidden lg:block">
+                    <div class="absolute -left-3 top-10 hidden h-24 w-24 rounded-[2rem] bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.22))] blur-xl sm:block">
+                    </div>
+
+                    <div class="absolute -right-4 bottom-10 hidden h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.24),transparent_65%)] blur-2xl sm:block">
+                    </div>
+
+                    <div class="relative overflow-hidden rounded-[2rem] animate-float-scale">
+                      <img
+                        src={slide.image}
+                        alt={slide.imageAlt}
+                        class="h-full w-full object-cover"
+                        loading="eager"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </article>
             ))
           }
-        </ul>
+        </div>
       </div>
 
-      <div class="relative hidden lg:block">
-        <div
-          class="absolute -left-3 top-10 hidden h-24 w-24 rounded-[2rem] bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.22))] blur-xl sm:block"
-        >
-        </div>
-        <div
-          class="absolute -right-4 bottom-10 hidden h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.24),transparent_65%)] blur-2xl sm:block"
-        >
+      <!-- Controls -->
+      <div
+        class="mt-10 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <!-- Dots -->
+        <div class="flex items-center gap-2" data-slider-dots>
+          {
+            slides.map((_, index) => (
+              <button
+                type="button"
+                class="h-2.5 w-2.5 rounded-full bg-[rgb(var(--color-text))]/20 transition-all duration-300 aria-selected:w-8 aria-selected:bg-[rgb(var(--color-mango-pink))]"
+                aria-label={`Go to slide ${index + 1}`}
+                aria-selected={index === 0 ? "true" : "false"}
+                data-slider-dot
+                data-slide-index={index}
+              />
+            ))
+          }
         </div>
 
-        <div
-          class="relative overflow-hidden rounded-[2rem] animate-float-scale"
-        >
-          <img
-            src="/images/hero-image.webp"
-            alt="Mango Media hero image representing website design, branding, and online presence services"
-            class="h-full w-full object-cover"
-            loading="eager"
-          />
+        <!-- Arrows -->
+        <div class="flex items-center gap-3">
+          <button
+            type="button"
+            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/8 bg-white/80 text-[rgb(var(--color-text))] shadow-soft backdrop-blur transition hover:-translate-y-0.5 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+            aria-label="Previous slide"
+            data-slider-prev
+          >
+            ←
+          </button>
+
+          <button
+            type="button"
+            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/8 bg-white/80 text-[rgb(var(--color-text))] shadow-soft backdrop-blur transition hover:-translate-y-0.5 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+            aria-label="Next slide"
+            data-slider-next
+          >
+            →
+          </button>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const slider = document.querySelector("[data-hero-slider]");
+  const track = slider?.querySelector("[data-slider-track]");
+  const prevButton = slider?.querySelector("[data-slider-prev]");
+  const nextButton = slider?.querySelector("[data-slider-next]");
+  const dots = slider?.querySelectorAll("[data-slider-dot]");
+
+  let currentSlide = 0;
+  const totalSlides = dots?.length || 0;
+  let autoPlayInterval;
+
+  const updateSlider = () => {
+    if (!track || !dots) return;
+
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    dots.forEach((dot, index) => {
+      dot.setAttribute(
+        "aria-selected",
+        index === currentSlide ? "true" : "false"
+      );
+    });
+  };
+
+  const goToSlide = (index) => {
+    currentSlide = (index + totalSlides) % totalSlides;
+    updateSlider();
+  };
+
+  const nextSlide = () => {
+    goToSlide(currentSlide + 1);
+  };
+
+  const prevSlide = () => {
+    goToSlide(currentSlide - 1);
+  };
+
+  const startAutoPlay = () => {
+    autoPlayInterval = window.setInterval(nextSlide, 10000);
+  };
+
+  const stopAutoPlay = () => {
+    window.clearInterval(autoPlayInterval);
+  };
+
+  nextButton?.addEventListener("click", () => {
+    stopAutoPlay();
+    nextSlide();
+    startAutoPlay();
+  });
+
+  prevButton?.addEventListener("click", () => {
+    stopAutoPlay();
+    prevSlide();
+    startAutoPlay();
+  });
+
+  dots?.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const index = Number(dot.getAttribute("data-slide-index"));
+
+      stopAutoPlay();
+      goToSlide(index);
+      startAutoPlay();
+    });
+  });
+
+  slider?.addEventListener("mouseenter", stopAutoPlay);
+  slider?.addEventListener("mouseleave", startAutoPlay);
+
+  if (totalSlides > 1) {
+    startAutoPlay();
+  }
+</script>
