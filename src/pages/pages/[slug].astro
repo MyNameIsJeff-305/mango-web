@@ -1,0 +1,77 @@
+---
+import "../../styles/global.css";
+import MangoPageContent from "../../components/react/MangoPageContent";
+import { mangoPages } from "../../components/data/mangoPages";
+
+export function getStaticPaths() {
+  return mangoPages.map((business) => ({
+    params: {
+      slug: business.slug,
+    },
+    props: {
+      business,
+    },
+  }));
+}
+
+const { business } = Astro.props;
+
+const pageTitle = `${business.name} | Mango Quick Page`;
+const pageDescription = business.description;
+const canonicalUrl = `https://mangomedia305.com/pages/${business.slug}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content={business.secondaryColor} />
+
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+
+    <link rel="canonical" href={canonicalUrl} />
+  </head>
+
+  <body
+    class="min-h-screen bg-[rgb(var(--color-bg))] font-montserrat text-[rgb(var(--color-text))]"
+  >
+    <main class="relative isolate min-h-screen overflow-x-hidden">
+      <div class="pointer-events-none absolute inset-0 -z-10">
+        <div
+          class="absolute left-[-6rem] top-[-5rem] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.18),transparent_65%)] blur-3xl"
+        >
+        </div>
+
+        <div
+          class="absolute right-[-5rem] top-40 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.20),transparent_65%)] blur-3xl"
+        >
+        </div>
+
+        <div
+          class="absolute bottom-20 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.12),transparent_65%)] blur-3xl"
+        >
+        </div>
+      </div>
+
+      <section
+        class="min-h-screen px-4 py-6 sm:px-6 sm:py-10 lg:flex lg:items-center lg:px-8"
+      >
+        <div class="mx-auto w-full max-w-7xl">
+          <article
+            class="surface-panel radius-brand-xl overflow-hidden border border-subtle shadow-card lg:h-[calc(100vh-5rem)] lg:min-h-0"
+          >
+            <MangoPageContent business={business} />
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

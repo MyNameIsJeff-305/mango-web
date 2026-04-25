@@ -1,6 +1,8 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import Badge from "../../components/ui/Badge.astro";
+import MangoPagePreview from "../../components/react/MangoPagePreview";
+import { demoCafe } from "../../components/data/mangoPages/demoCafe";
 
 const pageTitle = "Mango Quick Page | Simple Business Pages by Mango Media 305";
 const pageDescription =
@@ -178,15 +180,6 @@ const faqs = [
             hours, and a QR code — without needing a full website right away.
           </p>
 
-          <p
-            class="mt-4 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))]"
-          >
-            In Spanish: <strong
-              >la información de tu negocio lista para compartir en un solo
-              link.</strong
-            >
-          </p>
-
           <div class="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
               href="/contact"
@@ -202,24 +195,6 @@ const faqs = [
               View Packages
             </a>
           </div>
-
-          <div class="mt-8 flex flex-wrap gap-3">
-            <span
-              class="rounded-full border border-subtle bg-[rgb(var(--color-surface))] px-4 py-2 text-sm font-bold text-[rgb(var(--color-text-secondary))] shadow-soft"
-            >
-              Mobile-first
-            </span>
-            <span
-              class="rounded-full border border-subtle bg-[rgb(var(--color-surface))] px-4 py-2 text-sm font-bold text-[rgb(var(--color-text-secondary))] shadow-soft"
-            >
-              QR code included
-            </span>
-            <span
-              class="rounded-full border border-subtle bg-[rgb(var(--color-surface))] px-4 py-2 text-sm font-bold text-[rgb(var(--color-text-secondary))] shadow-soft"
-            >
-              Fast setup
-            </span>
-          </div>
         </div>
 
         <!-- Hero visual mockup -->
@@ -230,706 +205,559 @@ const faqs = [
             pages.mangomedia305.com/your-business
           </div>
 
-          <div
-            class="surface-panel radius-brand-xl relative overflow-hidden p-4 sm:p-5"
-          >
-            <div class="pointer-events-none absolute inset-0 overflow-hidden">
-              <div
-                class="absolute right-[-4rem] top-[-4rem] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.22),rgba(218,60,120,0.14),transparent_70%)] blur-3xl"
-              >
-              </div>
-              <div
-                class="absolute bottom-[-5rem] left-[-4rem] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.16),rgba(176,241,34,0.10),transparent_70%)] blur-3xl"
-              >
-              </div>
+          <div class="relative hidden lg:block">
+            <div
+              class="absolute -left-3 top-10 hidden h-24 w-24 rounded-[2rem] bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.22))] blur-xl sm:block"
+            >
             </div>
 
             <div
-              class="relative mx-auto max-w-md overflow-hidden rounded-[2rem] border border-subtle bg-[rgb(var(--color-surface-soft))]"
+              class="absolute -right-4 bottom-10 hidden h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.24),transparent_65%)] blur-2xl sm:block"
             >
-              <div
-                class="relative overflow-hidden bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_55%,#019b90_100%)] p-6 text-white sm:p-8"
-              >
-                <div class="absolute inset-0 bg-black/10"></div>
-                <div
-                  class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/15 blur-2xl"
-                >
-                </div>
-
-                <div class="relative z-10">
-                  <div
-                    class="flex h-16 w-16 items-center justify-center rounded-[1.25rem] bg-white/20 font-nunito text-2xl font-black text-white backdrop-blur-md"
-                  >
-                    M
-                  </div>
-
-                  <h2
-                    class="mt-5 font-nunito text-3xl font-extrabold text-white"
-                  >
-                    Your Business Name
-                  </h2>
-
-                  <p class="mt-2 max-w-md text-sm leading-6 text-white/85">
-                    A simple description about your business, services, and why
-                    customers should contact you.
-                  </p>
-
-                  <div class="mt-6 grid grid-cols-2 gap-3">
-                    <a
-                      href="#"
-                      class="rounded-full bg-white px-4 py-3 text-center font-nunito text-sm font-extrabold text-[#0f1115]"
-                    >
-                      Call Now
-                    </a>
-                    <a
-                      href="#"
-                      class="rounded-full bg-[#0f1115]/85 px-4 py-3 text-center font-nunito text-sm font-extrabold text-white backdrop-blur"
-                    >
-                      Directions
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="space-y-4 p-5">
-                <div class="grid grid-cols-3 gap-3">
-                  <div
-                    class="rounded-[1.25rem] border border-subtle bg-[rgb(var(--color-surface))] p-3 shadow-soft"
-                  >
-                    <p
-                      class="text-[11px] font-bold uppercase tracking-[0.14em] text-[rgb(var(--color-text-secondary))]"
-                    >
-                      Phone
-                    </p>
-                    <div
-                      class="mt-3 h-2.5 rounded-full bg-[rgb(var(--color-text)/0.16)]"
-                    >
-                    </div>
-                  </div>
-
-                  <div
-                    class="rounded-[1.25rem] border border-subtle bg-[rgb(var(--color-surface))] p-3 shadow-soft"
-                  >
-                    <p
-                      class="text-[11px] font-bold uppercase tracking-[0.14em] text-[rgb(var(--color-text-secondary))]"
-                    >
-                      Hours
-                    </p>
-                    <div
-                      class="mt-3 h-2.5 rounded-full bg-[rgb(var(--color-text)/0.16)]"
-                    >
-                    </div>
-                  </div>
-
-                  <div
-                    class="rounded-[1.25rem] border border-subtle bg-[rgb(var(--color-surface))] p-3 shadow-soft"
-                  >
-                    <p
-                      class="text-[11px] font-bold uppercase tracking-[0.14em] text-[rgb(var(--color-text-secondary))]"
-                    >
-                      Social
-                    </p>
-                    <div
-                      class="mt-3 h-2.5 rounded-full bg-[rgb(var(--color-text)/0.16)]"
-                    >
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="rounded-[1.5rem] border border-subtle bg-[rgb(var(--color-surface))] p-4 shadow-soft"
-                >
-                  <div class="flex items-center justify-between gap-4">
-                    <div class="min-w-0 flex-1">
-                      <p
-                        class="font-nunito text-base font-extrabold text-[rgb(var(--color-text))]"
-                      >
-                        Services
-                      </p>
-                      <div
-                        class="mt-3 h-2.5 w-11/12 rounded-full bg-[rgb(var(--color-text)/0.14)]"
-                      >
-                      </div>
-                      <div
-                        class="mt-2 h-2.5 w-8/12 rounded-full bg-[rgb(var(--color-text)/0.10)]"
-                      >
-                      </div>
-                    </div>
-
-                    <div
-                      class="flex h-16 w-16 shrink-0 items-center justify-center rounded-[1rem] bg-white p-2 shadow-soft"
-                    >
-                      <div class="grid h-full w-full grid-cols-3 gap-1">
-                        <span class="rounded-sm bg-[#0f1115]"></span>
-                        <span class="rounded-sm bg-slate-300"></span>
-                        <span class="rounded-sm bg-[#0f1115]"></span>
-                        <span class="rounded-sm bg-slate-300"></span>
-                        <span class="rounded-sm bg-[#0f1115]"></span>
-                        <span class="rounded-sm bg-slate-300"></span>
-                        <span class="rounded-sm bg-[#0f1115]"></span>
-                        <span class="rounded-sm bg-slate-300"></span>
-                        <span class="rounded-sm bg-[#0f1115]"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="relative h-32 overflow-hidden rounded-[1.5rem] border border-subtle bg-[rgb(var(--color-surface))] p-4 shadow-soft"
-                >
-                  <div
-                    class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(176,241,34,0.18),transparent_45%),radial-gradient(circle_at_bottom_left,rgba(1,155,144,0.16),transparent_42%)]"
-                  >
-                  </div>
-
-                  <div class="relative z-10">
-                    <p
-                      class="font-nunito text-base font-extrabold text-[rgb(var(--color-text))]"
-                    >
-                      Map Location
-                    </p>
-                    <div
-                      class="mt-4 h-2.5 w-2/3 rounded-full bg-[rgb(var(--color-text)/0.14)]"
-                    >
-                    </div>
-                    <div
-                      class="mt-2 h-2.5 w-1/2 rounded-full bg-[rgb(var(--color-text)/0.10)]"
-                    >
-                    </div>
-                  </div>
-
-                  <div
-                    class="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full leaf-gradient font-nunito text-sm font-black text-[#0f1115]"
-                  >
-                    ↗
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-        <!-- End hero mockup -->
-      </div>
-    </div>
-  </section>
 
-  <!-- Benefits -->
-  <section class="relative py-20 sm:py-24">
-    <div class="container-shell">
-      <div class="mx-auto max-w-3xl text-center">
-        <div class="inline-flex items-center">
-          <Badge>Why Mango Quick Page?</Badge>
-        </div>
-
-        <h2
-          class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
-        >
-          A simple digital presence that helps people contact you faster.
-        </h2>
-
-        <p
-          class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
-        >
-          Mango Quick Page is built for small businesses that need a clean,
-          useful, and shareable page without overcomplicating the launch.
-        </p>
-      </div>
-
-      <div class="mt-12 grid gap-6 lg:grid-cols-3">
-        {
-          benefits.map((benefit) => (
-            <article class="surface-panel radius-brand relative overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1">
-              <div
-                class:list={[
-                  "absolute inset-x-0 top-0 h-1.5",
-                  benefit.accent === "mango"
-                    ? "mango-gradient"
-                    : "leaf-gradient",
-                ]}
+            <div
+              class="relative w-[32rem] overflow-hidden rounded-[2rem] animate-float-scale"
+            >
+              <img
+                src="/images/hero/hero-image-5.webp"
+                alt="Mango Pages Mockup"
+                class="h-full w-full object-cover"
+                loading="eager"
               />
-
-              <div class="pointer-events-none absolute inset-0 overflow-hidden">
-                <div
-                  class:list={[
-                    "absolute right-[-3rem] top-[-3rem] h-36 w-36 rounded-full blur-3xl",
-                    benefit.accent === "mango"
-                      ? "bg-[radial-gradient(circle,rgba(218,60,120,0.18),rgba(254,205,76,0.12),transparent_70%)]"
-                      : "bg-[radial-gradient(circle,rgba(1,155,144,0.16),rgba(176,241,34,0.12),transparent_70%)]",
-                  ]}
-                />
-              </div>
-
-              <div
-                class:list={[
-                  "relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl font-nunito text-lg font-black",
-                  benefit.accent === "mango"
-                    ? "mango-gradient text-white"
-                    : "leaf-gradient text-[#0f1115]",
-                ]}
-              >
-                ✓
-              </div>
-
-              <h3 class="relative z-10 mt-5 font-nunito text-2xl font-extrabold text-[rgb(var(--color-text))]">
-                {benefit.title}
-              </h3>
-
-              <p class="relative z-10 mt-3 text-sm leading-7 text-[rgb(var(--color-text-secondary))]">
-                {benefit.description}
-              </p>
-            </article>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- What is included -->
-  <section class="relative py-20 sm:py-24">
-    <div class="pointer-events-none absolute inset-0 -z-10">
-      <div
-        class="absolute left-[4%] top-10 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.10),transparent_64%)] blur-3xl"
-      >
-      </div>
-      <div
-        class="absolute right-[5%] bottom-8 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(176,241,34,0.12),transparent_62%)] blur-3xl"
-      >
-      </div>
-    </div>
-
-    <div class="container-shell">
-      <div
-        class="surface-panel radius-brand-xl grid gap-10 overflow-hidden p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10"
-      >
-        <div>
-          <Badge>What your page can include</Badge>
-
-          <h2
-            class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl"
-          >
-            Everything customers need to take the next step.
-          </h2>
-
-          <p
-            class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
-          >
-            Your Mango Quick Page organizes your essential business information
-            into one clean, mobile-friendly experience.
-          </p>
-
-          <div
-            class="mt-7 rounded-[1.5rem] bg-[rgb(var(--color-surface-soft))] p-5"
-          >
-            <p
-              class="text-xs font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-text-secondary))]"
-            >
-              Best used for
-            </p>
-            <p class="mt-2 text-sm leading-7 text-[rgb(var(--color-text))]">
-              Social media bios, Google Business Profile, business cards,
-              flyers, vehicle decals, QR menus, appointment reminders, and
-              customer follow-ups.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid gap-3 sm:grid-cols-2">
-          {
-            pageSections.map((item) => (
-              <div class="flex items-start gap-3 rounded-[1.25rem] border border-subtle bg-[rgb(var(--color-surface-soft))] p-4">
-                <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full leaf-gradient text-xs font-black text-[#0f1115]">
-                  ✓
-                </span>
-                <p class="text-sm font-semibold leading-6 text-[rgb(var(--color-text))]">
-                  {item}
-                </p>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Packages -->
-  <section id="packages" class="relative py-20 sm:py-24 lg:py-28">
-    <div class="container-shell">
-      <div class="mx-auto max-w-3xl text-center">
-        <div class="inline-flex items-center">
-          <Badge>Choose your Mango Page</Badge>
-        </div>
-
-        <h2
-          class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
-        >
-          Two simple options depending on how professional you want to go.
-        </h2>
-
-        <p
-          class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
-        >
-          Start with a Mango Pages link, or upgrade to a custom domain with a
-          stronger setup.
-        </p>
-      </div>
-
-      <div class="mt-12 grid gap-6 lg:grid-cols-2">
-        <!-- Standard -->
-        <article
-          class="surface-panel radius-brand relative flex h-full flex-col overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1 sm:p-8"
-        >
-          <div class="absolute inset-x-0 top-0 h-1.5 mango-gradient"></div>
-
-          <div class="pointer-events-none absolute inset-0 overflow-hidden">
-            <div
-              class="absolute right-[-3rem] top-[-3rem] h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.18),rgba(254,205,76,0.12),transparent_70%)] blur-3xl"
-            >
             </div>
           </div>
-
-          <div class="relative z-10">
-            <span
-              class="inline-flex rounded-full bg-[rgb(var(--color-mango-pink)/0.10)] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-mango-pink))]"
-            >
-              Fast Launch
-            </span>
-
-            <h3
-              class="mt-5 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))]"
-            >
-              Mango Page Standard
-            </h3>
-
-            <p
-              class="mt-4 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
-            >
-              A simple, beautiful business page hosted on Mango Pages, perfect
-              for sharing your business information quickly.
-            </p>
-
-            <div
-              class="mt-6 rounded-[1.5rem] bg-[rgb(var(--color-surface-soft))] p-5"
-            >
-              <p
-                class="text-xs font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-text-secondary))]"
-              >
-                Link example
-              </p>
-              <p
-                class="mt-2 break-words font-nunito text-lg font-extrabold text-[rgb(var(--color-text))]"
-              >
-                pages.mangomedia305.com/your-business
-              </p>
-            </div>
-
-            <ul class="mt-7 space-y-3">
-              {
-                standardFeatures.map((feature) => (
-                  <li class="flex items-start gap-3 text-sm font-medium text-[rgb(var(--color-text))]">
-                    <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full mango-gradient text-[10px] font-black text-white">
-                      ✓
-                    </span>
-                    <span>{feature}</span>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-
-          <div class="relative z-10 mt-8">
-            <a
-              href="/contact"
-              class="inline-flex w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
-            >
-              Request Standard
-            </a>
-          </div>
-        </article>
-
-        <!-- Pro -->
-        <article
-          class="surface-panel radius-brand relative flex h-full flex-col overflow-hidden border-transparent p-6 shadow-[0_28px_80px_rgba(1,155,144,0.18)] transition-transform duration-300 hover:-translate-y-1 sm:p-8"
-        >
-          <div class="absolute inset-x-0 top-0 h-1.5 leaf-gradient"></div>
-
-          <div class="pointer-events-none absolute inset-0 overflow-hidden">
-            <div
-              class="absolute right-[-3rem] top-[-3rem] h-44 w-44 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.18),rgba(176,241,34,0.12),transparent_70%)] blur-3xl"
-            >
-            </div>
-          </div>
-
-          <div class="relative z-10">
-            <div class="flex flex-wrap items-center gap-3">
-              <span
-                class="inline-flex rounded-full bg-[rgb(var(--color-leaf-teal)/0.12)] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-leaf-teal))] dark:text-[rgb(var(--color-leaf-lime))]"
-              >
-                More Professional
-              </span>
-
-              <span
-                class="rounded-full bg-[linear-gradient(135deg,#019b90_0%,#b0f122_100%)] px-3 py-1 text-[11px] font-black uppercase tracking-[0.18em] text-[#0f1115]"
-              >
-                Recommended
-              </span>
-            </div>
-
-            <h3
-              class="mt-5 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))]"
-            >
-              Mango Page Pro
-            </h3>
-
-            <p
-              class="mt-4 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
-            >
-              Everything in Standard, plus a custom domain connection, DNS
-              setup, optional professional email, and a stronger basic SEO
-              foundation.
-            </p>
-
-            <div
-              class="mt-6 rounded-[1.5rem] bg-[rgb(var(--color-surface-soft))] p-5"
-            >
-              <p
-                class="text-xs font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-text-secondary))]"
-              >
-                Domain example
-              </p>
-              <p
-                class="mt-2 break-words font-nunito text-lg font-extrabold text-[rgb(var(--color-text))]"
-              >
-                yourbusiness.com
-              </p>
-            </div>
-
-            <ul class="mt-7 space-y-3">
-              {
-                proFeatures.map((feature) => (
-                  <li class="flex items-start gap-3 text-sm font-medium text-[rgb(var(--color-text))]">
-                    <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full leaf-gradient text-[10px] font-black text-[#0f1115]">
-                      ✓
-                    </span>
-                    <span>{feature}</span>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-
-          <div class="relative z-10 mt-8">
-            <a
-              href="/contact"
-              class="inline-flex w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#019b90_0%,#b0f122_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-[#0f1115] shadow-[0_16px_40px_rgba(1,155,144,0.22)] transition-transform duration-200 hover:-translate-y-0.5"
-            >
-              Request Pro
-            </a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Use cases -->
-  <section class="relative py-20 sm:py-24">
-    <div class="container-shell">
-      <div
-        class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start xl:gap-14"
-      >
-        <div>
-          <Badge>Who it is for</Badge>
-
-          <h2
-            class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl"
-          >
-            Perfect for local businesses that need a quick professional start.
-          </h2>
-
-          <p
-            class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
-          >
-            Mango Quick Page is especially useful for businesses that rely on
-            calls, messages, social media, directions, appointments, or
-            walk-ins.
-          </p>
-        </div>
-
-        <div class="grid gap-3 sm:grid-cols-2">
-          {
-            useCases.map((item) => (
-              <div class="surface-panel radius-brand flex items-center gap-3 p-4">
-                <span class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full mango-gradient font-nunito text-sm font-black text-white">
-                  M
-                </span>
-                <p class="text-sm font-bold text-[rgb(var(--color-text))]">
-                  {item}
-                </p>
-              </div>
-            ))
-          }
+          <!-- End hero mockup -->
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Process -->
-  <section class="relative py-20 sm:py-24">
-    <div class="pointer-events-none absolute inset-0 -z-10">
-      <div
-        class="absolute left-[4%] top-10 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.12),transparent_64%)] blur-3xl"
-      >
-      </div>
-      <div
-        class="absolute right-[5%] bottom-8 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.12),transparent_62%)] blur-3xl"
-      >
-      </div>
-    </div>
+    <MangoPagePreview
+      business={demoCafe}
+      client:load
+      title="Preview a Mango Quick Page in real time."
+      description="Switch between mobile, tablet, and desktop to see how your business page could look across devices."
+    />
 
-    <div class="container-shell">
-      <div class="mx-auto max-w-3xl text-center">
-        <div class="inline-flex items-center">
-          <Badge>How it works</Badge>
-        </div>
-
-        <h2
-          class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
-        >
-          From business info to shareable link.
-        </h2>
-
-        <p
-          class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
-        >
-          The process is simple, fast, and designed to help you launch without
-          overthinking every detail.
-        </p>
-      </div>
-
-      <div class="mt-12 grid gap-6 lg:grid-cols-4">
-        {
-          process.map((item) => (
-            <article class="surface-panel radius-brand relative overflow-hidden p-6">
-              <div class="absolute inset-x-0 top-0 h-1.5 leaf-gradient" />
-
-              <p class="font-nunito text-4xl font-black text-[rgb(var(--color-leaf-teal))] dark:text-[rgb(var(--color-leaf-lime))]">
-                {item.step}
-              </p>
-
-              <h3 class="mt-5 font-nunito text-xl font-extrabold text-[rgb(var(--color-text))]">
-                {item.title}
-              </h3>
-
-              <p class="mt-3 text-sm leading-7 text-[rgb(var(--color-text-secondary))]">
-                {item.description}
-              </p>
-            </article>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="relative py-20 sm:py-24">
-    <div class="container-shell">
-      <div
-        class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start xl:gap-14"
-      >
-        <div>
-          <Badge>FAQ</Badge>
-
-          <h2
-            class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl"
-          >
-            Questions before launching your Mango Quick Page?
-          </h2>
-
-          <p
-            class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
-          >
-            Here are the most common things business owners ask before getting
-            started.
-          </p>
-        </div>
-
-        <div class="space-y-4">
-          {
-            faqs.map((faq) => (
-              <details class="surface-panel radius-brand group overflow-hidden p-5">
-                <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
-                  <h3 class="font-nunito text-lg font-extrabold text-[rgb(var(--color-text))]">
-                    {faq.question}
-                  </h3>
-
-                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[rgb(var(--color-surface-soft))] font-nunito text-lg font-black text-[rgb(var(--color-text))] transition-transform duration-200 group-open:rotate-45">
-                    +
-                  </span>
-                </summary>
-
-                <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))]">
-                  {faq.answer}
-                </p>
-              </details>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Final CTA -->
-  <section class="relative overflow-hidden py-20 sm:py-24 lg:py-28">
-    <div class="container-shell">
-      <div
-        class="surface-panel radius-brand-xl relative overflow-hidden p-8 text-center sm:p-10 lg:p-14"
-      >
-        <div class="pointer-events-none absolute inset-0 -z-0">
-          <div
-            class="absolute left-[-4rem] top-[-4rem] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.16),rgba(254,205,76,0.10),transparent_70%)] blur-3xl"
-          >
-          </div>
-          <div
-            class="absolute bottom-[-5rem] right-[-4rem] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.16),rgba(176,241,34,0.10),transparent_70%)] blur-3xl"
-          >
-          </div>
-        </div>
-
-        <div class="relative z-10 mx-auto max-w-3xl">
+    <!-- Benefits -->
+    <section class="relative py-20 sm:py-24">
+      <div class="container-shell">
+        <div class="mx-auto max-w-3xl text-center">
           <div class="inline-flex items-center">
-            <Badge>Ready to launch?</Badge>
+            <Badge>Why Mango Quick Page?</Badge>
           </div>
 
           <h2
             class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
           >
-            Give your business one link that is easy to share and easy to trust.
+            A simple digital presence that helps people contact you faster.
           </h2>
 
           <p
             class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
           >
-            Start with a Mango Quick Page today and upgrade later into a full
-            website, SEO package, branding system, or social media setup when
-            your business is ready.
+            Mango Quick Page is built for small businesses that need a clean,
+            useful, and shareable page without overcomplicating the launch.
           </p>
+        </div>
 
-          <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <a
-              href="/contact"
-              class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-7 py-4 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
-            >
-              Request Your Mango Quick Page
-            </a>
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+          {
+            benefits.map((benefit) => (
+              <article class="surface-panel radius-brand relative overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1">
+                <div
+                  class:list={[
+                    "absolute inset-x-0 top-0 h-1.5",
+                    benefit.accent === "mango"
+                      ? "mango-gradient"
+                      : "leaf-gradient",
+                  ]}
+                />
 
-            <a
-              href="/services"
-              class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-7 py-4 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                <div class="pointer-events-none absolute inset-0 overflow-hidden">
+                  <div
+                    class:list={[
+                      "absolute right-[-3rem] top-[-3rem] h-36 w-36 rounded-full blur-3xl",
+                      benefit.accent === "mango"
+                        ? "bg-[radial-gradient(circle,rgba(218,60,120,0.18),rgba(254,205,76,0.12),transparent_70%)]"
+                        : "bg-[radial-gradient(circle,rgba(1,155,144,0.16),rgba(176,241,34,0.12),transparent_70%)]",
+                    ]}
+                  />
+                </div>
+
+                <div
+                  class:list={[
+                    "relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl font-nunito text-lg font-black",
+                    benefit.accent === "mango"
+                      ? "mango-gradient text-white"
+                      : "leaf-gradient text-[#0f1115]",
+                  ]}
+                >
+                  ✓
+                </div>
+
+                <h3 class="relative z-10 mt-5 font-nunito text-2xl font-extrabold text-[rgb(var(--color-text))]">
+                  {benefit.title}
+                </h3>
+
+                <p class="relative z-10 mt-3 text-sm leading-7 text-[rgb(var(--color-text-secondary))]">
+                  {benefit.description}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- What is included -->
+    <section class="relative py-20 sm:py-24">
+      <div class="pointer-events-none absolute inset-0 -z-10">
+        <div
+          class="absolute left-[4%] top-10 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.10),transparent_64%)] blur-3xl"
+        >
+        </div>
+        <div
+          class="absolute right-[5%] bottom-8 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(176,241,34,0.12),transparent_62%)] blur-3xl"
+        >
+        </div>
+      </div>
+
+      <div class="container-shell">
+        <div
+          class="surface-panel radius-brand-xl grid gap-10 overflow-hidden p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10"
+        >
+          <div>
+            <Badge>What your page can include</Badge>
+
+            <h2
+              class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl"
             >
-              Explore All Services
-            </a>
+              Everything customers need to take the next step.
+            </h2>
+
+            <p
+              class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
+            >
+              Your Mango Quick Page organizes your essential business
+              information into one clean, mobile-friendly experience.
+            </p>
+
+            <div
+              class="mt-7 rounded-[1.5rem] bg-[rgb(var(--color-surface-soft))] p-5"
+            >
+              <p
+                class="text-xs font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-text-secondary))]"
+              >
+                Best used for
+              </p>
+              <p class="mt-2 text-sm leading-7 text-[rgb(var(--color-text))]">
+                Social media bios, Google Business Profile, business cards,
+                flyers, vehicle decals, QR menus, appointment reminders, and
+                customer follow-ups.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid gap-3 sm:grid-cols-2">
+            {
+              pageSections.map((item) => (
+                <div class="flex items-start gap-3 rounded-[1.25rem] border border-subtle bg-[rgb(var(--color-surface-soft))] p-4">
+                  <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full leaf-gradient text-xs font-black text-[#0f1115]">
+                    ✓
+                  </span>
+                  <p class="text-sm font-semibold leading-6 text-[rgb(var(--color-text))]">
+                    {item}
+                  </p>
+                </div>
+              ))
+            }
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Packages -->
+    <section id="packages" class="relative py-20 sm:py-24 lg:py-28">
+      <div class="container-shell">
+        <div class="mx-auto max-w-3xl text-center">
+          <div class="inline-flex items-center">
+            <Badge>Choose your Mango Page</Badge>
+          </div>
+
+          <h2
+            class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+          >
+            Two simple options depending on how professional you want to go.
+          </h2>
+
+          <p
+            class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+          >
+            Start with a Mango Pages link, or upgrade to a custom domain with a
+            stronger setup.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-2">
+          <!-- Standard -->
+          <article
+            class="surface-panel radius-brand relative flex h-full flex-col overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1 sm:p-8"
+          >
+            <div class="absolute inset-x-0 top-0 h-1.5 mango-gradient"></div>
+
+            <div class="pointer-events-none absolute inset-0 overflow-hidden">
+              <div
+                class="absolute right-[-3rem] top-[-3rem] h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.18),rgba(254,205,76,0.12),transparent_70%)] blur-3xl"
+              >
+              </div>
+            </div>
+
+            <div class="relative z-10">
+              <span
+                class="inline-flex rounded-full bg-[rgb(var(--color-mango-pink)/0.10)] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-mango-pink))]"
+              >
+                Fast Launch
+              </span>
+
+              <h3
+                class="mt-5 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))]"
+              >
+                Mango Page Standard
+              </h3>
+
+              <p
+                class="mt-4 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
+              >
+                A simple, beautiful business page hosted on Mango Pages, perfect
+                for sharing your business information quickly.
+              </p>
+
+              <div
+                class="mt-6 rounded-[1.5rem] bg-[rgb(var(--color-surface-soft))] p-5"
+              >
+                <p
+                  class="text-xs font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-text-secondary))]"
+                >
+                  Link example
+                </p>
+                <p
+                  class="mt-2 break-words font-nunito text-lg font-extrabold text-[rgb(var(--color-text))]"
+                >
+                  pages.mangomedia305.com/your-business
+                </p>
+              </div>
+
+              <ul class="mt-7 space-y-3">
+                {
+                  standardFeatures.map((feature) => (
+                    <li class="flex items-start gap-3 text-sm font-medium text-[rgb(var(--color-text))]">
+                      <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full mango-gradient text-[10px] font-black text-white">
+                        ✓
+                      </span>
+                      <span>{feature}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <div class="relative z-10 mt-8">
+              <a
+                href="/contact"
+                class="inline-flex w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                Request Standard
+              </a>
+            </div>
+          </article>
+
+          <!-- Pro -->
+          <article
+            class="surface-panel radius-brand relative flex h-full flex-col overflow-hidden border-transparent p-6 shadow-[0_28px_80px_rgba(1,155,144,0.18)] transition-transform duration-300 hover:-translate-y-1 sm:p-8"
+          >
+            <div class="absolute inset-x-0 top-0 h-1.5 leaf-gradient"></div>
+
+            <div class="pointer-events-none absolute inset-0 overflow-hidden">
+              <div
+                class="absolute right-[-3rem] top-[-3rem] h-44 w-44 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.18),rgba(176,241,34,0.12),transparent_70%)] blur-3xl"
+              >
+              </div>
+            </div>
+
+            <div class="relative z-10">
+              <div class="flex flex-wrap items-center gap-3">
+                <span
+                  class="inline-flex rounded-full bg-[rgb(var(--color-leaf-teal)/0.12)] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-leaf-teal))] dark:text-[rgb(var(--color-leaf-lime))]"
+                >
+                  More Professional
+                </span>
+
+                <span
+                  class="rounded-full bg-[linear-gradient(135deg,#019b90_0%,#b0f122_100%)] px-3 py-1 text-[11px] font-black uppercase tracking-[0.18em] text-[#0f1115]"
+                >
+                  Recommended
+                </span>
+              </div>
+
+              <h3
+                class="mt-5 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))]"
+              >
+                Mango Page Pro
+              </h3>
+
+              <p
+                class="mt-4 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
+              >
+                Everything in Standard, plus a custom domain connection, DNS
+                setup, optional professional email, and a stronger basic SEO
+                foundation.
+              </p>
+
+              <div
+                class="mt-6 rounded-[1.5rem] bg-[rgb(var(--color-surface-soft))] p-5"
+              >
+                <p
+                  class="text-xs font-bold uppercase tracking-[0.18em] text-[rgb(var(--color-text-secondary))]"
+                >
+                  Domain example
+                </p>
+                <p
+                  class="mt-2 break-words font-nunito text-lg font-extrabold text-[rgb(var(--color-text))]"
+                >
+                  yourbusiness.com
+                </p>
+              </div>
+
+              <ul class="mt-7 space-y-3">
+                {
+                  proFeatures.map((feature) => (
+                    <li class="flex items-start gap-3 text-sm font-medium text-[rgb(var(--color-text))]">
+                      <span class="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full leaf-gradient text-[10px] font-black text-[#0f1115]">
+                        ✓
+                      </span>
+                      <span>{feature}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <div class="relative z-10 mt-8">
+              <a
+                href="/contact"
+                class="inline-flex w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#019b90_0%,#b0f122_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-[#0f1115] shadow-[0_16px_40px_rgba(1,155,144,0.22)] transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                Request Pro
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use cases -->
+    <section class="relative py-20 sm:py-24">
+      <div class="container-shell">
+        <div
+          class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start xl:gap-14"
+        >
+          <div>
+            <Badge>Who it is for</Badge>
+
+            <h2
+              class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl"
+            >
+              Perfect for local businesses that need a quick professional start.
+            </h2>
+
+            <p
+              class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
+            >
+              Mango Quick Page is especially useful for businesses that rely on
+              calls, messages, social media, directions, appointments, or
+              walk-ins.
+            </p>
+          </div>
+
+          <div class="grid gap-3 sm:grid-cols-2">
+            {
+              useCases.map((item) => (
+                <div class="surface-panel radius-brand flex items-center gap-3 p-4">
+                  <span class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full mango-gradient font-nunito text-sm font-black text-white">
+                    M
+                  </span>
+                  <p class="text-sm font-bold text-[rgb(var(--color-text))]">
+                    {item}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="relative py-20 sm:py-24">
+      <div class="pointer-events-none absolute inset-0 -z-10">
+        <div
+          class="absolute left-[4%] top-10 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.12),transparent_64%)] blur-3xl"
+        >
+        </div>
+        <div
+          class="absolute right-[5%] bottom-8 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.12),transparent_62%)] blur-3xl"
+        >
+        </div>
+      </div>
+
+      <div class="container-shell">
+        <div class="mx-auto max-w-3xl text-center">
+          <div class="inline-flex items-center">
+            <Badge>How it works</Badge>
+          </div>
+
+          <h2
+            class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+          >
+            From business info to shareable link.
+          </h2>
+
+          <p
+            class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+          >
+            The process is simple, fast, and designed to help you launch without
+            overthinking every detail.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-4">
+          {
+            process.map((item) => (
+              <article class="surface-panel radius-brand relative overflow-hidden p-6">
+                <div class="absolute inset-x-0 top-0 h-1.5 leaf-gradient" />
+
+                <p class="font-nunito text-4xl font-black text-[rgb(var(--color-leaf-teal))] dark:text-[rgb(var(--color-leaf-lime))]">
+                  {item.step}
+                </p>
+
+                <h3 class="mt-5 font-nunito text-xl font-extrabold text-[rgb(var(--color-text))]">
+                  {item.title}
+                </h3>
+
+                <p class="mt-3 text-sm leading-7 text-[rgb(var(--color-text-secondary))]">
+                  {item.description}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="relative py-20 sm:py-24">
+      <div class="container-shell">
+        <div
+          class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start xl:gap-14"
+        >
+          <div>
+            <Badge>FAQ</Badge>
+
+            <h2
+              class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl"
+            >
+              Questions before launching your Mango Quick Page?
+            </h2>
+
+            <p
+              class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
+            >
+              Here are the most common things business owners ask before getting
+              started.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            {
+              faqs.map((faq) => (
+                <details class="surface-panel radius-brand group overflow-hidden p-5">
+                  <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+                    <h3 class="font-nunito text-lg font-extrabold text-[rgb(var(--color-text))]">
+                      {faq.question}
+                    </h3>
+
+                    <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[rgb(var(--color-surface-soft))] font-nunito text-lg font-black text-[rgb(var(--color-text))] transition-transform duration-200 group-open:rotate-45">
+                      +
+                    </span>
+                  </summary>
+
+                  <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))]">
+                    {faq.answer}
+                  </p>
+                </details>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="relative overflow-hidden py-20 sm:py-24 lg:py-28">
+      <div class="container-shell">
+        <div
+          class="surface-panel radius-brand-xl relative overflow-hidden p-8 text-center sm:p-10 lg:p-14"
+        >
+          <div class="pointer-events-none absolute inset-0 -z-0">
+            <div
+              class="absolute left-[-4rem] top-[-4rem] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.16),rgba(254,205,76,0.10),transparent_70%)] blur-3xl"
+            >
+            </div>
+            <div
+              class="absolute bottom-[-5rem] right-[-4rem] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.16),rgba(176,241,34,0.10),transparent_70%)] blur-3xl"
+            >
+            </div>
+          </div>
+
+          <div class="relative z-10 mx-auto max-w-3xl">
+            <div class="inline-flex items-center">
+              <Badge>Ready to launch?</Badge>
+            </div>
+
+            <h2
+              class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+            >
+              Give your business one link that is easy to share and easy to
+              trust.
+            </h2>
+
+            <p
+              class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
+              Start with a Mango Quick Page today and upgrade later into a full
+              website, SEO package, branding system, or social media setup when
+              your business is ready.
+            </p>
+
+            <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+              <a
+                href="/contact"
+                class="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-7 py-4 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                Request Your Mango Quick Page
+              </a>
+
+              <a
+                href="/services"
+                class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-7 py-4 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+              >
+                Explore All Services
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </section>
 </MainLayout>
