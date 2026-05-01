@@ -6,7 +6,7 @@ export const siteConfig = {
     title: "Mango Media | Build Your Brand. Grow Your Presence.",
     description:
         "Mango Media helps local businesses build a stronger online presence through branding, websites, social media setup, Google Business Profile optimization, and local SEO.",
-    email: "mangomedia305@gmail.com",
+    email: "contact@mangomedia305.com",
     phone: "+1-561-583-7737",
     areaServed: "Miami, Florida",
     ogImage: "/images/og-placeholder.jpg",
