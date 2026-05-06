@@ -1,19 +1,22 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import Badge from "../../components/ui/Badge.astro";
-
 import { industryPages } from "../../data/industryPages";
 import {
     ArrowRight,
     BriefcaseBusiness,
     CheckCircle2,
     MapPin,
-    Sparkles,
-    Target,
-    Globe2,
     Search,
-    MessageCircle,
+    Hospital,
+    PawPrint,
+    Utensils,
+    TowelRack,
+    HardHat,
+    Scale,
+    Target,
     MousePointerClick,
+    Globe2,
 } from "@lucide/astro";
 
 const industriesSchema = {
@@ -31,24 +34,34 @@ const industriesSchema = {
     })),
 };
 
+const focusItems = [
+    "Website design for stronger first impressions",
+    "Local SEO structure for service and location searches",
+    "Google Business Profile support",
+    "Branding and social media consistency",
+];
+
 const growthSignals = [
     {
-        icon: Globe2,
         title: "Stronger first impression",
         description:
-            "A modern website helps customers feel that your business is active, professional, and worth contacting.",
+        "A modern website helps customers feel that your business is active, professional, and worth contacting.",
+        icon: Globe2,
+        accent: "mango",
     },
     {
-        icon: Search,
         title: "Better local visibility",
         description:
-            "Your service pages, location signals, and content structure should help Google understand where and how you serve customers.",
+        "Your service pages, location signals, and content structure should help Google understand where and how you serve customers.",
+        icon: Search,
+        accent: "leaf",
     },
     {
-        icon: MousePointerClick,
         title: "Clearer conversion paths",
         description:
-            "Every page should guide visitors toward the next step: call, message, book, request a quote, or schedule a consultation.",
+        "Every page should guide visitors toward the next step: call, message, book, request a quote, or schedule a consultation.",
+        icon: MousePointerClick,
+        accent: "mango",
     },
 ];
 
@@ -75,263 +88,402 @@ const serviceAreas = [
     schemaType="WebPage"
     schema={industriesSchema}
 >
-    <main class="overflow-hidden">
-        <section class="relative px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-            <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden hero-glow"></div>
+    <section
+        class="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28"
+    >
+        <div class="pointer-events-none absolute inset-0 -z-10">
+        <div
+            class="absolute left-[-8%] top-12 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.34),transparent_65%)] blur-2xl"
+        >
+        </div>
+        <div
+            class="absolute right-[-6%] top-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.22),transparent_60%)] blur-3xl"
+        >
+        </div>
+        <div
+            class="absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.14),transparent_62%)] blur-3xl"
+        >
+        </div>
+        </div>
 
-            <div class="container-shell">
-                <div class="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-                    <div>
-                        <Badge>
-                            <BriefcaseBusiness class="size-4 mr-2" aria-hidden="true" />
-                            Industries We Help
-                        </Badge>
+        <div class="container-shell">
+        <div
+            class="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10"
+        >
+            <div class="max-w-2xl">
+            <div>
+                <Badge>Industries We Help</Badge>
+            </div>
 
-                        <h1 class="mt-6 max-w-5xl font-nunito text-5xl font-black leading-[0.96] tracking-[-0.06em] text-[rgb(var(--color-text))] sm:text-6xl lg:text-7xl">
-                            Websites, SEO, and online growth systems for businesses that need real results.
-                        </h1>
+            <h1
+                class="mt-6 font-nunito text-4xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-5xl lg:text-6xl"
+            >
+                Websites, SEO, and online growth systems for businesses that need
+                real results
+            </h1>
 
-                        <p class="mt-6 max-w-3xl text-lg leading-8 text-muted sm:text-xl">
-                            Mango Media helps service-based businesses, local brands, and growing companies across Miami-Dade, Broward, and Monroe County build stronger websites, improve local visibility, and convert more visitors into calls, messages, appointments, and quote requests.
-                        </p>
+            <p
+                class="mt-6 max-w-xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
+                Mango Media helps service-based businesses, local brands, and
+                growing companies across Miami-Dade, Broward, and Monroe County
+                build stronger websites, improve local visibility, and convert more
+                visitors into calls, messages, appointments, and quote requests.
+            </p>
 
-                        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                            <a
-                                href="/contact"
-                                class="inline-flex items-center justify-center gap-2 rounded-full mango-gradient px-6 py-4 font-nunito text-sm font-black text-white shadow-mango hover:-translate-y-0.5"
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                href="/contact"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+                >
+                Request a Free Website Review
+                <ArrowRight class="size-4" aria-hidden="true" />
+                </a>
+
+                <a
+                href="/services"
+                class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                >
+                Explore Services
+                </a>
+            </div>
+            </div>
+
+            <div class="relative">
+            <div
+                class="absolute -left-4 top-10 hidden h-24 w-24 rounded-[2rem] bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.22))] blur-xl sm:block"
+            >
+            </div>
+            <div
+                class="absolute -right-4 bottom-10 hidden h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.24),transparent_65%)] blur-2xl sm:block"
+            >
+            </div>
+
+            <aside
+                class="surface-panel radius-brand relative overflow-hidden p-6 sm:p-8"
+            >
+                <div
+                class="absolute inset-x-0 top-0 h-1.5 bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)]"
+                >
+                </div>
+
+                <div class="relative">
+                <div
+                    class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-white shadow-soft"
+                >
+                    <Target class="h-6 w-6" aria-hidden="true" />
+                </div>
+
+                <h2
+                    class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl"
+                >
+                    Built for businesses that depend on local trust
+                </h2>
+
+                <p
+                    class="mt-4 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
+                >
+                    Whether your business needs patients, reservations,
+                    appointments, consultations, calls, or quote requests, your
+                    online presence should make it easy for customers to understand
+                    why they should choose you.
+                </p>
+
+                <div class="mt-7 grid gap-4">
+                    {
+                    focusItems.map((item, index) => (
+                        <div class="rounded-[1.5rem] border border-black/8 bg-[rgb(var(--color-surface-soft))] p-4 dark:border-white/10">
+                        <div class="flex items-start gap-3 text-sm font-semibold leading-7 text-[rgb(var(--color-text))] sm:text-[0.95rem]">
+                            <span
+                            class:list={[
+                                "mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-black",
+                                index % 2 === 0
+                                ? "mango-gradient text-white"
+                                : "leaf-gradient text-[#0f1115]",
+                            ]}
                             >
-                                Request a Free Website Review
-                                <ArrowRight class="size-4" aria-hidden="true" />
-                            </a>
-
-                            <a
-                                href="/services"
-                                class="inline-flex items-center justify-center gap-2 rounded-full border border-[rgb(var(--color-border)/0.22)] bg-[rgb(var(--color-surface)/0.82)] px-6 py-4 font-nunito text-sm font-black text-[rgb(var(--color-text))] shadow-soft backdrop-blur hover:-translate-y-0.5 hover:border-[rgb(var(--color-mango-pink)/0.35)]"
-                            >
-                                Explore Services
-                            </a>
+                            ✓
+                            </span>
+                            <span>{item}</span>
                         </div>
-                    </div>
-
-                    <aside class="surface-panel radius-brand relative overflow-hidden p-6 sm:p-8">
-                        <div class="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-[rgb(var(--color-mango-yellow)/0.18)] blur-3xl"></div>
-                        <div class="absolute -bottom-24 -left-24 h-56 w-56 rounded-full bg-[rgb(var(--color-mango-pink)/0.14)] blur-3xl"></div>
-
-                        <div class="relative">
-                            <p class="inline-flex items-center gap-2 rounded-full bg-[rgb(var(--color-mango-pink)/0.12)] px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-[rgb(var(--color-mango-pink))]">
-                                <Target class="size-3.5" aria-hidden="true" />
-                                Local Growth Focus
-                            </p>
-
-                            <h2 class="mt-5 font-nunito text-3xl font-black leading-tight tracking-[-0.04em] text-[rgb(var(--color-text))]">
-                                Built for businesses that depend on local trust.
-                            </h2>
-
-                            <p class="mt-4 leading-7 text-muted">
-                                Whether your business needs patients, reservations, appointments, consultations, calls, or quote requests, your online presence should make it easy for customers to understand why they should choose you.
-                            </p>
-
-                            <div class="mt-6 grid gap-3">
-                                {[
-                                    "Website design for stronger first impressions",
-                                    "Local SEO structure for service and location searches",
-                                    "Google Business Profile support",
-                                    "Branding and social media consistency",
-                                ].map((item) => (
-                                    <div class="flex items-start gap-3 rounded-2xl border border-[rgb(var(--color-border)/0.14)] bg-[rgb(var(--color-surface-soft)/0.72)] p-4">
-                                        <CheckCircle2
-                                            class="mt-0.5 size-5 shrink-0 text-[rgb(var(--color-leaf-teal))]"
-                                            aria-hidden="true"
-                                        />
-                                        <p class="text-sm font-bold leading-6 text-muted">
-                                            {item}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
                         </div>
-                    </aside>
+                    ))
+                    }
                 </div>
+                </div>
+            </aside>
             </div>
-        </section>
+        </div>
+        </div>
+    </section>
 
-        <section class="px-4 py-20 sm:px-6 lg:px-8">
-            <div class="container-shell">
-                <div class="mx-auto max-w-3xl text-center">
-                    <p class="mx-auto inline-flex w-fit items-center gap-2 rounded-full border border-[rgb(var(--color-border)/0.18)] bg-[rgb(var(--color-surface)/0.72)] px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-[rgb(var(--color-mango-pink))] shadow-soft backdrop-blur">
-                        <Sparkles class="size-4" aria-hidden="true" />
-                        Industry-Focused Strategy
-                    </p>
-
-                    <h2 class="mt-6 font-nunito text-4xl font-black leading-[1] tracking-[-0.055em] text-[rgb(var(--color-text))] sm:text-5xl lg:text-6xl">
-                        Every industry needs a different digital growth path.
-                    </h2>
-
-                    <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-muted">
-                        A dental office, restaurant, med spa, contractor, and law firm should not all have the same website strategy. We build around the way your customers search, compare, trust, and take action.
-                    </p>
-                </div>
-
-                <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                    {industryPages.map((industry, index) => (
-                        <a
-                            href={`/industries/${industry.slug}`}
-                            class="surface-panel group radius-brand relative flex min-h-[25rem] flex-col overflow-hidden p-6 hover:-translate-y-1"
-                        >
-                            <div class="absolute inset-x-0 top-0 h-1.5 mango-gradient"></div>
-
-                            <div class="absolute -right-20 -top-20 h-48 w-48 rounded-full bg-[rgb(var(--color-mango-yellow)/0.13)] blur-3xl transition duration-300 group-hover:bg-[rgb(var(--color-mango-yellow)/0.22)]"></div>
-                            <div class="absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-[rgb(var(--color-mango-pink)/0.1)] blur-3xl transition duration-300 group-hover:bg-[rgb(var(--color-mango-pink)/0.18)]"></div>
-
-                            <div class="relative flex items-start justify-between gap-4">
-                                <div class="grid size-12 place-items-center rounded-2xl bg-[rgb(var(--color-mango-yellow)/0.16)] text-[rgb(var(--color-mango-pink))]">
-                                    <BriefcaseBusiness class="size-5" aria-hidden="true" />
-                                </div>
-
-                                <span class="rounded-full border border-[rgb(var(--color-border)/0.14)] bg-[rgb(var(--color-surface-soft)/0.72)] px-3 py-1 text-xs font-black text-muted">
-                                    0{index + 1}
-                                </span>
-                            </div>
-
-                            <div class="relative mt-7 flex flex-1 flex-col">
-                                <p class="text-xs font-black uppercase tracking-[0.18em] text-[rgb(var(--color-mango-pink))]">
-                                    {industry.eyebrow}
-                                </p>
-
-                                <h3 class="mt-3 font-nunito text-3xl font-black leading-tight tracking-[-0.04em] text-[rgb(var(--color-text))]">
-                                    {industry.industryName}
-                                </h3>
-
-                                <p class="mt-4 line-clamp-5 leading-7 text-muted">
-                                    {industry.heroDescription}
-                                </p>
-
-                                <div class="mt-auto pt-7">
-                                    <span class="inline-flex items-center gap-2 text-sm font-black text-[rgb(var(--color-mango-pink))]">
-                                        View Industry Strategy
-                                        <ArrowRight
-                                            class="size-4 transition group-hover:translate-x-1"
-                                            aria-hidden="true"
-                                        />
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    ))}
-                </div>
+    <section class="pb-20 sm:pb-24 lg:pb-28">
+        <div class="container-shell">
+        <div class="mx-auto max-w-3xl text-center">
+            <div class="inline-flex items-center gap-2">
+            <Badge>Industry-Focused Strategy</Badge>
             </div>
-        </section>
 
-        <section class="px-4 py-20 sm:px-6 lg:px-8">
-            <div class="container-shell">
-                <div class="grid gap-6 lg:grid-cols-3">
-                    {growthSignals.map((signal) => {
-                        const Icon = signal.icon;
+            <h2
+            class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+            >
+            Every industry needs a different digital growth path
+            </h2>
 
-                        return (
-                            <article class="surface-panel radius-brand p-6">
-                                <div class="grid size-12 place-items-center rounded-2xl leaf-gradient text-white shadow-soft">
-                                    <Icon class="size-5" aria-hidden="true" />
-                                </div>
+            <p
+            class="mx-auto mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
+            A dental office, restaurant, med spa, contractor, and law firm should
+            not all have the same website strategy. We build around the way your
+            customers search, compare, trust, and take action.
+            </p>
+        </div>
 
-                                <h3 class="mt-5 font-nunito text-2xl font-black tracking-[-0.04em] text-[rgb(var(--color-text))]">
-                                    {signal.title}
-                                </h3>
+        <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {
+            industryPages.map((industry, index) => (
+                <a
+                href={`/industries/${industry.slug}`}
+                class="surface-panel radius-brand group relative flex min-h-[25rem] flex-col overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1"
+                >
+                <div
+                    class:list={[
+                    "absolute inset-x-0 top-0 h-1.5",
+                    index % 2 === 0 ? "mango-gradient" : "leaf-gradient",
+                    ]}
+                />
 
-                                <p class="mt-3 leading-7 text-muted">
-                                    {signal.description}
-                                </p>
-                            </article>
-                        );
-                    })}
-                </div>
-            </div>
-        </section>
-
-        <section class="px-4 py-20 sm:px-6 lg:px-8">
-            <div class="container-shell grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:items-start">
-                <div>
-                    <p class="inline-flex w-fit items-center gap-2 rounded-full border border-[rgb(var(--color-border)/0.18)] bg-[rgb(var(--color-surface)/0.72)] px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-[rgb(var(--color-mango-pink))] shadow-soft backdrop-blur">
-                        <MapPin class="size-4" aria-hidden="true" />
-                        South Florida Service Area
-                    </p>
-
-                    <h2 class="mt-6 font-nunito text-4xl font-black leading-[1] tracking-[-0.055em] text-[rgb(var(--color-text))] sm:text-5xl">
-                        Focused on businesses across Miami-Dade, Broward, and Monroe County.
-                    </h2>
-
-                    <p class="mt-5 text-lg leading-8 text-muted">
-                        Mango Media is built for local businesses that need stronger visibility, better presentation, and a cleaner path from online attention to real customer action.
-                    </p>
-
-                    <div class="mt-8">
-                        <a
-                            href="/contact"
-                            class="inline-flex items-center justify-center gap-2 rounded-full mango-gradient px-6 py-4 font-nunito text-sm font-black text-white shadow-mango hover:-translate-y-0.5"
-                        >
-                            Let’s Review Your Website
-                            <ArrowRight class="size-4" aria-hidden="true" />
-                        </a>
+                <div class="flex items-start justify-between gap-4">
+                    <div
+                    class:list={[
+                        "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-lg font-black shadow-soft",
+                        index % 2 === 0
+                        ? "bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-white"
+                        : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f1115]",
+                    ]}
+                    >
+                    {industry.industryName === "Dental Practices" && <Hospital class="h-6 w-6" aria-hidden="true" />}
+                    {industry.industryName === "Restaurants" && <Utensils class="h-6 w-6" aria-hidden="true" />}
+                    {industry.industryName === "Med Spas & Aesthetic Clinics" && <TowelRack class="h-6 w-6" aria-hidden="true" />}
+                    {industry.industryName === "Contractors & Home Service Businesses" && <HardHat class="h-6 w-6" aria-hidden="true" />}
+                    {industry.industryName === "Law Firms" && <Scale class="h-6 w-6" aria-hidden="true" />}
+                    {industry.industryName === "Veterinary Clinics" && <PawPrint class="h-6 w-6" aria-hidden="true" />}
+                    {/* <BriefcaseBusiness class="h-6 w-6" aria-hidden="true" /> */}
                     </div>
                 </div>
 
-                <div class="surface-panel radius-brand relative overflow-hidden p-5 sm:p-6">
-                    <div class="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-[rgb(var(--color-leaf-lime)/0.13)] blur-3xl"></div>
-                    <div class="absolute -bottom-24 -left-24 h-56 w-56 rounded-full bg-[rgb(var(--color-leaf-teal)/0.12)] blur-3xl"></div>
+                <div class="mt-7 flex flex-1 flex-col">
+                    <h3 class="mt-3 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+                    {industry.industryName}
+                    </h3>
 
-                    <div class="relative grid gap-3 sm:grid-cols-2">
-                        {serviceAreas.map((area) => (
-                            <div class="rounded-2xl border border-[rgb(var(--color-border)/0.14)] bg-[rgb(var(--color-surface-soft)/0.72)] p-4">
-                                <p class="font-nunito text-base font-black text-[rgb(var(--color-text))]">
-                                    {area}
-                                </p>
-                            </div>
-                        ))}
+                    <p class="mt-4 line-clamp-5 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+                    {industry.heroDescription}
+                    </p>
+
+                    <div class="mt-auto pt-7">
+                    <span class="inline-flex items-center gap-2 font-nunito text-sm font-extrabold text-[rgb(var(--color-mango-pink))]">
+                        View Industry Strategy
+                        <ArrowRight
+                        class="size-4 transition-transform duration-200 group-hover:translate-x-1"
+                        aria-hidden="true"
+                        />
+                    </span>
                     </div>
                 </div>
+                </a>
+            ))
+            }
+        </div>
+        </div>
+    </section>
+
+    <section class="pb-20 sm:pb-24 lg:pb-28">
+        <div class="container-shell">
+        <div class="mx-auto max-w-3xl text-center">
+            <div class="inline-flex items-center gap-2">
+            <Badge>Outcomes that matter</Badge>
             </div>
-        </section>
 
-        <section class="px-4 pb-24 pt-12 sm:px-6 lg:px-8 lg:pb-32">
-            <div class="container-shell">
-                <div class="surface-panel radius-brand relative overflow-hidden p-8 text-center sm:p-10 md:p-14">
-                    <div class="absolute left-1/2 top-0 h-1.5 w-full -translate-x-1/2 mango-gradient"></div>
-                    <div class="absolute -left-24 -top-24 h-64 w-64 rounded-full bg-[rgb(var(--color-mango-yellow)/0.18)] blur-3xl"></div>
-                    <div class="absolute -right-24 -bottom-24 h-64 w-64 rounded-full bg-[rgb(var(--color-mango-pink)/0.14)] blur-3xl"></div>
+            <h2
+            class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+            >
+            What industry-focused website and SEO work can do for your business
+            </h2>
+        </div>
 
-                    <div class="relative">
-                        <p class="mx-auto inline-flex w-fit items-center gap-2 rounded-full border border-[rgb(var(--color-border)/0.18)] bg-[rgb(var(--color-surface)/0.72)] px-4 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-[rgb(var(--color-mango-pink))] shadow-soft backdrop-blur">
-                            <MessageCircle class="size-4" aria-hidden="true" />
-                            Mango Media
-                        </p>
+        <div class="mt-12 grid gap-5 md:grid-cols-3">
+            {
+            growthSignals.map((signal) => {
+                const Icon = signal.icon;
 
-                        <h2 class="mx-auto mt-6 max-w-4xl font-nunito text-4xl font-black leading-[1] tracking-[-0.055em] text-[rgb(var(--color-text))] sm:text-5xl lg:text-6xl">
-                            Don’t see your industry listed? That does not mean we cannot help.
-                        </h2>
+                return (
+                <article class="surface-panel radius-brand relative overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1">
+                    <div
+                    class:list={[
+                        "absolute inset-x-0 top-0 h-1.5",
+                        signal.accent === "mango"
+                        ? "mango-gradient"
+                        : "leaf-gradient",
+                    ]}
+                    />
 
-                        <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-muted">
-                            If your business depends on local trust, search visibility, appointments, calls, messages, or quote requests, Mango Media can help you build a stronger digital foundation.
-                        </p>
-
-                        <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                            <a
-                                href="/contact"
-                                class="inline-flex items-center justify-center gap-2 rounded-full mango-gradient px-6 py-4 font-nunito text-sm font-black text-white shadow-mango hover:-translate-y-0.5"
-                            >
-                                Request a Free Review
-                                <ArrowRight class="size-4" aria-hidden="true" />
-                            </a>
-
-                            <a
-                                href="/services"
-                                class="inline-flex items-center justify-center gap-2 rounded-full border border-[rgb(var(--color-border)/0.22)] bg-[rgb(var(--color-surface)/0.82)] px-6 py-4 font-nunito text-sm font-black text-[rgb(var(--color-text))] shadow-soft backdrop-blur hover:-translate-y-0.5 hover:border-[rgb(var(--color-mango-pink)/0.35)]"
-                            >
-                                Explore Our Services
-                            </a>
-                        </div>
+                    <div
+                    class:list={[
+                        "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-lg font-black shadow-soft",
+                        signal.accent === "mango"
+                        ? "bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-white"
+                        : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f1115]",
+                    ]}
+                    >
+                    <Icon class="h-6 w-6" aria-hidden="true" />
                     </div>
-                </div>
+
+                    <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+                    {signal.title}
+                    </h3>
+
+                    <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+                    {signal.description}
+                    </p>
+                </article>
+                );
+            })
+            }
+        </div>
+        </div>
+    </section>
+
+    <section class="pb-20 sm:pb-24 lg:pb-28">
+        <div class="container-shell">
+        <div
+            class="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12"
+        >
+            <div class="max-w-xl">
+            <div>
+                <Badge>South Florida Service Area</Badge>
             </div>
-        </section>
-    </main>
+
+            <h2
+                class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+            >
+                Focused on businesses across Miami-Dade, Broward, and Monroe County
+            </h2>
+
+            <p
+                class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
+                Mango Media is built for local businesses that need stronger
+                visibility, better presentation, and a cleaner path from online
+                attention to real customer action.
+            </p>
+
+            <div
+                class="mt-8 rounded-[2rem] border border-black/8 bg-[rgb(var(--color-surface))] p-6 shadow-card dark:border-white/10"
+            >
+                <p
+                class="font-nunito text-xl font-extrabold text-[rgb(var(--color-text))]"
+                >
+                Local SEO is stronger when your services, locations, and calls to
+                action are connected clearly.
+                </p>
+            </div>
+
+            <div class="mt-8">
+                <a
+                href="/contact"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+                >
+                Let’s Review Your Website
+                <ArrowRight class="size-4" aria-hidden="true" />
+                </a>
+            </div>
+            </div>
+
+            <div class="grid gap-5 sm:grid-cols-2">
+            {
+                serviceAreas.map((area, index) => (
+                <article class="surface-panel radius-brand relative overflow-hidden p-5 transition-transform duration-300 hover:-translate-y-1">
+                    <div
+                    class:list={[
+                        "absolute inset-x-0 top-0 h-1.5",
+                        index % 2 === 0 ? "mango-gradient" : "leaf-gradient",
+                    ]}
+                    />
+
+                    <div class="flex items-start gap-3">
+                    <span
+                        class:list={[
+                        "mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-black shadow-soft",
+                        index % 2 === 0
+                            ? "mango-gradient text-white"
+                            : "leaf-gradient text-[#0f1115]",
+                        ]}
+                    >
+                        <MapPin class="h-4 w-4" aria-hidden="true" />
+                    </span>
+
+                    <p class="font-nunito text-lg font-extrabold text-[rgb(var(--color-text))]">
+                        {area}
+                    </p>
+                    </div>
+                </article>
+                ))
+            }
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="pb-20 sm:pb-24 lg:pb-28">
+        <div class="container-shell">
+        <div
+            class="relative overflow-hidden rounded-[2.5rem] border border-black/8 bg-[rgb(var(--color-surface))] px-6 py-10 shadow-card dark:border-white/10 sm:px-8 sm:py-12 lg:px-12 lg:py-14"
+        >
+            <div
+            class="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(218,60,120,0.10),rgba(254,205,76,0.14),rgba(1,155,144,0.10))]"
+            >
+            </div>
+
+            <div class="mx-auto max-w-4xl text-center">
+            <div class="inline-flex items-center gap-2">
+                <Badge>Mango Media</Badge>
+            </div>
+
+            <h2
+                class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+            >
+                Don’t see your industry listed? That does not mean we cannot help.
+            </h2>
+
+            <p
+                class="mx-auto mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
+                If your business depends on local trust, search visibility,
+                appointments, calls, messages, or quote requests, Mango Media can
+                help you build a stronger digital foundation.
+            </p>
+
+            <div
+                class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            >
+                <a
+                href="/contact"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+                >
+                Request a Free Review
+                <ArrowRight class="size-4" aria-hidden="true" />
+                </a>
+
+                <a
+                href="/services"
+                class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                >
+                Explore Our Services
+                </a>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
 </MainLayout>

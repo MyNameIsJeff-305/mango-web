@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import Badge from "../../components/ui/Badge.astro";
 import { industryPages } from "../../data/industryPages";
 import {
     ArrowRight,
@@ -9,6 +10,7 @@ import {
     Lightbulb,
     Search,
     Sparkles,
+    MessageCircle,
 } from "@lucide/astro";
 
 export function getStaticPaths() {
@@ -72,255 +74,448 @@ const faqSchema = {
     schemaType="Service"
     schema={[industrySchema, faqSchema]}
 >
-    <main class="overflow-hidden">
-        <section class="section-shell relative">
-        <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-            <div class="absolute -top-40 left-1/2 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[rgb(var(--color-mango-yellow)/0.18)] blur-3xl"></div>
-            <div class="absolute -right-32 top-32 h-[26rem] w-[26rem] rounded-full bg-[rgb(var(--color-mango-pink)/0.15)] blur-3xl"></div>
-            <div class="absolute -bottom-36 left-8 h-[24rem] w-[24rem] rounded-full bg-[rgb(var(--color-leaf-teal)/0.12)] blur-3xl"></div>
+    <section
+        class="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28"
+    >
+        <div class="pointer-events-none absolute inset-0 -z-10">
+        <div
+            class="absolute left-[-8%] top-12 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.34),transparent_65%)] blur-2xl"
+        >
+        </div>
+        <div
+            class="absolute right-[-6%] top-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.22),transparent_60%)] blur-3xl"
+        >
+        </div>
+        <div
+            class="absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.14),transparent_62%)] blur-3xl"
+        >
+        </div>
         </div>
 
-        <div class="container-shell grid gap-12 lg:grid-cols-[1fr_0.72fr] lg:items-center">
+        <div class="container-shell">
+        <div
+            class="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10"
+        >
+            <div class="max-w-2xl">
             <div>
-            <p class="section-kicker">
-                <BriefcaseBusiness class="size-4" aria-hidden="true" />
-                {page.eyebrow}
-            </p>
+                <Badge>{page.eyebrow}</Badge>
+            </div>
 
-            <h1 class="mt-5 max-w-5xl text-balance">
+            <h1
+                class="mt-6 font-nunito text-4xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-5xl lg:text-6xl"
+            >
                 {page.heroTitle}
             </h1>
 
-            <p class="lead mt-6 max-w-3xl">
+            <p
+                class="mt-6 max-w-xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
                 {page.heroDescription}
             </p>
 
-            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a href="/contact" class="btn btn-primary">
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                href="/contact"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+                >
                 Request a Free Website Review
                 <ArrowRight class="size-4" aria-hidden="true" />
                 </a>
 
-                <a href="/portfolio" class="btn btn-secondary">
-                View Our Work
+                <a
+                href="/industries"
+                class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                >
+                Back to Industries
                 </a>
             </div>
             </div>
 
-            <aside class="glow-panel rounded-[var(--radius-brand)] p-6">
-            <p class="inline-flex items-center gap-2 rounded-full bg-[rgb(var(--color-mango-pink)/0.12)] px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-[rgb(var(--color-mango-pink))]">
-                <Search class="size-3.5" aria-hidden="true" />
-                SEO Focus
-            </p>
-
-            <h2 class="mt-4 text-2xl">
-                {page.primaryKeyword}
-            </h2>
-
-            <p class="mt-3 leading-7 text-[rgb(var(--color-text-soft))]">
-                This page is structured around high-intent industry searches, local visibility, and conversion-focused service positioning.
-            </p>
-
-            <div class="mt-6 grid gap-3">
-                {page.secondaryKeywords.map((keyword) => (
-                <div class="flex items-start gap-3 rounded-2xl border border-[rgb(var(--color-border)/0.32)] bg-[rgb(var(--color-surface)/0.58)] p-4">
-                    <CheckCircle2 class="mt-0.5 size-5 shrink-0 text-[rgb(var(--color-leaf-teal))]" aria-hidden="true" />
-                    <p class="text-sm font-bold text-[rgb(var(--color-text-soft))]">
-                    {keyword}
-                    </p>
-                </div>
-                ))}
+            <div class="relative">
+            <div
+                class="absolute -left-4 top-10 hidden h-24 w-24 rounded-[2rem] bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.22))] blur-xl sm:block"
+            >
             </div>
+            <div
+                class="absolute -right-4 bottom-10 hidden h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.24),transparent_65%)] blur-2xl sm:block"
+            >
+            </div>
+
+            <aside
+                class="surface-panel radius-brand relative overflow-hidden p-6 sm:p-8"
+            >
+                <div class="absolute inset-x-0 top-0 h-1.5 mango-gradient"></div>
+
+                <div class="relative">
+                <div
+                    class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-white shadow-soft"
+                >
+                    <Search class="h-6 w-6" aria-hidden="true" />
+                </div>
+
+                <p
+                    class="mt-6 text-xs font-black uppercase tracking-[0.16em] text-[rgb(var(--color-mango-pink))]"
+                >
+                    SEO Focus
+                </p>
+
+                <h2
+                    class="mt-3 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl"
+                >
+                    {page.primaryKeyword}
+                </h2>
+
+                <p
+                    class="mt-4 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
+                >
+                    This page is structured around high-intent industry searches,
+                    local visibility, and conversion-focused service positioning.
+                </p>
+
+                <div class="mt-7 grid gap-4">
+                    {
+                    page.secondaryKeywords.map((keyword, index) => (
+                        <div class="rounded-[1.5rem] border border-black/8 bg-[rgb(var(--color-surface-soft))] p-4 dark:border-white/10">
+                        <div class="flex items-start gap-3 text-sm font-semibold leading-7 text-[rgb(var(--color-text))] sm:text-[0.95rem]">
+                            <span
+                            class:list={[
+                                "mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-black",
+                                index % 2 === 0
+                                ? "mango-gradient text-white"
+                                : "leaf-gradient text-[#0f1115]",
+                            ]}
+                            >
+                            ✓
+                            </span>
+                            <span>{keyword}</span>
+                        </div>
+                        </div>
+                    ))
+                    }
+                </div>
+                </div>
             </aside>
+            </div>
         </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section-shell-sm">
+    <section class="pb-20 sm:pb-24 lg:pb-28">
         <div class="container-shell">
-            <div class="mx-auto max-w-3xl text-center">
-            <p class="section-kicker mx-auto">
-                <CircleAlert class="size-4" aria-hidden="true" />
-                Common Problems
-            </p>
-
-            <h2 class="mt-5">
-                Why many {page.industryName.toLowerCase()} lose leads online.
-            </h2>
-
-            <p class="lead mx-auto mt-5 max-w-2xl">
-                A website should not just exist. It should build trust, explain your value, and help the right customers take action.
-            </p>
+        <div class="mx-auto max-w-3xl text-center">
+            <div class="inline-flex items-center gap-2">
+            <Badge>Common Problems</Badge>
             </div>
 
-            <div class="mt-10 grid gap-5 md:grid-cols-3">
-            {page.painPoints.map((item) => (
-                <article class="glow-panel rounded-[var(--radius-brand)] p-6">
-                <div class="grid size-11 place-items-center rounded-2xl bg-[rgb(var(--color-mango-pink)/0.12)] text-[rgb(var(--color-mango-pink))]">
-                    <CircleAlert class="size-5" aria-hidden="true" />
+            <h2
+            class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+            >
+            Why many {page.industryName.toLowerCase()} lose leads online
+            </h2>
+
+            <p
+            class="mx-auto mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
+            A website should not just exist. It should build trust, explain your
+            value, and help the right customers take action.
+            </p>
+        </div>
+
+        <div class="mt-12 grid gap-5 md:grid-cols-3">
+            {
+            page.painPoints.map((item, index) => (
+                <article class="surface-panel radius-brand relative overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1">
+                <div
+                    class:list={[
+                    "absolute inset-x-0 top-0 h-1.5",
+                    index % 2 === 0 ? "mango-gradient" : "leaf-gradient",
+                    ]}
+                />
+
+                <div
+                    class:list={[
+                    "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-lg font-black shadow-soft",
+                    index % 2 === 0
+                        ? "bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-white"
+                        : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f1115]",
+                    ]}
+                >
+                    <CircleAlert class="h-6 w-6" aria-hidden="true" />
                 </div>
 
-                <h3 class="mt-5 text-xl">
+                <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
                     {item.title}
                 </h3>
 
-                <p class="mt-3 leading-7 text-[rgb(var(--color-text-soft))]">
+                <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
                     {item.description}
                 </p>
                 </article>
-            ))}
-            </div>
+            ))
+            }
         </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section-shell-sm">
-        <div class="container-shell grid gap-10 lg:grid-cols-[0.82fr_1fr] lg:items-start">
+    <section class="pb-20 sm:pb-24 lg:pb-28">
+        <div class="container-shell">
+        <div
+            class="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12"
+        >
+            <div class="max-w-xl">
             <div>
-            <p class="section-kicker">
-                <Lightbulb class="size-4" aria-hidden="true" />
-                Mango Media Approach
-            </p>
+                <Badge>Mango Media Approach</Badge>
+            </div>
 
-            <h2 class="mt-5">
-                A better digital foundation for {page.industryName.toLowerCase()}.
+            <h2
+                class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+            >
+                A better digital foundation for {page.industryName.toLowerCase()}
             </h2>
 
-            <p class="lead mt-5">
-                We combine website design, local SEO structure, brand clarity, and conversion strategy so your online presence supports real business growth.
+            <p
+                class="mt-5 text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
+                We combine website design, local SEO structure, brand clarity, and
+                conversion strategy so your online presence supports real business
+                growth.
             </p>
 
+            <div
+                class="mt-8 rounded-[2rem] border border-black/8 bg-[rgb(var(--color-surface))] p-6 shadow-card dark:border-white/10"
+            >
+                <p
+                class="font-nunito text-xl font-extrabold text-[rgb(var(--color-text))]"
+                >
+                The goal is simple: make your business easier to find, trust, and
+                contact.
+                </p>
+            </div>
+
             <div class="mt-8">
-                <a href="/contact" class="btn btn-primary">
+                <a
+                href="/contact"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+                >
                 Start with a Free Review
                 <ArrowRight class="size-4" aria-hidden="true" />
                 </a>
             </div>
             </div>
 
-            <div class="grid gap-4">
-            {page.solutions.map((item) => (
-                <article class="rounded-[var(--radius-lg)] border border-[rgb(var(--color-border)/0.35)] bg-[rgb(var(--color-surface)/0.58)] p-6">
-                <div class="flex gap-4">
-                    <div class="grid size-10 shrink-0 place-items-center rounded-2xl bg-[rgb(var(--color-leaf-teal)/0.13)] text-[rgb(var(--color-leaf-teal))]">
-                    <CheckCircle2 class="size-5" aria-hidden="true" />
+            <div class="grid gap-5">
+            {
+                page.solutions.map((item, index) => (
+                <article class="surface-panel radius-brand relative overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1">
+                    <div
+                    class:list={[
+                        "absolute inset-y-0 left-0 w-1.5",
+                        index % 2 === 0 ? "mango-gradient" : "leaf-gradient",
+                    ]}
+                    />
+
+                    <div class="flex gap-4">
+                    <div
+                        class:list={[
+                        "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl text-lg font-black shadow-soft",
+                        index % 2 === 0
+                            ? "bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-white"
+                            : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f1115]",
+                        ]}
+                    >
+                        <Lightbulb class="h-5 w-5" aria-hidden="true" />
                     </div>
 
                     <div>
-                    <h3 class="text-xl">
+                        <h3 class="font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
                         {item.title}
-                    </h3>
+                        </h3>
 
-                    <p class="mt-3 leading-7 text-[rgb(var(--color-text-soft))]">
+                        <p class="mt-3 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
                         {item.description}
-                    </p>
+                        </p>
                     </div>
-                </div>
+                    </div>
                 </article>
-            ))}
+                ))
+            }
             </div>
         </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section-shell-sm">
+    <section class="pb-20 sm:pb-24 lg:pb-28">
         <div class="container-shell">
-            <div class="mx-auto max-w-3xl text-center">
-            <p class="section-kicker mx-auto">
-                <Sparkles class="size-4" aria-hidden="true" />
-                Services
-            </p>
-
-            <h2 class="mt-5">
-                Digital growth services for {page.industryName.toLowerCase()}.
-            </h2>
+        <div class="mx-auto max-w-3xl text-center">
+            <div class="inline-flex items-center gap-2">
+            <Badge>Services</Badge>
             </div>
 
-            <div class="mt-10 grid gap-5 md:grid-cols-3">
-            {page.services.map((service) => (
+            <h2
+            class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+            >
+            Digital growth services for {page.industryName.toLowerCase()}
+            </h2>
+
+            <p
+            class="mx-auto mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
+            Each service is designed to support a stronger online presence, better
+            visibility, and a clearer path toward customer action.
+            </p>
+        </div>
+
+        <div class="mt-12 grid gap-5 md:grid-cols-3">
+            {
+            page.services.map((service, index) => (
                 <a
                 href={service.href}
-                class="glow-panel group rounded-[var(--radius-brand)] p-6 transition duration-300 hover:-translate-y-1"
+                class="surface-panel radius-brand group relative flex min-h-[18rem] flex-col overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1"
                 >
-                <div class="grid size-11 place-items-center rounded-2xl bg-[rgb(var(--color-mango-yellow)/0.15)] text-[rgb(var(--color-mango-pink))]">
-                    <Sparkles class="size-5" aria-hidden="true" />
+                <div
+                    class:list={[
+                    "absolute inset-x-0 top-0 h-1.5",
+                    index % 2 === 0 ? "mango-gradient" : "leaf-gradient",
+                    ]}
+                />
+
+                <div
+                    class:list={[
+                    "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-lg font-black shadow-soft",
+                    index % 2 === 0
+                        ? "bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-white"
+                        : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f1115]",
+                    ]}
+                >
+                    <Sparkles class="h-6 w-6" aria-hidden="true" />
                 </div>
 
-                <h3 class="mt-5 text-xl">
+                <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
                     {service.title}
                 </h3>
 
-                <p class="mt-3 leading-7 text-[rgb(var(--color-text-soft))]">
+                <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
                     {service.description}
                 </p>
 
-                <span class="mt-5 inline-flex items-center gap-2 text-sm font-black text-[rgb(var(--color-mango-pink))]">
+                <div class="mt-auto pt-7">
+                    <span class="inline-flex items-center gap-2 font-nunito text-sm font-extrabold text-[rgb(var(--color-mango-pink))]">
                     Learn More
-                    <ArrowRight class="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
-                </span>
+                    <ArrowRight
+                        class="size-4 transition-transform duration-200 group-hover:translate-x-1"
+                        aria-hidden="true"
+                    />
+                    </span>
+                </div>
                 </a>
-            ))}
-            </div>
+            ))
+            }
         </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section-shell-sm">
+    <section class="relative pb-20 sm:pb-24 lg:pb-28">
         <div class="container-shell">
-            <div class="glow-panel rounded-[var(--radius-brand)] p-7 md:p-10">
-            <p class="section-kicker">
-                FAQ
-            </p>
+        <div class="flex flex-col gap-y-12">
+            <div>
+            <div>
+                <Badge>FAQ</Badge>
+            </div>
 
-            <h2 class="mt-4">
-                Questions about website design and SEO for {page.industryName.toLowerCase()}.
+            <h2
+                class="mt-6 font-nunito text-3xl font-extrabold text-[rgb(var(--color-text))] sm:text-4xl"
+            >
+                Questions about website design and SEO for {
+                page.industryName.toLowerCase()
+                }
             </h2>
 
-            <div class="mt-8 grid gap-4">
-                {page.faqs.map((faq) => (
-                <details class="group rounded-2xl border border-[rgb(var(--color-border)/0.35)] bg-[rgb(var(--color-surface)/0.58)] p-5">
-                    <summary class="cursor-pointer list-none font-black text-[rgb(var(--color-heading))]">
-                    <span class="flex items-center justify-between gap-4">
-                        {faq.question}
-                        <span class="grid size-8 shrink-0 place-items-center rounded-full bg-[rgb(var(--color-mango-yellow)/0.14)] text-[rgb(var(--color-mango-pink))] transition group-open:rotate-45">
+            <p
+                class="mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
+                These answers help explain how Mango Media approaches industry
+                websites, local SEO structure, and online growth strategy.
+            </p>
+            </div>
+
+            <div class="space-y-4">
+            {
+                page.faqs.map((faq, index) => (
+                <details
+                    class="surface-panel radius-brand group overflow-hidden p-0"
+                    open={index === 0}
+                >
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-nunito text-lg font-extrabold text-[rgb(var(--color-text))] marker:content-none">
+                    <span>{faq.question}</span>
+                    <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[rgb(var(--color-surface-soft))] text-[rgb(var(--color-text-secondary))] transition-transform duration-200 group-open:rotate-45">
                         +
-                        </span>
                     </span>
                     </summary>
 
-                    <p class="mt-4 leading-7 text-[rgb(var(--color-text-soft))]">
-                    {faq.answer}
+                    <div class="px-6 pb-6 pt-0">
+                    <div class="h-px w-full bg-black/6 dark:bg-white/10" />
+                    <p class="pt-5 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+                        {faq.answer}
                     </p>
+                    </div>
                 </details>
-                ))}
-            </div>
+                ))
+            }
             </div>
         </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section-shell-sm">
+    <section class="pb-20 sm:pb-24 lg:pb-28">
         <div class="container-shell">
-            <div class="glow-panel rounded-[var(--radius-brand)] p-8 text-center md:p-12">
-            <p class="section-kicker mx-auto">
-                Mango Media
-            </p>
+        <div
+            class="relative overflow-hidden rounded-[2.5rem] border border-black/8 bg-[rgb(var(--color-surface))] px-6 py-10 shadow-card dark:border-white/10 sm:px-8 sm:py-12 lg:px-12 lg:py-14"
+        >
+            <div
+            class="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(218,60,120,0.10),rgba(254,205,76,0.14),rgba(1,155,144,0.10))]"
+            >
+            </div>
 
-            <h2 class="mx-auto mt-5 max-w-3xl">
-                Want your {page.industryName.toLowerCase()} website to look stronger and convert better?
+            <div class="mx-auto max-w-4xl text-center">
+            <div class="inline-flex items-center gap-2">
+                <Badge>Mango Media</Badge>
+            </div>
+
+            <h2
+                class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+            >
+                Want your {page.industryName.toLowerCase()} website to look stronger
+                and convert better?
             </h2>
 
-            <p class="lead mx-auto mt-5 max-w-2xl">
-                Let’s review your current website, local SEO structure, Google profile, and online presence to find the highest-impact improvements.
+            <p
+                class="mx-auto mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
+                Let’s review your current website, local SEO structure, Google
+                profile, and online presence to find the highest-impact
+                improvements.
             </p>
 
-            <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-                <a href="/contact" class="btn btn-primary">
+            <div
+                class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            >
+                <a
+                href="/contact"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+                >
                 Request a Free Review
                 <ArrowRight class="size-4" aria-hidden="true" />
                 </a>
 
-                <a href="/services" class="btn btn-secondary">
+                <a
+                href="/services"
+                class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                >
                 Explore Services
                 </a>
             </div>
             </div>
         </div>
-        </section>
-    </main>
+        </div>
+    </section>
 </MainLayout>

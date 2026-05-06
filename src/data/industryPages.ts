@@ -483,4 +483,95 @@ export const industryPages: IndustryPage[] = [
             },
         ],
     },
+    {
+        slug: "veterinary-web-design",
+        industryName: "Veterinary Clinics",
+        title: "Veterinary Website Design & Local SEO in South Florida | Mango Media",
+        description:
+            "Mango Media helps veterinary clinics in South Florida improve their websites, local SEO structure, service pages, online credibility, and lead conversion paths.",
+        eyebrow: "Veterinary Website Design",
+        heroTitle:
+            "Professional veterinary websites built to communicate trust, clarity, and care.",
+        heroDescription:
+            "We help veterinary clinics create modern websites with clear service areas, veterinarian profiles, local SEO structure, and simple contact paths for appointments and inquiries.",
+        primaryKeyword: "veterinary website design Miami",
+        secondaryKeywords: [
+            "vet website design Miami",
+            "veterinary SEO Miami",
+            "website design for vets",
+            "local SEO for veterinary clinics South Florida",
+            "website redesign for veterinary offices",
+        ],
+        painPoints: [
+            {
+                title: "Veterinary websites need to build trust quickly",
+                description:
+                    "Pet owners want to feel that the clinic is caring, professional, and easy to contact. A weak website can reduce confidence and lead to lost appointments.",
+            },
+            {
+                title: "Services need clear presentation",
+                description:
+                    "Preventive care, vaccinations, emergency services, surgeries, dental care, and other veterinary services should be easy to understand and navigate.",
+            },
+            {
+                title: "Local competition is strong",
+                description:
+                    "Veterinary clinics compete heavily in local search. A stronger website structure can help support visibility for service-area and location-based searches.",
+            },
+        ],
+        solutions: [
+            {
+                title: "Trust-focused website design",
+                description:
+                    "We create professional layouts that highlight services, veterinarian profiles, pet-focused messaging, and clear appointment paths.",
+            },
+            {
+                title: "Service-area SEO structure",
+                description:
+                    "We help organize your website around your veterinary services, local market, and the questions pet owners are searching for.",
+            },
+            {
+                title: "Clear appointment CTAs",
+                description:
+                    "We make it easier for visitors to call, submit an appointment request, or contact the clinic directly.",
+            },
+        ],
+        services: [
+            {
+                title: "Website Design",
+                description:
+                    "Professional websites for veterinary clinics that need a stronger digital presence.",
+                href: "/web-design-miami",
+            },
+            {
+                title: "Local SEO",
+                description:
+                    "SEO structure for veterinary services, service areas, and local pet care searches.",
+                href: "/local-seo-miami",
+            },
+            {
+                title: "Google Business Profile Optimization",
+                description:
+                    "Improve consistency between your veterinary website and Google Business Profile.",
+                href: "/google-business-profile-optimization-miami",
+            },
+        ],
+        faqs: [
+            {
+                question: "Should each veterinary service have its own page?",
+                answer:
+                    "Yes. Dedicated service pages usually provide a better user experience and stronger SEO foundation than listing every service on one page.",
+            },
+            {
+                question: "Can you redesign an outdated veterinary website?",
+                answer:
+                    "Yes. We can improve layout, messaging, calls to action, mobile experience, and local SEO structure.",
+            },
+            {
+                question: "Can the website include veterinarian profiles?",
+                answer:
+                    "Yes. Veterinarian profiles can help build credibility and give potential clients a better sense of the clinic’s experience and care philosophy.",
+            },
+        ],
+    }
 ];

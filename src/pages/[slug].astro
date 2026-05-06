@@ -1,7 +1,13 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Badge from "../components/ui/Badge.astro";
 import { seoLandingPages } from "../data/seoPages";
-import { ArrowRight, CheckCircle2, Sparkles } from "@lucide/astro";
+import {
+    ArrowRight,
+    CheckCircle2,
+    Sparkles,
+    Search,
+} from "@lucide/astro";
 
 export function getStaticPaths() {
     return seoLandingPages.map((page) => ({
@@ -15,6 +21,46 @@ export function getStaticPaths() {
 }
 
 const { page } = Astro.props;
+
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: page.serviceName,
+    description: page.description,
+    serviceType: page.serviceName,
+    areaServed: [
+        {
+        "@type": "AdministrativeArea",
+        name: "Miami-Dade County, Florida",
+        },
+        {
+        "@type": "AdministrativeArea",
+        name: "Broward County, Florida",
+        },
+        {
+        "@type": "AdministrativeArea",
+        name: "Monroe County, Florida",
+        },
+    ],
+    provider: {
+        "@type": "ProfessionalService",
+        name: "Mango Media",
+        url: "https://mangomedia305.com",
+    },
+};
+
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: page.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+        },
+    })),
+};
 ---
 
 <MainLayout
@@ -22,153 +68,328 @@ const { page } = Astro.props;
     description={page.description}
     ogImage="/images/branding/mango-og.webp"
     schemaType="Service"
+    schema={[serviceSchema, faqSchema]}
 >
-    <main class="overflow-hidden">
-        <section class="section-shell relative">
-        <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-            <div class="absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[rgb(var(--color-mango-yellow)/0.18)] blur-3xl"></div>
-            <div class="absolute right-0 top-32 h-96 w-96 rounded-full bg-[rgb(var(--color-mango-pink)/0.16)] blur-3xl"></div>
+    <section
+        class="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28"
+    >
+        <div class="pointer-events-none absolute inset-0 -z-10">
+        <div
+            class="absolute left-[-8%] top-12 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.34),transparent_65%)] blur-2xl"
+        >
+        </div>
+        <div
+            class="absolute right-[-6%] top-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.22),transparent_60%)] blur-3xl"
+        >
+        </div>
+        <div
+            class="absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.14),transparent_62%)] blur-3xl"
+        >
+        </div>
         </div>
 
-        <div class="container-shell grid gap-12 lg:grid-cols-[1fr_0.7fr] lg:items-center">
+        <div class="container-shell">
+        <div
+            class="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10"
+        >
+            <div class="max-w-2xl">
             <div>
-            <p class="section-kicker">
-                <Sparkles class="size-4" aria-hidden="true" />
-                {page.eyebrow}
-            </p>
+                <Badge>{page.eyebrow}</Badge>
+            </div>
 
-            <h1 class="mt-5 max-w-5xl text-balance">
+            <h1
+                class="mt-6 font-nunito text-4xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-5xl lg:text-6xl"
+            >
                 {page.heroTitle}
             </h1>
 
-            <p class="lead mt-6 max-w-3xl">
+            <p
+                class="mt-6 max-w-xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
                 {page.heroDescription}
             </p>
 
-            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a href={page.ctaHref} class="btn btn-primary">
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                href={page.ctaHref}
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+                >
                 {page.ctaLabel}
                 <ArrowRight class="size-4" aria-hidden="true" />
                 </a>
 
-                <a href="/portfolio" class="btn btn-secondary">
+                <a
+                href="/portfolio"
+                class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                >
                 View Our Work
                 </a>
             </div>
             </div>
 
-            <aside class="glow-panel rounded-[var(--radius-brand)] p-6">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[rgb(var(--color-mango-pink))]">
-                SEO Focus
-            </p>
+            <div class="relative">
+            <div
+                class="absolute -left-4 top-10 hidden h-24 w-24 rounded-[2rem] bg-[linear-gradient(135deg,rgba(1,155,144,0.18),rgba(176,241,34,0.22))] blur-xl sm:block"
+            >
+            </div>
+            <div
+                class="absolute -right-4 bottom-10 hidden h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.24),transparent_65%)] blur-2xl sm:block"
+            >
+            </div>
 
-            <h2 class="mt-3 text-2xl">
-                {page.primaryKeyword}
-            </h2>
+            <aside
+                class="surface-panel radius-brand relative overflow-hidden p-6 sm:p-8"
+            >
+                <div class="absolute inset-x-0 top-0 h-1.5 mango-gradient"></div>
 
-            <div class="mt-5 grid gap-3">
-                {page.secondaryKeywords.map((keyword) => (
-                <div class="flex items-start gap-3 rounded-2xl border border-[rgb(var(--color-border)/0.3)] bg-[rgb(var(--color-surface)/0.55)] p-4">
-                    <CheckCircle2 class="mt-0.5 size-5 shrink-0 text-[rgb(var(--color-leaf-teal))]" />
-                    <p class="text-sm font-bold text-[rgb(var(--color-text-soft))]">
-                    {keyword}
-                    </p>
+                <div class="relative">
+                <div
+                    class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-white shadow-soft"
+                >
+                    <Search class="h-6 w-6" aria-hidden="true" />
                 </div>
-                ))}
-            </div>
-            </aside>
-        </div>
-        </section>
 
-        <section class="section-shell-sm">
-        <div class="container-shell grid gap-6 md:grid-cols-2">
-            {page.sections.map((section) => (
-            <article class="glow-panel rounded-[var(--radius-brand)] p-7">
-                <h2 class="text-2xl">{section.title}</h2>
-                <p class="mt-4 leading-7 text-[rgb(var(--color-text-soft))]">
-                {section.content}
+                <p
+                    class="mt-6 text-xs font-black uppercase tracking-[0.16em] text-[rgb(var(--color-mango-pink))]"
+                >
+                    SEO Focus
                 </p>
-            </article>
-            ))}
+
+                <h2
+                    class="mt-3 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl"
+                >
+                    {page.primaryKeyword}
+                </h2>
+
+                <p
+                    class="mt-4 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
+                >
+                    This landing page is structured around local search intent,
+                    service relevance, and conversion-focused messaging for
+                    businesses across South Florida.
+                </p>
+
+                <div class="mt-7 grid gap-4">
+                    {
+                    page.secondaryKeywords.map((keyword, index) => (
+                        <div class="rounded-[1.5rem] border border-black/8 bg-[rgb(var(--color-surface-soft))] p-4 dark:border-white/10">
+                        <div class="flex items-start gap-3 text-sm font-semibold leading-7 text-[rgb(var(--color-text))] sm:text-[0.95rem]">
+                            <span
+                            class:list={[
+                                "mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-black",
+                                index % 2 === 0
+                                ? "mango-gradient text-white"
+                                : "leaf-gradient text-[#0f1115]",
+                            ]}
+                            >
+                            ✓
+                            </span>
+                            <span>{keyword}</span>
+                        </div>
+                        </div>
+                    ))
+                    }
+                </div>
+                </div>
+            </aside>
+            </div>
         </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section-shell-sm">
+    <section class="pb-20 sm:pb-24 lg:pb-28">
         <div class="container-shell">
-            <div class="mx-auto max-w-3xl text-center">
-            <p class="section-kicker mx-auto">
-                <CheckCircle2 class="size-4" aria-hidden="true" />
-                Why it matters
-            </p>
+        <div class="grid gap-5 md:grid-cols-2">
+            {
+            page.sections.map((section, index) => (
+                <article class="surface-panel radius-brand relative overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1 sm:p-7">
+                <div
+                    class:list={[
+                    "absolute inset-x-0 top-0 h-1.5",
+                    index % 2 === 0 ? "mango-gradient" : "leaf-gradient",
+                    ]}
+                />
 
-            <h2 class="mt-5">
-                Built for visibility, trust, and conversion.
-            </h2>
+                <div
+                    class:list={[
+                    "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-lg font-black shadow-soft",
+                    index % 2 === 0
+                        ? "bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-white"
+                        : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f1115]",
+                    ]}
+                >
+                    <Sparkles class="h-6 w-6" aria-hidden="true" />
+                </div>
+
+                <h2 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-3xl">
+                    {section.title}
+                </h2>
+
+                <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+                    {section.content}
+                </p>
+                </article>
+            ))
+            }
+        </div>
+        </div>
+    </section>
+
+    <section class="pb-20 sm:pb-24 lg:pb-28">
+        <div class="container-shell">
+        <div class="mx-auto max-w-3xl text-center">
+            <div class="inline-flex items-center gap-2">
+            <Badge>Why it matters</Badge>
             </div>
 
-            <div class="mt-10 grid gap-5 md:grid-cols-3">
-            {page.benefits.map((benefit) => (
-                <article class="glow-panel rounded-[var(--radius-brand)] p-6">
-                <h3 class="text-xl">{benefit.title}</h3>
-                <p class="mt-3 leading-7 text-[rgb(var(--color-text-soft))]">
+            <h2
+            class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+            >
+            Built for visibility, trust, and conversion
+            </h2>
+
+            <p
+            class="mx-auto mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
+            The strongest websites do more than look polished. They help your
+            business get found, build confidence, and move visitors toward action.
+            </p>
+        </div>
+
+        <div class="mt-12 grid gap-5 md:grid-cols-3">
+            {
+            page.benefits.map((benefit, index) => (
+                <article class="surface-panel radius-brand relative overflow-hidden p-6 transition-transform duration-300 hover:-translate-y-1">
+                <div
+                    class:list={[
+                    "absolute inset-x-0 top-0 h-1.5",
+                    index % 2 === 0 ? "mango-gradient" : "leaf-gradient",
+                    ]}
+                />
+
+                <div
+                    class:list={[
+                    "inline-flex h-12 w-12 items-center justify-center rounded-2xl text-lg font-black shadow-soft",
+                    index % 2 === 0
+                        ? "bg-[linear-gradient(135deg,rgba(218,60,120),rgba(254,205,76))] text-white"
+                        : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f1115]",
+                    ]}
+                >
+                    <CheckCircle2 class="h-6 w-6" aria-hidden="true" />
+                </div>
+
+                <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
+                    {benefit.title}
+                </h3>
+
+                <p class="mt-4 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
                     {benefit.description}
                 </p>
                 </article>
-            ))}
-            </div>
+            ))
+            }
         </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section-shell-sm">
+    <section class="relative pb-20 sm:pb-24 lg:pb-28">
         <div class="container-shell">
-            <div class="glow-panel rounded-[var(--radius-brand)] p-7 md:p-10">
-            <p class="section-kicker">
-                Questions
-            </p>
+        <div class="flex flex-col gap-y-12">
+            <div>
+            <div>
+                <Badge>Questions</Badge>
+            </div>
 
-            <h2 class="mt-4">
-                Frequently asked questions about {page.serviceName.toLowerCase()}.
+            <h2
+                class="mt-6 font-nunito text-3xl font-extrabold text-[rgb(var(--color-text))] sm:text-4xl"
+            >
+                Frequently asked questions about {page.serviceName.toLowerCase()}
             </h2>
 
-            <div class="mt-8 grid gap-4">
-                {page.faqs.map((faq) => (
-                <details class="rounded-2xl border border-[rgb(var(--color-border)/0.35)] bg-[rgb(var(--color-surface)/0.55)] p-5">
-                    <summary class="cursor-pointer font-black text-[rgb(var(--color-heading))]">
-                    {faq.question}
-                    </summary>
-                    <p class="mt-3 leading-7 text-[rgb(var(--color-text-soft))]">
-                    {faq.answer}
-                    </p>
-                </details>
-                ))}
+            <p
+                class="mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
+                These answers help explain how Mango Media approaches strategy,
+                website structure, SEO foundations, and lead-focused digital growth.
+            </p>
             </div>
+
+            <div class="space-y-4">
+            {
+                page.faqs.map((faq, index) => (
+                <details
+                    class="surface-panel radius-brand group overflow-hidden p-0"
+                    open={index === 0}
+                >
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-nunito text-lg font-extrabold text-[rgb(var(--color-text))] marker:content-none">
+                    <span>{faq.question}</span>
+                    <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[rgb(var(--color-surface-soft))] text-[rgb(var(--color-text-secondary))] transition-transform duration-200 group-open:rotate-45">
+                        +
+                    </span>
+                    </summary>
+
+                    <div class="px-6 pb-6 pt-0">
+                    <div class="h-px w-full bg-black/6 dark:bg-white/10" />
+                    <p class="pt-5 text-sm leading-7 text-[rgb(var(--color-text-secondary))] sm:text-[0.95rem]">
+                        {faq.answer}
+                    </p>
+                    </div>
+                </details>
+                ))
+            }
             </div>
         </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section-shell-sm">
+    <section class="pb-20 sm:pb-24 lg:pb-28">
         <div class="container-shell">
-            <div class="glow-panel text-center rounded-[var(--radius-brand)] p-8 md:p-12">
-            <p class="section-kicker mx-auto">
-                Mango Media
-            </p>
+        <div
+            class="relative overflow-hidden rounded-[2.5rem] border border-black/8 bg-[rgb(var(--color-surface))] px-6 py-10 shadow-card dark:border-white/10 sm:px-8 sm:py-12 lg:px-12 lg:py-14"
+        >
+            <div
+            class="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(218,60,120,0.10),rgba(254,205,76,0.14),rgba(1,155,144,0.10))]"
+            >
+            </div>
 
-            <h2 class="mx-auto mt-5 max-w-3xl">
+            <div class="mx-auto max-w-4xl text-center">
+            <div class="inline-flex items-center gap-2">
+                <Badge>Mango Media</Badge>
+            </div>
+
+            <h2
+                class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl lg:text-5xl"
+            >
                 Want to turn your website into a stronger local growth asset?
             </h2>
 
-            <p class="lead mx-auto mt-5 max-w-2xl">
-                Let’s review your current online presence and identify where your website, SEO, and social media can work harder for your business.
+            <p
+                class="mx-auto mt-5 max-w-2xl text-base leading-8 text-[rgb(var(--color-text-secondary))] sm:text-lg"
+            >
+                Let’s review your current online presence and identify where your
+                website, SEO, and social media can work harder for your business.
             </p>
 
-            <div class="mt-8 flex justify-center">
-                <a href="/contact" class="btn btn-primary">
+            <div
+                class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            >
+                <a
+                href="/contact"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#da3c78_0%,#fecd4c_100%)] px-6 py-3.5 font-nunito text-sm font-extrabold text-white shadow-mango transition-transform duration-200 hover:-translate-y-0.5"
+                >
                 Request a Free Review
                 <ArrowRight class="size-4" aria-hidden="true" />
+                </a>
+
+                <a
+                href="/services"
+                class="inline-flex items-center justify-center rounded-full border border-black/8 bg-white/80 px-6 py-3.5 font-nunito text-sm font-extrabold text-[rgb(var(--color-text))] backdrop-blur transition-colors duration-200 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                >
+                Explore Services
                 </a>
             </div>
             </div>
         </div>
-        </section>
-    </main>
+        </div>
+    </section>
 </MainLayout>
