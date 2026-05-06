@@ -2,6 +2,13 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Badge from "../components/ui/Badge.astro";
 
+import {
+  Store,
+  PencilRuler,
+  CalendarSync,
+  BicepsFlexed
+} from "@lucide/astro";
+
 import LocalBusinessIcon from "../components/icons/LocalBusinessIcon.astro"
 import StrongFoundationIcon from "../components/icons/StrongFoundationIcon.astro"
 import StrategicDesignIcon from "../components/icons/StrategicDesignIcon.astro"
@@ -114,10 +121,10 @@ import { differentiators, services, audiences } from "../data/pages/about.ts";
                     : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f5f58] dark:text-white",
                 ]}
               >
-                {item.title === "Built for local businesses" && <LocalBusinessIcon class="h-7 w-7"/>}
-                {item.title === "Strong digital foundations" && <StrongFoundationIcon class="h-7 w-7"/>}
-                {item.title === "Creative but strategic" && <StrategicDesignIcon class="h-7 w-7"/>}
-                {item.title === "Simple, supportive process" && <EasierContentCreationIcon class="h-7 w-7"/>}
+                {item.title === "Built for local businesses" && <Store class="h-6 w-6"/>}
+                {item.title === "Strong digital foundations" && <PencilRuler class="h-6 w-6"/>}
+                {item.title === "Creative but strategic" && <CalendarSync class="h-6 w-6"/>}
+                {item.title === "Simple, supportive process" && <BicepsFlexed class="h-6 w-6"/>}
               </div>
 
               <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">
@@ -141,7 +148,7 @@ import { differentiators, services, audiences } from "../data/pages/about.ts";
             <Badge>What we do?</Badge>
           </div>
 
-          <h2 class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl">
+          <h2 class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-3xl">
             Services designed to strengthen your business online
           </h2>
 
@@ -162,7 +169,7 @@ import { differentiators, services, audiences } from "../data/pages/about.ts";
             <Badge>Who we work with?</Badge>
           </div>
 
-          <h2 class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-4xl">
+          <h2 class="mt-6 font-nunito text-3xl font-extrabold tracking-tight text-[rgb(var(--color-text))] sm:text-3xl">
             Built for businesses that want a stronger online presence
           </h2>
 

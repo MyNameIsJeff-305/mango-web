@@ -2,6 +2,13 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Badge from "../../components/ui/Badge.astro";
 
+import {
+  ShieldCheck,
+  MessageCircleMore,
+  UserPlus,
+  MonitorSmartphone,
+} from "@lucide/astro";
+
 import ShieldTrustIcon from "../../components/icons/ShieldTrustIcon.astro";
 import CommunicationIcon from "../../components/icons/CommunicationIcon.astro";
 import LeadsIcon from "../../components/icons/LeadsIcon.astro";
@@ -204,16 +211,16 @@ import {
                 ]}
               >
                 {benefit.title === "Look more credible" && (
-                  <ShieldTrustIcon class="h-8 w-8" />
+                  <ShieldCheck class="h-6 w-6" />
                 )}
                 {benefit.title === "Communicate clearly" && (
-                  <CommunicationIcon class="h-7 w-7" />
+                  <MessageCircleMore class="h-6 w-6" />
                 )}
                 {benefit.title === "Support more leads" && (
-                  <LeadsIcon class="h-7 w-7" />
+                  <UserPlus class="h-6 w-6" />
                 )}
                 {benefit.title === "Work better on every screen" && (
-                  <ResponsiveIcon class="h-7 w-7" />
+                  <MonitorSmartphone class="h-6 w-6" />
                 )}
               </div>
 

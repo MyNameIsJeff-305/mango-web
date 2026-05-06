@@ -1,14 +1,17 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 
-import { services, process, faqs } from "../../data/servicesPageData";
+import { services, process, faqs } from "../../data/services/servicesPageData";
 
-import WebsiteDesignIcon from "../../components/icons/WebsiteDesignIcon.astro";
-import LocalSEOIcon from "../../components/icons/LocalSEOIcon.astro";
-import BrandingIcon from "../../components/icons/BrandingIcon.astro";
-import GBusinessServiceIcon from "../../components/icons/GBusinessService.astro";
-import OnlinePresenceIcon from "../../components/icons/OnlinePresence.astro";
-import StarterPackageIcon from "../../components/icons/StarterPackage.astro";
+import {
+  LayoutPanelLeft,
+  FileChartPie,
+  Wallpaper,
+  Globe,
+  Store,
+  Rocket
+} from "@lucide/astro";
+
 import Badge from "../../components/ui/Badge.astro";
 ---
 
@@ -126,22 +129,22 @@ import Badge from "../../components/ui/Badge.astro";
         ]}
       >
         {service.title === "Website Design" && (
-          <WebsiteDesignIcon class="h-8 w-8" />
+          <LayoutPanelLeft class="h-6 w-6" />
         )}
         {service.title === "Local SEO" && (
-          <LocalSEOIcon class="h-8 w-8" />
+          <FileChartPie class="h-6 w-6" />
         )}
         {service.title === "Branding & Social Media Setup" && (
-          <BrandingIcon class="h-8 w-8" />
+          <Wallpaper class="h-6 w-6" />
         )}
         {service.title === "Online Presence Setup" && (
-          <OnlinePresenceIcon class="h-8 w-8" />
+          <Globe class="h-6 w-6" />
         )}
         {service.title === "Google Business Profile Setup" && (
-          <GBusinessServiceIcon class="h-8 w-8" />
+          <Store class="h-6 w-6" />
         )}
         {service.title === "Starter Packages" && (
-          <StarterPackageIcon class="h-8 w-8" />
+          <Rocket class="h-6 w-6" />
         )}
       </div>
     </div>

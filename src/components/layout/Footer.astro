@@ -1,9 +1,11 @@
 ---
-import PhoneIcon from "../icons/PhoneIcon.astro";
-import EmailIcon from "../icons/EmailIcon.astro";
-import LocationPinIcon from "../icons/LocationPinIcon.astro";
-import Instagram from "../icons/Instagram.astro";
-import Facebook from "../icons/Facebook.astro";
+import {
+  Phone,
+  Mail,
+  MapPin,
+} from "@lucide/astro";
+
+import { Facebook, Instagram } from "lucide-astro";
 
 import { socialLinks, quickLinks, serviceLinks } from "../../data/footer.ts";
 
@@ -133,7 +135,7 @@ const currentYear = new Date().getFullYear();
               <span
                 class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgb(var(--color-surface-soft))] text-[rgb(var(--color-text))] dark:bg-white/5"
               >
-                <PhoneIcon class="h-5 w-5" />
+                <Phone class="h-5 w-5" />
               </span>
               <span>+1 (561) 583-7737</span>
             </a>
@@ -147,7 +149,7 @@ const currentYear = new Date().getFullYear();
               <span
                 class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgb(var(--color-surface-soft))] text-[rgb(var(--color-text))] dark:bg-white/5"
               >
-                <EmailIcon class="h-5 w-5" />
+                <Mail class="h-5 w-5" />
               </span>
               <span>contact@mangomedia305.com</span>
             </a>
@@ -157,7 +159,7 @@ const currentYear = new Date().getFullYear();
             <span
               class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[rgb(var(--color-surface-soft))] text-[rgb(var(--color-text))] dark:bg-white/5"
             >
-              <LocationPinIcon class="h-5 w-5" />
+              <MapPin class="h-5 w-5" />
             </span>
             <span>Miami, Florida</span>
           </li>
