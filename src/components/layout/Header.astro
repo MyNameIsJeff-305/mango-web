@@ -1,18 +1,11 @@
 ---
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
-];
+import { navLinks } from "../../data/navigation";
 
 const pathname = Astro.url.pathname;
 
 const isActive = (href: string) => {
   if (href === "/") return pathname === "/";
-  return pathname === href || pathname.startsWith(`${href}/`);
+  return pathname.startsWith(href);
 };
 ---
 

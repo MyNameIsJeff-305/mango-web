@@ -1,0 +1,91 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { serviceAreaPages } from "../../data/serviceAreaPages";
+import { ArrowRight, MapPin, CheckCircle2 } from "@lucide/astro";
+
+export function getStaticPaths() {
+    return serviceAreaPages.map((page) => ({
+        params: {
+        slug: page.slug,
+        },
+        props: {
+        page,
+        },
+    }));
+}
+
+const { page } = Astro.props;
+---
+
+<MainLayout
+    title={page.title}
+    description={page.description}
+    ogImage="/images/branding/mango-og.webp"
+    schemaType="LocalBusiness"
+>
+    <main>
+        <section class="section-shell">
+        <div class="container-shell">
+            <p class="section-kicker">
+            <MapPin class="size-4" aria-hidden="true" />
+            {page.countyName}
+            </p>
+
+            <h1 class="mt-5 max-w-5xl">
+            {page.heroTitle}
+            </h1>
+
+            <p class="lead mt-6 max-w-3xl">
+            {page.heroDescription}
+            </p>
+
+            <div class="mt-8">
+            <a href="/contact" class="btn btn-primary">
+                Request a Free Review
+                <ArrowRight class="size-4" aria-hidden="true" />
+            </a>
+            </div>
+        </div>
+        </section>
+
+        <section class="section-shell-sm">
+        <div class="container-shell">
+            <h2>
+            Areas we support in {page.countyName}
+            </h2>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+            {page.cities.map((city) => (
+                <span class="rounded-full border border-[rgb(var(--color-border)/0.35)] bg-[rgb(var(--color-surface)/0.65)] px-4 py-2 text-sm font-bold text-[rgb(var(--color-text-soft))]">
+                {city}
+                </span>
+            ))}
+            </div>
+        </div>
+        </section>
+
+        <section class="section-shell-sm">
+        <div class="container-shell">
+            <h2>
+            Services available in {page.countyName}
+            </h2>
+
+            <div class="mt-8 grid gap-5 md:grid-cols-3">
+            {page.services.map((service) => (
+                <a href={service.href} class="glow-panel group rounded-[var(--radius-brand)] p-6 transition hover:-translate-y-1">
+                <CheckCircle2 class="size-5 text-[rgb(var(--color-leaf-teal))]" />
+                <h3 class="mt-4 text-xl">{service.title}</h3>
+                <p class="mt-3 leading-7 text-[rgb(var(--color-text-soft))]">
+                    {service.description}
+                </p>
+                <span class="mt-5 inline-flex items-center gap-2 text-sm font-black text-[rgb(var(--color-mango-pink))]">
+                    Learn More
+                    <ArrowRight class="size-4 transition group-hover:translate-x-1" />
+                </span>
+                </a>
+            ))}
+            </div>
+        </div>
+        </section>
+    </main>
+</MainLayout>

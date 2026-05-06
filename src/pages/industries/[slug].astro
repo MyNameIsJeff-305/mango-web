@@ -1,0 +1,326 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { industryPages } from "../../data/industryPages";
+import {
+    ArrowRight,
+    BriefcaseBusiness,
+    CheckCircle2,
+    CircleAlert,
+    Lightbulb,
+    Search,
+    Sparkles,
+} from "@lucide/astro";
+
+export function getStaticPaths() {
+    return industryPages.map((page) => ({
+        params: {
+        slug: page.slug,
+        },
+        props: {
+        page,
+        },
+    }));
+}
+
+const { page } = Astro.props;
+
+const industrySchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${page.industryName} Website Design & Local SEO`,
+    description: page.description,
+    serviceType: `${page.industryName} Digital Marketing`,
+    areaServed: [
+        {
+        "@type": "AdministrativeArea",
+        name: "Miami-Dade County, Florida",
+        },
+        {
+        "@type": "AdministrativeArea",
+        name: "Broward County, Florida",
+        },
+        {
+        "@type": "AdministrativeArea",
+        name: "Monroe County, Florida",
+        },
+    ],
+    provider: {
+        "@type": "ProfessionalService",
+        name: "Mango Media",
+        url: "https://mangomedia305.com",
+    },
+};
+
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: page.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+        },
+    })),
+};
+---
+
+<MainLayout
+    title={page.title}
+    description={page.description}
+    ogImage="/images/branding/mango-og.webp"
+    schemaType="Service"
+    schema={[industrySchema, faqSchema]}
+>
+    <main class="overflow-hidden">
+        <section class="section-shell relative">
+        <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+            <div class="absolute -top-40 left-1/2 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[rgb(var(--color-mango-yellow)/0.18)] blur-3xl"></div>
+            <div class="absolute -right-32 top-32 h-[26rem] w-[26rem] rounded-full bg-[rgb(var(--color-mango-pink)/0.15)] blur-3xl"></div>
+            <div class="absolute -bottom-36 left-8 h-[24rem] w-[24rem] rounded-full bg-[rgb(var(--color-leaf-teal)/0.12)] blur-3xl"></div>
+        </div>
+
+        <div class="container-shell grid gap-12 lg:grid-cols-[1fr_0.72fr] lg:items-center">
+            <div>
+            <p class="section-kicker">
+                <BriefcaseBusiness class="size-4" aria-hidden="true" />
+                {page.eyebrow}
+            </p>
+
+            <h1 class="mt-5 max-w-5xl text-balance">
+                {page.heroTitle}
+            </h1>
+
+            <p class="lead mt-6 max-w-3xl">
+                {page.heroDescription}
+            </p>
+
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a href="/contact" class="btn btn-primary">
+                Request a Free Website Review
+                <ArrowRight class="size-4" aria-hidden="true" />
+                </a>
+
+                <a href="/portfolio" class="btn btn-secondary">
+                View Our Work
+                </a>
+            </div>
+            </div>
+
+            <aside class="glow-panel rounded-[var(--radius-brand)] p-6">
+            <p class="inline-flex items-center gap-2 rounded-full bg-[rgb(var(--color-mango-pink)/0.12)] px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-[rgb(var(--color-mango-pink))]">
+                <Search class="size-3.5" aria-hidden="true" />
+                SEO Focus
+            </p>
+
+            <h2 class="mt-4 text-2xl">
+                {page.primaryKeyword}
+            </h2>
+
+            <p class="mt-3 leading-7 text-[rgb(var(--color-text-soft))]">
+                This page is structured around high-intent industry searches, local visibility, and conversion-focused service positioning.
+            </p>
+
+            <div class="mt-6 grid gap-3">
+                {page.secondaryKeywords.map((keyword) => (
+                <div class="flex items-start gap-3 rounded-2xl border border-[rgb(var(--color-border)/0.32)] bg-[rgb(var(--color-surface)/0.58)] p-4">
+                    <CheckCircle2 class="mt-0.5 size-5 shrink-0 text-[rgb(var(--color-leaf-teal))]" aria-hidden="true" />
+                    <p class="text-sm font-bold text-[rgb(var(--color-text-soft))]">
+                    {keyword}
+                    </p>
+                </div>
+                ))}
+            </div>
+            </aside>
+        </div>
+        </section>
+
+        <section class="section-shell-sm">
+        <div class="container-shell">
+            <div class="mx-auto max-w-3xl text-center">
+            <p class="section-kicker mx-auto">
+                <CircleAlert class="size-4" aria-hidden="true" />
+                Common Problems
+            </p>
+
+            <h2 class="mt-5">
+                Why many {page.industryName.toLowerCase()} lose leads online.
+            </h2>
+
+            <p class="lead mx-auto mt-5 max-w-2xl">
+                A website should not just exist. It should build trust, explain your value, and help the right customers take action.
+            </p>
+            </div>
+
+            <div class="mt-10 grid gap-5 md:grid-cols-3">
+            {page.painPoints.map((item) => (
+                <article class="glow-panel rounded-[var(--radius-brand)] p-6">
+                <div class="grid size-11 place-items-center rounded-2xl bg-[rgb(var(--color-mango-pink)/0.12)] text-[rgb(var(--color-mango-pink))]">
+                    <CircleAlert class="size-5" aria-hidden="true" />
+                </div>
+
+                <h3 class="mt-5 text-xl">
+                    {item.title}
+                </h3>
+
+                <p class="mt-3 leading-7 text-[rgb(var(--color-text-soft))]">
+                    {item.description}
+                </p>
+                </article>
+            ))}
+            </div>
+        </div>
+        </section>
+
+        <section class="section-shell-sm">
+        <div class="container-shell grid gap-10 lg:grid-cols-[0.82fr_1fr] lg:items-start">
+            <div>
+            <p class="section-kicker">
+                <Lightbulb class="size-4" aria-hidden="true" />
+                Mango Media Approach
+            </p>
+
+            <h2 class="mt-5">
+                A better digital foundation for {page.industryName.toLowerCase()}.
+            </h2>
+
+            <p class="lead mt-5">
+                We combine website design, local SEO structure, brand clarity, and conversion strategy so your online presence supports real business growth.
+            </p>
+
+            <div class="mt-8">
+                <a href="/contact" class="btn btn-primary">
+                Start with a Free Review
+                <ArrowRight class="size-4" aria-hidden="true" />
+                </a>
+            </div>
+            </div>
+
+            <div class="grid gap-4">
+            {page.solutions.map((item) => (
+                <article class="rounded-[var(--radius-lg)] border border-[rgb(var(--color-border)/0.35)] bg-[rgb(var(--color-surface)/0.58)] p-6">
+                <div class="flex gap-4">
+                    <div class="grid size-10 shrink-0 place-items-center rounded-2xl bg-[rgb(var(--color-leaf-teal)/0.13)] text-[rgb(var(--color-leaf-teal))]">
+                    <CheckCircle2 class="size-5" aria-hidden="true" />
+                    </div>
+
+                    <div>
+                    <h3 class="text-xl">
+                        {item.title}
+                    </h3>
+
+                    <p class="mt-3 leading-7 text-[rgb(var(--color-text-soft))]">
+                        {item.description}
+                    </p>
+                    </div>
+                </div>
+                </article>
+            ))}
+            </div>
+        </div>
+        </section>
+
+        <section class="section-shell-sm">
+        <div class="container-shell">
+            <div class="mx-auto max-w-3xl text-center">
+            <p class="section-kicker mx-auto">
+                <Sparkles class="size-4" aria-hidden="true" />
+                Services
+            </p>
+
+            <h2 class="mt-5">
+                Digital growth services for {page.industryName.toLowerCase()}.
+            </h2>
+            </div>
+
+            <div class="mt-10 grid gap-5 md:grid-cols-3">
+            {page.services.map((service) => (
+                <a
+                href={service.href}
+                class="glow-panel group rounded-[var(--radius-brand)] p-6 transition duration-300 hover:-translate-y-1"
+                >
+                <div class="grid size-11 place-items-center rounded-2xl bg-[rgb(var(--color-mango-yellow)/0.15)] text-[rgb(var(--color-mango-pink))]">
+                    <Sparkles class="size-5" aria-hidden="true" />
+                </div>
+
+                <h3 class="mt-5 text-xl">
+                    {service.title}
+                </h3>
+
+                <p class="mt-3 leading-7 text-[rgb(var(--color-text-soft))]">
+                    {service.description}
+                </p>
+
+                <span class="mt-5 inline-flex items-center gap-2 text-sm font-black text-[rgb(var(--color-mango-pink))]">
+                    Learn More
+                    <ArrowRight class="size-4 transition group-hover:translate-x-1" aria-hidden="true" />
+                </span>
+                </a>
+            ))}
+            </div>
+        </div>
+        </section>
+
+        <section class="section-shell-sm">
+        <div class="container-shell">
+            <div class="glow-panel rounded-[var(--radius-brand)] p-7 md:p-10">
+            <p class="section-kicker">
+                FAQ
+            </p>
+
+            <h2 class="mt-4">
+                Questions about website design and SEO for {page.industryName.toLowerCase()}.
+            </h2>
+
+            <div class="mt-8 grid gap-4">
+                {page.faqs.map((faq) => (
+                <details class="group rounded-2xl border border-[rgb(var(--color-border)/0.35)] bg-[rgb(var(--color-surface)/0.58)] p-5">
+                    <summary class="cursor-pointer list-none font-black text-[rgb(var(--color-heading))]">
+                    <span class="flex items-center justify-between gap-4">
+                        {faq.question}
+                        <span class="grid size-8 shrink-0 place-items-center rounded-full bg-[rgb(var(--color-mango-yellow)/0.14)] text-[rgb(var(--color-mango-pink))] transition group-open:rotate-45">
+                        +
+                        </span>
+                    </span>
+                    </summary>
+
+                    <p class="mt-4 leading-7 text-[rgb(var(--color-text-soft))]">
+                    {faq.answer}
+                    </p>
+                </details>
+                ))}
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <section class="section-shell-sm">
+        <div class="container-shell">
+            <div class="glow-panel rounded-[var(--radius-brand)] p-8 text-center md:p-12">
+            <p class="section-kicker mx-auto">
+                Mango Media
+            </p>
+
+            <h2 class="mx-auto mt-5 max-w-3xl">
+                Want your {page.industryName.toLowerCase()} website to look stronger and convert better?
+            </h2>
+
+            <p class="lead mx-auto mt-5 max-w-2xl">
+                Let’s review your current website, local SEO structure, Google profile, and online presence to find the highest-impact improvements.
+            </p>
+
+            <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+                <a href="/contact" class="btn btn-primary">
+                Request a Free Review
+                <ArrowRight class="size-4" aria-hidden="true" />
+                </a>
+
+                <a href="/services" class="btn btn-secondary">
+                Explore Services
+                </a>
+            </div>
+            </div>
+        </div>
+        </section>
+    </main>
+</MainLayout>

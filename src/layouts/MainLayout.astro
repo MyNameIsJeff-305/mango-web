@@ -4,6 +4,8 @@ import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
 import { siteConfig } from "../config/site";
 
+type SchemaObject = Record<string, unknown>;
+
 export interface Props {
   title?: string;
   description?: string;
@@ -16,7 +18,8 @@ export interface Props {
     | "Service"
     | "Article"
     | "WebPage";
-  schemaData?: Record<string, unknown>;
+  schemaData?: SchemaObject;
+  schema?: SchemaObject | SchemaObject[];
 }
 
 const {
@@ -27,23 +30,32 @@ const {
   noindex = false,
   schemaType = "WebPage",
   schemaData = {},
+  schema,
 } = Astro.props;
 
-const currentUrl =
-  canonical ?? new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
+const currentUrl = canonical
+  ? new URL(canonical, siteConfig.siteUrl).toString()
+  : new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
+
 const absoluteOgImage = ogImage.startsWith("http")
   ? ogImage
   : new URL(ogImage, siteConfig.siteUrl).toString();
 
 const robots = noindex ? "noindex, nofollow" : "index, follow";
 
+const logoUrl = new URL(
+  "/images/branding/logo-square.webp",
+  siteConfig.siteUrl,
+).toString();
+
 const baseOrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${siteConfig.siteUrl}/#organization`,
   name: siteConfig.name,
   legalName: siteConfig.legalName,
   url: siteConfig.siteUrl,
-  logo: new URL("/images/logo-placeholder.png", siteConfig.siteUrl).toString(),
+  logo: logoUrl,
   image: absoluteOgImage,
   description: siteConfig.description,
   email: siteConfig.email,
@@ -54,73 +66,134 @@ const baseOrganizationSchema = {
 const baseLocalBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": `${siteConfig.siteUrl}/#localbusiness`,
   name: siteConfig.name,
+  legalName: siteConfig.legalName,
   url: siteConfig.siteUrl,
   image: absoluteOgImage,
+  logo: logoUrl,
+  description: siteConfig.description,
   email: siteConfig.email,
   telephone: siteConfig.phone,
-  areaServed: siteConfig.areaServed,
-  description: siteConfig.description,
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: siteConfig.address.locality,
+    addressRegion: siteConfig.address.region,
+    addressCountry: siteConfig.address.country,
+  },
+  areaServed: siteConfig.areaServed.map((area) => ({
+    "@type": "Place",
+    name: area,
+  })),
+  knowsAbout: siteConfig.services,
   sameAs: siteConfig.socialLinks,
 };
 
-const pageSchema =
-  schemaType === "Organization"
-    ? { ...baseOrganizationSchema, ...schemaData }
-    : schemaType === "LocalBusiness"
-      ? { ...baseLocalBusinessSchema, ...schemaData }
-      : schemaType === "Service"
-        ? {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            provider: {
-              "@type": "Organization",
-              name: siteConfig.name,
-              url: siteConfig.siteUrl,
-            },
-            areaServed: siteConfig.areaServed,
-            ...schemaData,
-          }
-        : schemaType === "Article"
-          ? {
-              "@context": "https://schema.org",
-              "@type": "Article",
-              headline: title,
-              description,
-              image: absoluteOgImage,
-              mainEntityOfPage: currentUrl,
-              author: {
-                "@type": "Organization",
-                name: siteConfig.name,
-              },
-              publisher: {
-                "@type": "Organization",
-                name: siteConfig.name,
-                logo: {
-                  "@type": "ImageObject",
-                  url: new URL(
-                    "/images/logo-placeholder.png",
-                    siteConfig.siteUrl,
-                  ).toString(),
-                },
-              },
-              ...schemaData,
-            }
-          : {
-              "@context": "https://schema.org",
-              "@type": "WebPage",
-              name: title,
-              description,
-              url: currentUrl,
-              ...schemaData,
-            };
+const baseWebsiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteConfig.siteUrl}/#website`,
+  name: siteConfig.siteName,
+  url: siteConfig.siteUrl,
+  publisher: {
+    "@id": `${siteConfig.siteUrl}/#organization`,
+  },
+};
+
+const baseWebPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${currentUrl}#webpage`,
+  name: title,
+  description,
+  url: currentUrl,
+  isPartOf: {
+    "@id": `${siteConfig.siteUrl}/#website`,
+  },
+  about: {
+    "@id": `${siteConfig.siteUrl}/#localbusiness`,
+  },
+};
+
+const defaultSchemaByType = {
+  Organization: {
+    ...baseOrganizationSchema,
+    ...schemaData,
+  },
+
+  LocalBusiness: {
+    ...baseLocalBusinessSchema,
+    ...schemaData,
+  },
+
+  Service: {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: title,
+    description,
+    provider: {
+      "@id": `${siteConfig.siteUrl}/#localbusiness`,
+    },
+    areaServed: siteConfig.areaServed.map((area) => ({
+      "@type": "Place",
+      name: area,
+    })),
+    ...schemaData,
+  },
+
+  Article: {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    image: absoluteOgImage,
+    mainEntityOfPage: currentUrl,
+    author: {
+      "@id": `${siteConfig.siteUrl}/#organization`,
+    },
+    publisher: {
+      "@id": `${siteConfig.siteUrl}/#organization`,
+    },
+    ...schemaData,
+  },
+
+  WebPage: {
+    ...baseWebPageSchema,
+    ...schemaData,
+  },
+};
+
+const selectedDefaultSchema =
+  defaultSchemaByType[schemaType] ?? defaultSchemaByType.WebPage;
+
+const customSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+
+const structuredData = [
+  baseOrganizationSchema,
+  baseLocalBusinessSchema,
+  baseWebsiteSchema,
+  baseWebPageSchema,
+  selectedDefaultSchema,
+  ...customSchemas,
+];
+
+const uniqueStructuredData = structuredData.filter((item, index, array) => {
+  const itemId = item["@id"];
+
+  if (!itemId) return true;
+
+  return array.findIndex((schemaItem) => schemaItem["@id"] === itemId) === index;
+});
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5Z2HPXQ39P"
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-5Z2HPXQ39P"
     ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -131,6 +204,7 @@ const pageSchema =
 
       gtag("config", "G-5Z2HPXQ39P");
     </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
@@ -140,7 +214,7 @@ const pageSchema =
     <meta name="robots" content={robots} />
     <link rel="canonical" href={currentUrl} />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={schemaType === "Article" ? "article" : "website"} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={currentUrl} />
@@ -211,7 +285,10 @@ const pageSchema =
       })();
     </script>
 
-    <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(uniqueStructuredData)}
+    />
   </head>
 
   <body
