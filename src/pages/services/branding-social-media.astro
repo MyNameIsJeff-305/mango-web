@@ -2,10 +2,12 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Badge from "../../components/ui/Badge.astro";
 
-import StrongFirstImpressionIcon from "../../components/icons/StrongFirstImpression.astro";
-import BrandConsistencyIcon from "../../components/icons/BrandConsistency.astro";
-import BetterSocialCredibilityIcon from "../../components/icons/BetterSocialCredibilityIcon.astro";
-import EasierContentCreationIcon from "../../components/icons/EasierContentCreationIcon.astro";
+import {
+  Sparkles,
+  TextInitial,
+  FileChartLine,
+  CircleFadingPlus
+} from "@lucide/astro";
 
 import { includedItems, benefits, process, faqs } from "../../data/services/brandingSocialMedia";
 ---
@@ -194,16 +196,16 @@ import { includedItems, benefits, process, faqs } from "../../data/services/bran
                 ]}
               >
                 {benefit.title === "Stronger first impressions" && (
-                  <StrongFirstImpressionIcon class="h-6 w-6" />
+                  <Sparkles class="h-6 w-6" />
                 )}
                 {benefit.title === "More consistent branding" && (
-                  <BrandConsistencyIcon class="h-6 w-6" />
+                  <TextInitial class="h-6 w-6" />
                 )}
                 {benefit.title === "Better social credibility" && (
-                  <BetterSocialCredibilityIcon class="h-6 w-6" />
+                  <FileChartLine class="h-6 w-6" />
                 )}
                 {benefit.title === "Easier future content creation" && (
-                  <EasierContentCreationIcon class="h-6 w-6" />
+                  <CircleFadingPlus class="h-6 w-6" />
                 )}
               </div>
 

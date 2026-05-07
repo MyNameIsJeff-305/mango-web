@@ -1,10 +1,13 @@
 ---
-import LookMoreCredibleIcon from "../../icons/LookMoreCredibleIcon.astro";
-import ShowUpIcon from "../../icons/ShowUpIcon.astro";
-import ConvertMoreIcon from "../../icons/ConvertMoreIcon.astro";
-import SaveTimeIcon from "../../icons/SaveTimeIcon.astro";
+import {
+  ShieldCheck,
+  TextSearch,
+  ChartNetwork,
+  Clock3
+} from "@lucide/astro";
 
 import Badge from "../../ui/Badge.astro";
+
 import { results } from "../../../data/home/results.ts";
 ---
 
@@ -120,10 +123,10 @@ import { results } from "../../../data/home/results.ts";
                       : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f5f58] dark:text-white",
                   ]}
                 >
-                  {item.title === "Look more credible" && <LookMoreCredibleIcon class="h-8 w-8" />}
-                  {item.title === "Show up more often" && <ShowUpIcon class="h-8 w-8" />}
-                  {item.title === "Convert more visitors" && <ConvertMoreIcon class="h-7 w-7" />}
-                  {item.title === "Save time" && <SaveTimeIcon class="h-8 w-8" />}
+                  {item.title === "Look more credible" && <ShieldCheck class="h-6 w-6" />}
+                  {item.title === "Show up more often" && <TextSearch class="h-6 w-6" />}
+                  {item.title === "Convert more visitors" && <ChartNetwork class="h-6 w-6" />}
+                  {item.title === "Save time" && <Clock3 class="h-6 w-6" />}
                 </div>
               </div>
 

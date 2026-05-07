@@ -1,4 +1,11 @@
 ---
+import {
+  MessageCircleMore,
+  PencilRuler,
+  ShoppingBasket,
+  LayoutList,
+} from "@lucide/astro";
+
 import ClearCommunicationIcon from "../../icons/ClearCommunicationIcon.astro";
 import StrategicDesignIcon from "../../icons/StrategicDesignIcon.astro";
 import LocalBusinessIcon from "../../icons/LocalBusinessIcon.astro";
@@ -117,10 +124,10 @@ import { valuePoints } from "../../../data/home/whyChooseUs.ts";
                     : "bg-[linear-gradient(135deg,rgba(1,155,144),rgba(176,241,34))] text-[#0f5f58] dark:text-white",
                 ]}
               >
-                {item.title === "Clear communication" && <ClearCommunicationIcon class="h-8 w-8" />}
-                {item.title === "Strategic design" && <StrategicDesignIcon class="h-8 w-8" />}
-                {item.title === "Local-business mindset" && <LocalBusinessIcon class="h-8 w-8" />}
-                {item.title === "Brand consistency" && <BrandConsistencyIcon class="h-8 w-8" />}
+                {item.title === "Clear communication" && <MessageCircleMore class="h-6 w-6" />}
+                {item.title === "Strategic design" && <PencilRuler class="h-6 w-6" />}
+                {item.title === "Local-business mindset" && <ShoppingBasket class="h-6 w-6" />}
+                {item.title === "Brand consistency" && <LayoutList class="h-6 w-6" />}
               </div>
 
               <h3 class="mt-5 font-nunito text-2xl font-extrabold tracking-tight text-[rgb(var(--color-text))]">

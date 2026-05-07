@@ -2,10 +2,12 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Badge from "../../components/ui/Badge.astro";
 
-import GetFoundEasily from "../../components/icons/GetFoundEasily.astro";
-import ShieldTrustIcon from "../../components/icons/ShieldTrustIcon.astro";
-import SearchVisibilityIcon from "../../components/icons/SearchVisibilityIcon.astro";
-import SupportMoreInquiries from "../../components/icons/SupportMoreInquiries.astro";
+import {
+  LaptopMinimalCheck,
+  ShieldCheck,
+  SearchCheck,
+  MessageSquareCheck,
+} from "@lucide/astro";
 
 import { includedItems, benefits, process, faqs } from "../../data/services/googleBusinessProfile";
 ---
@@ -200,16 +202,16 @@ import { includedItems, benefits, process, faqs } from "../../data/services/goog
                 ]}
               >
                 {benefit.title === "Get found more easily" && (
-                  <GetFoundEasily class="h-8 w-8" />
+                  <LaptopMinimalCheck class="h-6 w-6" />
                 )}
                 {benefit.title === "Improve local trust" && (
-                  <ShieldTrustIcon class="h-8 w-8" />
+                  <ShieldCheck class="h-6 w-6" />
                 )}
                 {benefit.title === "Strengthen search visibility" && (
-                  <SearchVisibilityIcon class="h-8 w-8" />
+                  <SearchCheck class="h-6 w-6" />
                 )}
                 {benefit.title === "Support more inquiries" && (
-                  <SupportMoreInquiries class="h-8 w-8" />
+                  <MessageSquareCheck class="h-6 w-6" />
                 )}
               </div>
 

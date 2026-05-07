@@ -1,14 +1,16 @@
 ---
-import WebsiteDesignIcon from "../../icons/WebsiteDesignIcon.astro";
-import LocalSEOIcon from "../../icons/LocalSEOIcon.astro";
-import BrandingIcon from "../../icons/BrandingIcon.astro";
-import GBusinessServiceIcon from "../../icons/GBusinessService.astro";
-import OnlinePresenceIcon from "../../icons/OnlinePresence.astro";
-import StarterPackageIcon from "../../icons/StarterPackage.astro";
+import {
+  LayoutTemplate,
+  ChartNetwork,
+  Origami,
+  Globe,
+  Store,
+  Rocket
+} from "@lucide/astro";
 
 import Badge from "../../ui/Badge.astro";
 
-import { services } from "../../../data/services";
+import { services } from "../../../data/services/services";
 ---
 
 <section class="relative py-20 sm:py-24 lg:py-28">
@@ -84,22 +86,22 @@ import { services } from "../../../data/services";
       ]}
     >
       {service.title === "Website Design" && (
-        <WebsiteDesignIcon class="h-8 w-8" />
+        <LayoutTemplate class="h-6 w-6" />
       )}
       {service.title === "Local SEO" && (
-        <LocalSEOIcon class="h-8 w-8" />
+        <ChartNetwork class="h-6 w-6" />
       )}
       {service.title === "Branding & Social Media Setup" && (
-        <BrandingIcon class="h-8 w-8" />
+        <Origami class="h-6 w-6" />
       )}
       {service.title === "Online Presence Setup" && (
-        <OnlinePresenceIcon class="h-8 w-8" />
+        <Globe class="h-6 w-6" />
       )}
       {service.title === "Google Business Profile Setup" && (
-        <GBusinessServiceIcon class="h-8 w-8" />
+        <Store class="h-6 w-6" />
       )}
       {service.title === "Starter Packages" && (
-        <StarterPackageIcon class="h-8 w-8" />
+        <Rocket class="h-6 w-6" />
       )}
     </div>
 

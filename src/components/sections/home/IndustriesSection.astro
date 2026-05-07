@@ -1,14 +1,16 @@
 ---
-import HomeServicesIcon from "../../icons/HomeServicesIcon.astro";
-import BeautyAndWellnessIcon from "../../icons/BeautyAndWellnessIcon.astro";
-import DentalHealthIcon from "../../icons/DentalHealthIcon.astro";
-import LegalServicesIcon from "../../icons/LegalServicesIcon.astro";
-import RestaurantsIcon from "../../icons/RestaurantsIcon.astro";
-import RetailAndFitnessIcon from "../../icons/RetailAndFitnessIcon.astro";
+import {
+    HardHat,
+    MirrorRound,
+    Hospital,
+    Scale,
+    Utensils,
+    Dumbbell
+  } from "@lucide/astro";
 
 import Badge from "../../ui/Badge.astro";
 
-import { industries } from "../../../data/industries";
+import { industries } from "../../../data/home/industries";
 ---
 
 <section class="relative py-20 sm:py-24 lg:py-28">
@@ -69,23 +71,23 @@ import { industries } from "../../../data/industries";
                 ]}
               >
                 {industry.title === "Home Services" && (
-                  <HomeServicesIcon class="h-6 w-6" />
+                  <HardHat class="h-6 w-6" />
                 )}
                 {industry.title === "Beauty & Wellness" && (
-                  <BeautyAndWellnessIcon class="h-8 w-8" />
+                  <MirrorRound class="h-8 w-8" />
                 )}
                 {industry.title === "Dental & Healthcare" && (
-                  <DentalHealthIcon class="h-7 w-7" />
+                  <Hospital class="h-7 w-7" />
                 )}
                 {industry.title === "Legal & Professional Services" && (
-                  <LegalServicesIcon class="h-8 w-8" />
+                  <Scale class="h-8 w-8" />
                 )}
                 {industry.title === "Restaurants & Hospitality" && (
-                  <RestaurantsIcon class="h-7 w-7" />
+                  <Utensils class="h-7 w-7" />
                 )}
                 {industry.title ===
                   "Retail, Fitness & Growing Local Brands" && (
-                  <RetailAndFitnessIcon class="h-8 w-8" />
+                  <Dumbbell class="h-8 w-8" />
                 )}
               </div>
             </div>

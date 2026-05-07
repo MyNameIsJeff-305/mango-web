@@ -2,7 +2,7 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Badge from "../../components/ui/Badge.astro";
 
-import { blogPosts } from "../../data/blogPosts";
+import { blogPosts } from "../../data/seo/blogPosts";
 
 const featuredPosts = blogPosts;
 ---
@@ -15,22 +15,43 @@ const featuredPosts = blogPosts;
   <section
     class="relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28"
   >
-    <div class="pointer-events-none absolute inset-0 -z-10">
+    <!-- Background layer -->
+    <div class="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+      <!-- Background Image -->
+      <img
+        src="/images/hero/hero-blog-section.png"
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30 animate-ken-burns"
+        loading="eager"
+      />
+
+      <!-- Gradient overlay -->
       <div
-        class="absolute left-[-8%] top-12 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.34),transparent_65%)] blur-2xl"
+        class="absolute inset-0"
+        style="background: linear-gradient(to bottom, transparent 0%, transparent 30%, rgb(var(--color-bg)) 85%, rgb(var(--color-bg)) 100%);"
       >
       </div>
+
+      <!-- Glow Effects -->
       <div
-        class="absolute right-[-6%] top-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.22),transparent_60%)] blur-3xl"
+        class="absolute left-[-8%] top-10 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(254,205,76,0.38),transparent_65%)] blur-2xl"
       >
       </div>
+
       <div
-        class="absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.14),transparent_62%)] blur-3xl"
+        class="absolute right-[-6%] top-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(218,60,120,0.24),transparent_60%)] blur-3xl"
+      >
+      </div>
+
+      <div
+        class="absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(1,155,144,0.16),transparent_62%)] blur-3xl"
       >
       </div>
     </div>
 
-    <div class="container-shell">
+    <!-- Content — must be above background layer -->
+    <div class="container-shell relative z-10">
       <div class="mx-auto max-w-4xl text-center">
         <div class="inline-flex items-center gap-2">
           <Badge>Insights to help your business grow online</Badge>

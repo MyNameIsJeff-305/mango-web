@@ -2,10 +2,12 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Badge from "../../components/ui/Badge.astro";
 
-import StrongFoundationIcon from "../../components/icons/StrongFoundationIcon.astro";
-import InconsistencyIcon from "../../components/icons/InconsistencyIcon.astro";
-import TimeSavingIcon from "../../components/icons/TimeSavingIcon.astro";
-import FutureGrowth from "../../components/icons/FutureGrowth.astro";
+import {
+  BicepsFlexed,
+  ServerCrash,
+  ClockAlert,
+  TrendingUp,
+} from "@lucide/astro";
 
 import {
   includedItems,
@@ -205,16 +207,16 @@ import {
                 ]}
               >
                 {benefit.title === "Create a stronger foundation" && (
-                  <StrongFoundationIcon class="h-6 w-6" />
+                  <BicepsFlexed class="h-6 w-6" />
                 )}
                 {benefit.title === "Reduce inconsistency" && (
-                  <InconsistencyIcon class="h-7 w-7" />
+                  <ServerCrash class="h-6 w-6" />
                 )}
                 {benefit.title === "Save time and confusion" && (
-                  <TimeSavingIcon class="h-6 w-6" />
+                  <ClockAlert class="h-6 w-6" />
                 )}
                 {benefit.title === "Prepare for future growth" && (
-                  <FutureGrowth class="h-6 w-6" />
+                  <TrendingUp class="h-6 w-6" />
                 )}
               </div>
 

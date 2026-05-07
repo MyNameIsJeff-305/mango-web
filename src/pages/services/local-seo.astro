@@ -2,10 +2,12 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import Badge from "../../components/ui/Badge.astro";
 
-import LocalDiscoveryIcon from "../../components/icons/LocalDiscoveryIcon.astro";
-import MapVisibilityIcon from "../../components/icons/MapVisibilityIcon.astro";
-import BuildingTrustIcon from "../../components/icons/BuildingTrustIcon.astro";
-import SupportMoreLeadsIcon from "../../components/icons/SupportMoreLeads.astro";
+import {
+  MapPinHouse,
+  Eye,
+  FileBadge,
+  ChartGantt
+} from "@lucide/astro";
 
 import { includedItems, benefits, process, faqs } from "../../data/services/localSeo";
 ---
@@ -200,16 +202,16 @@ import { includedItems, benefits, process, faqs } from "../../data/services/loca
                 ]}
               >
                 {benefit.title === "Increase local discovery" && (
-                  <LocalDiscoveryIcon class="h-8 w-8" />
+                  <MapPinHouse class="h-6 w-6" />
                 )}
                 {benefit.title === "Strengthen map visibility" && (
-                  <MapVisibilityIcon class="h-8 w-8" />
+                  <Eye class="h-6 w-6" />
                 )}
                 {benefit.title === "Build more trust" && (
-                  <BuildingTrustIcon class="h-8 w-8" />
+                  <FileBadge class="h-6 w-6" />
                 )}
                 {benefit.title === "Support more leads" && (
-                  <SupportMoreLeadsIcon class="h-7 w-7" />
+                  <ChartGantt class="h-6 w-6" />
                 )}
               </div>
 
