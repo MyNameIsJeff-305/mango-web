@@ -183,7 +183,9 @@ const uniqueStructuredData = structuredData.filter((item, index, array) => {
 
   if (!itemId) return true;
 
-  return array.findIndex((schemaItem) => schemaItem["@id"] === itemId) === index;
+  return (
+    array.findIndex((schemaItem) => schemaItem["@id"] === itemId) === index
+  );
 });
 ---
 
@@ -191,9 +193,7 @@ const uniqueStructuredData = structuredData.filter((item, index, array) => {
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-5Z2HPXQ39P"
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5Z2HPXQ39P"
     ></script>
 
     <script>
@@ -206,6 +206,21 @@ const uniqueStructuredData = structuredData.filter((item, index, array) => {
       gtag("config", "G-5Z2HPXQ39P");
     </script>
 
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "wn4ke3w9eq");
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
@@ -215,7 +230,10 @@ const uniqueStructuredData = structuredData.filter((item, index, array) => {
     <meta name="robots" content={robots} />
     <link rel="canonical" href={currentUrl} />
 
-    <meta property="og:type" content={schemaType === "Article" ? "article" : "website"} />
+    <meta
+      property="og:type"
+      content={schemaType === "Article" ? "article" : "website"}
+    />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={currentUrl} />
