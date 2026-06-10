@@ -1,0 +1,191 @@
+---
+const largeWidgetUrl =
+  "https://www.gofundme.com/f/support-aramiss-fight-against-cancer/widget/large?attribution_id=sl%3A5144876f-46b1-4958-a3b1-b35fcdedd2c9";
+
+const smallWidgetUrl =
+  "https://www.gofundme.com/f/support-aramiss-fight-against-cancer/widget/small?attribution_id=sl%3A5144876f-46b1-4958-a3b1-b35fcdedd2c9";
+---
+
+<aside
+  class="gofundme-floating-widget"
+  data-gofundme-widget
+  aria-label="Support Aramis fundraiser"
+>
+  <div class="gofundme-floating-card">
+    <div class="gofundme-floating-header">
+      <span>Support Aramis</span>
+
+      <button
+        class="gofundme-toggle-button"
+        type="button"
+        data-gofundme-toggle
+        aria-label="Minimize GoFundMe widget"
+      >
+        Minimize
+      </button>
+    </div>
+
+    <div class="gofundme-widget-body">
+      <div class="gofundme-large" data-gofundme-large>
+        <div class="gfm-embed" data-url={largeWidgetUrl}></div>
+      </div>
+
+      <div class="gofundme-small" data-gofundme-small hidden>
+        <div class="gfm-embed" data-url={smallWidgetUrl}></div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+
+<script>
+  const STORAGE_KEY = "mango-gofundme-widget-state";
+
+  const widget = document.querySelector("[data-gofundme-widget]");
+  const largeWidget = document.querySelector("[data-gofundme-large]");
+  const smallWidget = document.querySelector("[data-gofundme-small]");
+  const toggleButton = document.querySelector("[data-gofundme-toggle]");
+
+  function setWidgetState(state) {
+    if (!widget || !largeWidget || !smallWidget || !toggleButton) return;
+
+    const isSmall = state === "small";
+
+    widget.classList.toggle("is-minimized", isSmall);
+
+    largeWidget.hidden = isSmall;
+    smallWidget.hidden = !isSmall;
+
+    toggleButton.textContent = isSmall ? "Expand" : "Minimize";
+    toggleButton.setAttribute(
+      "aria-label",
+      isSmall ? "Expand GoFundMe widget" : "Minimize GoFundMe widget"
+    );
+
+    localStorage.setItem(STORAGE_KEY, isSmall ? "small" : "large");
+  }
+
+  const savedState = localStorage.getItem(STORAGE_KEY);
+
+  if (savedState === "small") {
+    setWidgetState("small");
+  }
+
+  toggleButton?.addEventListener("click", () => {
+    const isMinimized = widget?.classList.contains("is-minimized");
+    setWidgetState(isMinimized ? "large" : "small");
+  });
+</script>
+
+<style>
+  .gofundme-floating-widget {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 90;
+    width: min(360px, calc(100vw - 2rem));
+    max-height: calc(100vh - 2rem);
+    overflow: auto;
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 24px 80px rgba(15, 17, 21, 0.22);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition:
+      width 0.25s ease,
+      border-radius 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .gofundme-floating-widget.is-minimized {
+    width: min(300px, calc(100vw - 2rem));
+    border-radius: 1.25rem;
+  }
+
+  :global(.dark) .gofundme-floating-widget {
+    background: rgba(15, 17, 21, 0.88);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  }
+
+  .gofundme-floating-card {
+    overflow: hidden;
+    border-radius: inherit;
+  }
+
+  .gofundme-floating-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.65rem 0.75rem 0.65rem 1rem;
+    background: linear-gradient(135deg, #fecd4c, #da3c78);
+    color: #111;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .gofundme-floating-header span {
+    line-height: 1;
+  }
+
+  .gofundme-toggle-button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 999px;
+    padding: 0.4rem 0.65rem;
+    background: rgba(255, 255, 255, 0.88);
+    color: #111;
+    font: inherit;
+    font-size: 0.68rem;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .gofundme-toggle-button:hover {
+    transform: translateY(-1px);
+    background: #fff;
+  }
+
+  .gofundme-toggle-button:focus-visible {
+    outline: 3px solid rgba(17, 17, 17, 0.35);
+    outline-offset: 2px;
+  }
+
+  .gofundme-widget-body {
+    width: 100%;
+  }
+
+  .gofundme-large,
+  .gofundme-small {
+    width: 100%;
+  }
+
+  :global(.gfm-embed) {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .gofundme-floating-widget {
+      right: 0.75rem;
+      left: 0.75rem;
+      bottom: 0.75rem;
+      width: auto;
+      max-height: 55vh;
+      border-radius: 1.25rem;
+    }
+
+    .gofundme-floating-widget.is-minimized {
+      left: auto;
+      width: min(300px, calc(100vw - 1.5rem));
+      max-height: 45vh;
+    }
+  }
+</style>
